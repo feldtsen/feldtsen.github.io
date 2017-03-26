@@ -157,8 +157,11 @@ main > ul.introductionPage > li:nth-of-type(3) {
 /*menu page*/
 
 .pages {
-    height: 0;
-    border-bottom: none;
+    z-index: -1;
+    opacity: 0;
+    height: 100%;
+    border: none;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -193,7 +196,8 @@ main > ul.introductionPage > li:nth-of-type(3) {
 }
 
 .active {
-    height: 100%;
+    opacity: 1;
+    z-index: 1;
 }
 
 
@@ -213,7 +217,7 @@ main > ul.introductionPage > li:nth-of-type(3) {
 /* supports and media queries*/
 
 @supports(-webkit-text-stroke: 0.05em rgba(255, 255, 255, 0.4)) {
-    .transparentText {    
+    .transparentText {
         color: transparent;
         -webkit-text-stroke: 0.05em rgba(255, 255, 255, 0.4);
         text-shadow: none;
@@ -254,6 +258,9 @@ main > ul.introductionPage > li:nth-of-type(3) {
     .menuOption:nth-of-type(2),
     .menuOption:nth-of-type(3) {
         right: 0;
+    }
+    .pages {
+        margin: 0.29em;
     }
 }
 
