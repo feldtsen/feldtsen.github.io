@@ -17,7 +17,7 @@ window.addEventListener('load', e => {
         menuOptions[i].addEventListener('click', e => {
             menuOptions[i].classList.add('activePage');
             currentPage = i;
-            menuToggle(menuStatus, true)
+            if(!pagestatus)menuToggle(menuStatus, true)
             pagestatus = true;
         });
     }
