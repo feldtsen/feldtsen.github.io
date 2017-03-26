@@ -157,8 +157,8 @@ main > ul.introductionPage > li:nth-of-type(3) {
 /*menu page*/
 
 .pages {
-    width: 0;
-    border-right: none;
+    height: 0;
+    border-bottom: none;
     overflow: hidden;
 }
 
@@ -193,18 +193,18 @@ main > ul.introductionPage > li:nth-of-type(3) {
 }
 
 .active {
-    width: 100%;
+    height: 100%;
 }
 
 
 /*projects page*/
 
 .menuOption {
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
 .activePage {
-    z-index: 90 !important;
+    z-index: 60 !important;
     width: 100% !important;
     height: 100% !important;
 }
