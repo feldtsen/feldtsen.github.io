@@ -17,18 +17,22 @@ window.addEventListener('load', e => {
         menuOptions[i].addEventListener('click', e => {
             menuOptions[i].classList.add('activePage');
             currentPage = i;
-            if (!pagestatus) menuToggle(!menuStatus);
+            menuToggle(menuStatus, true)
             pagestatus = true;
         });
     }
 
-    function menuToggle(x) {
+    function menuToggle(x, y) {
         if (x) {
             menuButton.innerHTML = `<i class="fa fa-times" aria-hidden="true"></i>`;
         }
         else {
             menuButton.innerHTML = `<i class="fa fa-bars" aria-hidden="true"></i>`;
         }
+        if (y) {
+            menuButton.innerHTML = `<i class="fa fa-arrow-left" aria-hidden="true"></i>`;
+        }
+        
         menuStatus = !menuStatus;
     }
 });
