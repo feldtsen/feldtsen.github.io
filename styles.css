@@ -24,6 +24,17 @@ a {
     color: white;
 }
 
+a {
+    display: block;
+}
+
+button {
+    border: none;
+    background: none;
+    color: white;
+    outline: none;
+}
+
 
 /*Setting sized*/
 
@@ -53,6 +64,22 @@ body::-webkit-scrollbar-thumb {
 }
 
 
+/*menu button*/
+
+.menuButton {
+    position: fixed;
+    height: 2em;
+    width: 2em;
+    font-size: 2em;
+    border-radius: 50%;
+    top: 7%;
+    right: 5%;
+    background-color: orange;
+    z-index: 100;
+    cursor: pointer;
+}
+
+
 /*flex settings*/
 
 .flexParent {
@@ -69,9 +96,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 
-/*header (introduction)*/
+/*main (introduction)*/
 
-header {
+main {
     height: 100%;
     width: 100%;
     background-image: url(pictures/introductionpicture.jpg);
@@ -81,7 +108,7 @@ header {
     background-size: cover;
 }
 
-header > ul {
+main > ul {
     position: absolute;
     width: inherit;
     height: inherit;
@@ -89,25 +116,28 @@ header > ul {
     transition: 0.5s;
 }
 
-header > ul > li {
+
+/*introduction page*/
+
+main > ul.introductionPage > li {
     width: 95%;
     left: 2.5%;
     position: inherit;
 }
 
-header > ul > li:nth-of-type(1) {
+main > ul.introductionPage > li:nth-of-type(1) {
     top: 5%;
     font-size: 2em;
     text-align: center;
 }
 
-header > ul > li:nth-of-type(2) {
+main > ul.introductionPage > li:nth-of-type(2) {
     top: 26%;
     text-align: left;
     font-size: 2em;
 }
 
-header > ul > li:nth-of-type(3) {
+main > ul.introductionPage > li:nth-of-type(3) {
     top: 85%;
     color: transparent;
     text-align: center;
@@ -116,19 +146,80 @@ header > ul > li:nth-of-type(3) {
     font-weight: 800;
 }
 
-
-/*menu*/
-
-.menu {
-    width: 100%;
-    height: 100%;
-    background-color: black;
-}
-
 .transparentText {
     color: rgba(255, 255, 255, 0.3);
     text-shadow: 0.05em 0.05em rgba(0, 0, 0, 0.3);
 }
+
+
+/*menu page*/
+
+.menuPage {
+    opacity: 0;
+}
+
+main > ul.menuPage > li {
+    flex: 1;
+    font-size: 5em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main > ul.menuPage > li > a {
+    margin-left: 1em;
+}
+
+main > ul.menuPage > li:nth-of-type(1) {
+    background-image: url(pictures/menu/one.jpg);
+}
+.menuPage > li > ul {
+    height: 100%;
+    width: 100%;
+}
+
+.menuPage > li > ul >li {
+    height: 100%;
+    width: 100%;
+}
+
+
+.menuPage > li > ul >li > a {      
+    display: block;
+    height: 100%;
+    width: 100%;
+    transition: 1s;
+}
+
+.menuPage > li > ul >li > a:hover {      
+   font-size: 1.4em;
+}
+
+.menuPageRight {
+    height: 100%;
+    width: 100%;
+}
+
+.menuPageRight > li {
+    height: 100%;
+    flex-basis: 50%;
+}
+
+.menuPageRight > li:nth-of-type(1) {
+    background-color: black;
+}
+
+.menuPageRight > li:nth-of-type(2) {
+    background-color: rgb(50, 50, 50);
+}
+
+.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+
+/* supports and media queries*/
 
 @supports(-webkit-text-stroke: 0.05em rgba(255, 255, 255, 0.4)) {
     .transparentText {
@@ -138,30 +229,41 @@ header > ul > li:nth-of-type(3) {
     }
 }
 
-@media (min-width: 681px) {
-    header > ul {
+@media (min-width: 751px) {
+    main > ul {
         border: 0.3em solid white;
         width: 95%;
         height: 95%;
         top: 2.5%;
         left: 2.5%;
     }
-    header > ul > li:nth-of-type(2) {
+    main > ul.introductionPage > li:nth-of-type(2) {
         font-size: 3.5em;
     }
-    header > ul > li:nth-of-type(3) {
+    main > ul.introductionPage > li:nth-of-type(3) {
         letter-spacing: 2.3em;
     }
+    main > ul.menuPage {
+        flex-direction: row;
+    }
+    .menuPageRight {
+        flex-direction: column;
+    }
+    .menuPage > li > ul >li > a:hover {      
+   font-size: 1.8em;
+        letter-spacing: 0.4em;
+}
+
 }
 
 @media (max-height: 540px) {
-    header > ul {
+    main > ul {
         border: none;
     }
-    header > ul > li:nth-of-type(2) {
+    main > ul.introductionPage > li:nth-of-type(2) {
         font-size: 2em;
     }
-    header > ul > li:nth-of-type(3) {
+    main > ul.introductionPage > li:nth-of-type(3) {
         letter-spacing: 0em;
     }
 }
