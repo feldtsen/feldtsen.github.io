@@ -40,6 +40,7 @@ button {
 
 html {
     height: 100%;
+    overflow: hidden;
 }
 
 body {
@@ -278,9 +279,6 @@ main > ul.introductionPage > li:nth-of-type(3) {
         left: 0;
     }
 
-    main > ul {
-        border: none;
-    }
     main > ul.introductionPage > li:nth-of-type(2) {
         font-size: 2em;
     }
