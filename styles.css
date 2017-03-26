@@ -47,6 +47,7 @@ body {
     font-size: 10px;
     height: 100%;
     font-family: 'Raleway', sans-serif;
+    overflow-x: hidden
 }
 
 body::-webkit-scrollbar {
@@ -210,11 +211,11 @@ main > ul.menuPage > li:nth-of-type(1) {
 }
 
 .menuPageRight > li:nth-of-type(1) {
-    background-color: black;
+    background-color: #0C0C0C;
 }
 
 .menuPageRight > li:nth-of-type(2) {
-    background-color: rgb(50, 50, 50);
+    background-color: #5E5C61;
 }
 
 .active {
@@ -260,7 +261,7 @@ main > ul.menuPage > li:nth-of-type(1) {
         flex-direction: column;
     }
     .menuPage > li > ul >li > a:hover {
-        font-size: 1.8em;
+        font-size: 1.2em;
         letter-spacing: 0.4em;
     }
 }
