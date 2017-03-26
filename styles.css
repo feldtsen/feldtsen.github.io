@@ -204,7 +204,7 @@ main > ul.introductionPage > li:nth-of-type(3) {
 }
 
 .activePage {
-    z-index: 2 !important;
+    z-index: 90 !important;
     width: 100% !important;
     height: 100% !important;
 }
