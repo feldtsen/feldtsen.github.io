@@ -164,17 +164,15 @@ main > ul.menuPage > li {
     -ms-flex: 1;
     flex: 1;
     font-size: 5em;
-    background-position: center;
+ 
+}
+
+
+.menuPageLeft .menuOption:nth-of-type(1) {
+    background-image: url(pictures/menu/one.jpg);
+       background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-main > ul.menuPage > li > a {
-    margin-left: 1em;
-}
-
-main > ul.menuPage > li:nth-of-type(1) {
-    background-image: url(pictures/menu/one.jpg);
 }
 
 .menuPage > li > ul {
@@ -185,14 +183,6 @@ main > ul.menuPage > li:nth-of-type(1) {
 .menuPage > li > ul >li {
     height: 100%;
     width: 100%;
-}
-
-.menuPage > li > ul >li > a {
-    display: block;
-    height: 100%;
-    width: 100%;
-    -webkit-transition: 1s;
-    transition: 1s;
 }
 
 .menuPage > li > ul >li > a:hover {
@@ -223,7 +213,23 @@ main > ul.menuPage > li:nth-of-type(1) {
     z-index: 1;
 }
 
+/*projects page*/
+.projectsPage, .aboutPage, .blogPage {
+    display: none;
+}
+.menuOption {
+    transition: 1s;
+}
 
+
+.activePage {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 /* supports and media queries*/
 
 @supports(-webkit-text-stroke: 0.05em rgba(255, 255, 255, 0.4)) {
