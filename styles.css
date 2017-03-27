@@ -172,6 +172,7 @@ main > ul.introductionPage > li:nth-of-type(3) {
     position: inherit;
     z-index: 1;
     cursor: pointer;
+    font-size: 3em;
 }
 
 .menuOption:hover {
@@ -220,7 +221,8 @@ main > ul.introductionPage > li:nth-of-type(3) {
 
 
 .activePage:hover {
-    font-size: inherit;
+    font-size: 3em;
+    cursor: default;
 }
 
 .pageContentActive {
