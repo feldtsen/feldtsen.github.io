@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>paperstack - we're all on the same page</title>
+    <link rel="stylesheet" href="resetter.css">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/png" href="http://www.favicon.cc/logo3d/77194.png" /> </head>
+
+<body>
+    <header>
+        <ul class="flexThis">
+            <li class="brand"> <a href="index.html">paperstack</a> </li>
+            <li> <a href="#creators" id="pFourButton">creators</a> </li>
+            <li> <a href="#explore" id="pThreeButton">explore</a> </li>
+            <li> <a href="#collection" id="pOneButton">collection</a> </li>
+        </ul>
+    </header>
+    <main>
+        <!--PAGE ONE-->
+        <p class="userMessage"></p>
+        <div id="pOne" class="active">
+            <div class="flexThis">
+                <div>
+                    <h1>List your book</h1>
+                    <div>
+                        <label for="titleField">Book title</label>
+                        <input type="text" id="titleField" placeholder="title goes here"> </div>
+                    <div>
+                        <label for="authorField">Book author</label>
+                        <input type="text" id="authorField" placeholder="author goes here"> </div>
+                    <div>
+                        <input type="submit" value="Add To Collection" id="addDataButton"> </div>
+                    <h1>Your collection</h1>
+                    <p>To change the title or the author, just simply click on what you want to change and start typing!</p>
+                    <ul id="bookContainer" class="flexThis"> </ul>
+                </div>
+                <div id="loginForm" class="flexThis flexColumn">
+                    <div class="loginFormOne flexThis flexColumn">
+                        <h1>Login/register </h1>
+                        <p class="loginStatus"></p>
+                        <p>On paperstack you can keep a list of all the books you have read or want to read in the future. Just simply request your own user key and start using our features. This is all quick, simple and free.</p>
+                    </div>
+                    <div class="loginFormTwo flexThis flexColumn">
+                        <input type="text" id="apiRequestField" placeholder="enter your key here">
+                        <input type="submit" id="loginButton" value="">
+                        <input type="submit" id="fetchButton" value="Request Key"> </div>
+                </div>
+            </div>
+        </div>
+        <!--PAGE THREE-->
+        <div id="pThree">
+            <div>
+                <h1>Search among thousands of books</h1>
+                <p class="subtitle">With the power of google we can help you find the book you want to add to your collection.</p>
+                <input type="search" placeholder="title goes here" id="searchField">
+                <input type="submit" value="Search for book" id="searchButton"> </div>
+            <ul id="googleBooksContainer"> </ul>
+        </div>
+        <!--PAGE FOUR-->
+        <div id="pFour">
+            <div>This will remain empty for this project - made by Joachim Ørfeldt Pedersen and Carl Hultkrantz</div>
+        </div>
+    </main>
+    <footer> </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

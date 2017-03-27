@@ -5,24 +5,27 @@ window.addEventListener('load', e => {
         , projectsContainer = document.getElementById('projects')
         , pagestatus = false
         , currentPage, menuStatus = false;
-    
     let projectsObj = {
         paperstack: {
-            title: `Paperstack`,
-            path: `paperstack/index.html`
-        },
-        aTaleUntold: {
-            title: `A Tale Untold`,
-            path: `ataleuntold/index.html`
-        },
-        patatapClone: {
-            title: `Patatap Clone`,
-            path: `patatapclone/index.html`
+            title: `Paperstack`
+            , image: `paperstack/cover.jpg`
+            , description: `something something something`
+            , path: `paperstack/index.html`
         }
-        
+//        , aTaleUntold: {
+//            title: `A Tale Untold`
+//            , image: `cover.jpg`
+//            , description: `something something something`
+//            , path: `ataleuntold/index.html`
+//        }
+//        , patatapClone: {
+//            title: `Patatap Clone`
+//            , image: `cover.jpg`
+//            , description: `something something something`
+//            , path: `patatapclone/index.html`
+//        }
     }
-        addProject(projectsObj);
-
+    addProject(projectsObj);
     menuButton.addEventListener('click', e => {
         menuToggle(!menuStatus);
         if (pagestatus) {
@@ -61,9 +64,9 @@ window.addEventListener('load', e => {
 
     function addProject(projects) {
         for (let project in projects) {
-            let current = projects[project],
-                liProject = document.createElement('li');
-            liProject.innerHTML = (`<span class="postUser">${current.title}</span>`);
+            let current = projects[project]
+                , liProject = document.createElement('li');
+            liProject.innerHTML = (`<img src="${current.image}" alt="cover image for project"><h1 class="projectTitle">${current.title}</h1><a href="${current.path}">View Project</a>`);
             projectsContainer.appendChild(liProject);
         }
     }

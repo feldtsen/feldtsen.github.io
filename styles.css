@@ -230,8 +230,12 @@ main > ul.introductionPage > li:nth-of-type(3) {
 .cross {
     color: red;
 }
-
-
+#projects > li {
+    text-align: center;
+}
+#projects > li >img {
+    width: 50%;
+}
 
 /* supports and media queries*/
 
