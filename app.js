@@ -2,8 +2,27 @@ window.addEventListener('load', e => {
     let menuButton = document.getElementById('menuButton')
         , menuOptions = document.getElementsByClassName('menuOption')
         , pageContent = document.getElementsByClassName('pageContent')
+        , projectsContainer = document.getElementById('projects')
         , pagestatus = false
         , currentPage, menuStatus = false;
+    
+    let projectsObj = {
+        paperstack: {
+            title: `Paperstack`,
+            path: `paperstack/index.html`
+        },
+        aTaleUntold: {
+            title: `A Tale Untold`,
+            path: `ataleuntold/index.html`
+        },
+        patatapClone: {
+            title: `Patatap Clone`,
+            path: `patatapclone/index.html`
+        }
+        
+    }
+        addProject(projectsObj);
+
     menuButton.addEventListener('click', e => {
         menuToggle(!menuStatus);
         if (pagestatus) {
@@ -38,6 +57,15 @@ window.addEventListener('load', e => {
             menuButton.innerHTML = `<i class="fa fa-bars" aria-hidden="true"></i>`;
         }
         menuStatus = !menuStatus;
+    }
+
+    function addProject(projects) {
+        for (let project in projects) {
+            let current = projects[project],
+                liProject = document.createElement('li');
+            liProject.innerHTML = (`<span class="postUser">${current.title}</span>`);
+            projectsContainer.appendChild(liProject);
+        }
     }
 });
 /*

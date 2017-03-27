@@ -106,7 +106,7 @@ main {
     width: 100%;
     background-image: url(pictures/introductionpicture.jpg);
     background-position: top;
-    background-attachment: fixed;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -172,11 +172,10 @@ main > ul.introductionPage > li:nth-of-type(3) {
     position: inherit;
     z-index: 1;
     cursor: pointer;
-    font-size: 3em;
 }
 
 .menuOption:hover {
-    font-size: 2em;
+    color: orange;
 }
 .menuOption:nth-of-type(1) {
     height: 50%;
@@ -221,8 +220,8 @@ main > ul.introductionPage > li:nth-of-type(3) {
 
 
 .activePage:hover {
-    font-size: 3em;
     cursor: default;
+    color: white;
 }
 
 .pageContentActive {
