@@ -171,8 +171,12 @@ main > ul.introductionPage > li:nth-of-type(3) {
 .menuOption:nth-of-type(3) {
     position: inherit;
     z-index: 1;
+    cursor: pointer;
 }
 
+.menuOption:hover {
+    font-size: 2em;
+}
 .menuOption:nth-of-type(1) {
     height: 50%;
     width: 100%;
@@ -213,10 +217,10 @@ main > ul.introductionPage > li:nth-of-type(3) {
     transition: 0.3s;
 }
 
-.activePage {
-    z-index: 60 !important;
-    width: 100% !important;
-    height: 100% !important;
+
+
+.activePage:hover {
+    font-size: inherit;
 }
 
 .pageContentActive {
@@ -296,3 +300,8 @@ main > ul.introductionPage > li:nth-of-type(3) {
     }
 }
 
+.activePage {
+    z-index: 60 !important;
+    width: 100% !important;
+    height: 100% !important;
+}
