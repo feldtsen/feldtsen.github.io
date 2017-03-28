@@ -251,7 +251,7 @@ main > ul.introductionPage > li:nth-of-type(3) {
     font-size: 2.4em;
 }
 
-#projects > li >img {
+#projects > li img {
     width: 100%;
 }
 
@@ -259,7 +259,7 @@ main > ul.introductionPage > li:nth-of-type(3) {
     font-size: 1.8em;
 }
 
-#projects > li > a {
+#projects > li > a:nth-of-type(2) {
     border: 0.01em solid white;
     font-size: 3em;
 }

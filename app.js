@@ -97,7 +97,7 @@ window.addEventListener('load', e => {
             let current = projects[project]
                 , liProject = document.createElement('li');
             liProject.innerHTML = (`
-                <img src="${current.image}" alt="cover image for project">
+                <a href="${current.path}"><img src="${current.image}" alt="cover image for project"></a>
                 <h1>${current.title}</h1>
                 <p>${current.description}</p>
                 <a href="${current.path}" target="_blank">Live</a>
