@@ -40,8 +40,8 @@ li {
 h1 {
     color: white;
     letter-spacing: 0.1em;
-    padding: 0.3em 0 0 0;
-    font-size: 3em;
+    padding: 0.2em 0 0 0.3em;
+    font-size: 2.5em;
 }
 
 body::-webkit-scrollbar,
@@ -68,7 +68,7 @@ div::-webkit-scrollbar-thumb {
     background: none;
     border: none;
     cursor: pointer;
-    line-height: 3em;
+    line-height: 1.9em;
 }
 
 #loginGithubButton:hover {
@@ -81,7 +81,7 @@ div::-webkit-scrollbar-thumb {
 }
 
 #intro > img {
-    height: 4em;
+    height: 2.5em;
     padding: 0;
     margin: 0 0 0 1em;
 }
@@ -171,6 +171,10 @@ div::-webkit-scrollbar-thumb {
     h1 {
         font-size: 4em;
     }
+    
+#loginGithubButton {
+    line-height: 3.2em;
+}
     #displayMessages > li {
         flex-direction: row;
     }
