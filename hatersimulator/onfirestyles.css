@@ -59,6 +59,21 @@ div::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 0.4em rgba(0, 0, 0, 0.5);
 }
 
+#loginGithubButton {
+    position: absolute;
+    right: 2em;
+    top: 0;
+    color: white;
+    font-size: 2em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 3em;
+}
+
+#loginGithubButton:hover {
+    color: #D75813;
+}
 #intro {
     display: flex;
     flex-direction: row;

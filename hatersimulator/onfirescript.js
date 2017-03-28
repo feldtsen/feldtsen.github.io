@@ -24,6 +24,7 @@ window.addEventListener('load', () => {
         , btnSend = document.getElementById('btnSend')
         , messageInput = document.getElementById('messageInput')
         , usernameInput = document.getElementById('usernameInput')
+        , loginGithubButton = document.getElementById('loginGithubButton')
         , displayMessages = document.getElementById('displayMessages');
     /****************************************
     ----INIT FOR FIREBASE (always run first)
@@ -32,35 +33,32 @@ window.addEventListener('load', () => {
     /****************************************
     ----SIGN IN WITH GITHUB ACCOUNT---------
     ****************************************/
-    
-    
-    
-    const provider = new firebase.auth.GithubAuthProvider();
-    firebase.auth().signInWithRedirect(provider);
-    firebase.auth().getRedirectResult().then(function (result) {
-        if (result.credential) {
-            // This gives you a GitHub Access Token. You can use it to access the GitHub API.
-            var token = result.credential.accessToken;
+    function githubLogin() {
+        const provider = new firebase.auth.GithubAuthProvider();
+        firebase.auth().signInWithRedirect(provider);
+        firebase.auth().getRedirectResult().then(function (result) {
+            if (result.credential) {
+                // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+                var token = result.credential.accessToken;
+                // ...
+                console.log(`Token: ${token}`)
+            }
+            // The signed-in user info.
+            var user = result.user;
+            console.log(`User: ${user}`);
+        }).catch(function (error) {
+            console.log(`Inside catch`)
+                // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
             // ...
-            console.log(`Token: ${token}`)
-        }
-        // The signed-in user info.
-        var user = result.user;
-        console.log(`User: ${user}`);
-    }).catch(function (error) {
-        console.log(`Inside catch`)
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
-        console.log(`Error code: ${errorCode}, error message: ${errorMessage}, email: ${email}, credential: ${credential}`);
-    });
-    
-    
+            console.log(`Error code: ${errorCode}, error message: ${errorMessage}, email: ${email}, credential: ${credential}`);
+        });
+    }
     /****************************************
     ----EVENT LISTENER----------------------
     ****************************************/
@@ -74,6 +72,10 @@ window.addEventListener('load', () => {
         if (e.keyCode == '13' && usernameInput.value != '' && messageInput.value != '') {
             sendMessage();
         }
+    });
+    
+    loginGithubButton.addEventListener('click', e=>{
+       githubLogin(); 
     });
     //  update when changes occur
     db().ref('/messages').limitToLast(50).on('value', (s) => {
