@@ -36,8 +36,7 @@ window.addEventListener('load', () => {
     function githubLogin() {
         const provider = new firebase.auth.GithubAuthProvider();
         firebase.auth().signInWithRedirect(provider);
-    }
-    firebase.auth().getRedirectResult().then(function (result) {
+        firebase.auth().getRedirectResult().then(function (result) {
         if (result.credential) {
             // This gives you a GitHub Access Token. You can use it to access the GitHub API.
             let token = result.credential.accessToken;
@@ -47,6 +46,7 @@ window.addEventListener('load', () => {
         // The signed-in user info.
         let user = result.user;
         console.log(user);
+        console.log(user.uid);
     }).catch(function (error) {
         console.log(`Inside catch`)
             // Handle Errors here.
@@ -59,6 +59,8 @@ window.addEventListener('load', () => {
         // ...
         console.log(`Error code: ${errorCode}, error message: ${errorMessage}, email: ${email}, credential: ${credential}`);
     });
+    }
+    
 
     function githubSignout() {
         firebase.auth().signOut().then(function () {
