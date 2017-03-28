@@ -77,7 +77,7 @@ body::-webkit-scrollbar-thumb,
     width: 2em;
     font-size: 2em;
     border-radius: 50%;
-    top: 0.6em;
+    top: 0.7em;
     right: 5%;
     background-color: orange;
     z-index: 100;
