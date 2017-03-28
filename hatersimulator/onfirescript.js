@@ -115,6 +115,8 @@ window.addEventListener('load', () => {
         }
     }
     for(let key in localStorage) {
+        console.log(key);
+        console.log(localStorage);
         console.log(localStorage[key]);
     }
 });
