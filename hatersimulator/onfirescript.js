@@ -45,7 +45,6 @@ window.addEventListener('load', () => {
             }
             // The signed-in user info.
             let user = result.user;
-            routes.users(firebase.auth().currentUser.uid);
         }).catch(function (error) {
             console.log(`Inside catch`)
                 // Handle Errors here.
@@ -98,8 +97,8 @@ window.addEventListener('load', () => {
         // Once authenticated, instantiate Firechat with the logged in user
         if (user) {
             console.log(user);
+            routes.users(user.uid);
         }
-        
     });
     /****************************************
     ----FUNCTIONS---------------------------
