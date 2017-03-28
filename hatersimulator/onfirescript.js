@@ -84,7 +84,8 @@ window.addEventListener('load', () => {
     loginGithubButton.addEventListener('click', e => {
         if (!firebase.auth().currentUser) {
             let login = new githubLogin();
-        } else {
+        }
+        else {
             githubSignout();
         }
     });
@@ -92,6 +93,12 @@ window.addEventListener('load', () => {
     db().ref('/messages').limitToLast(50).on('value', (s) => {
         let data = s.val();
         displayMessage(data);
+    });
+    firebase.auth().onAuthStateChanged(function (user) {
+        // Once authenticated, instantiate Firechat with the logged in user
+        if (user) {
+            console.log(user);
+        }
     });
     /****************************************
     ----FUNCTIONS---------------------------
