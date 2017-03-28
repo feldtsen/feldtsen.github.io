@@ -270,6 +270,7 @@ main > ul.introductionPage > li:nth-of-type(3) {
 
 .toggleHidden {
     visibility: hidden;
+    opacity: 1;
 }
 
 
@@ -321,7 +322,6 @@ main > ul.introductionPage > li:nth-of-type(3) {
     .pages {
         margin: 0.29em;
     }
-    #projects {}
     #projects > li {
         margin-top: 1em;
         flex-basis: 40%;
@@ -349,4 +349,10 @@ main > ul.introductionPage > li:nth-of-type(3) {
     z-index: 60 !important;
     width: 100% !important;
     height: 100% !important;
+}
+
+
+@keyframes fadeout {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
 }
