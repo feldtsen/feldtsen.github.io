@@ -51,16 +51,19 @@ body {
     overflow: hidden
 }
 
-body::-webkit-scrollbar, .pages > li::-webkit-scrollbar {
+body::-webkit-scrollbar,
+.pages > li::-webkit-scrollbar {
     width: 0.5em;
     background-color: rgba(50, 50, 50, 1);
 }
 
-body::-webkit-scrollbar-track, .pages > li::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track,
+.pages > li::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 01em rgba(150, 150, 150, 1);
 }
 
-body::-webkit-scrollbar-thumb, .pages > li::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb,
+.pages > li::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 0.4em rgba(0, 0, 0, 0.5);
     background-color: rgba(200, 200, 200, 1);
 }
@@ -159,17 +162,18 @@ main > ul.introductionPage > li:nth-of-type(3) {
     overflow: hidden;
 }
 
-.menuOption:nth-of-type(1),
-.menuOption:nth-of-type(2),
-.menuOption:nth-of-type(3) {
+.menuOption {
+    overflow: hidden;
     position: inherit;
     z-index: 1;
     cursor: pointer;
+    
 }
 
 .menuOption:hover {
     color: orange;
 }
+
 .menuOption:nth-of-type(1) {
     height: 50%;
     width: 100%;
@@ -210,29 +214,31 @@ main > ul.introductionPage > li:nth-of-type(3) {
     transition: 0.3s;
 }
 
-
-
 .activePage:hover {
     cursor: default;
     color: white;
 }
-
 .pageContentActive {
     overflow-y: scroll;
 }
+
 .cross {
     color: red;
 }
+
 #projects {
     flex-wrap: wrap;
 }
+
 #projects > li {
     justify-content: center;
-    flex-basis: 50%;
+    flex-basis: 80%;
 }
+
 #projects > li >img {
     width: 80%;
 }
+
 
 /* supports and media queries*/
 
@@ -282,11 +288,10 @@ main > ul.introductionPage > li:nth-of-type(3) {
     .pages {
         margin: 0.29em;
     }
-    #projects {
-        
-    }
+    
+    #projects {}
     #projects > li {
-        
+        flex-basis: 50%;
     }
 }
 
@@ -299,7 +304,6 @@ main > ul.introductionPage > li:nth-of-type(3) {
         margin: 0;
         left: 0;
     }
-
     main > ul.introductionPage > li:nth-of-type(2) {
         font-size: 2em;
     }
