@@ -82,7 +82,6 @@ window.addEventListener('load', () => {
         }
     });
     loginGithubButton.addEventListener('click', e => {
-        if(token)
         githubLogin();
     });
     //  update when changes occur
