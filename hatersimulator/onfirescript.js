@@ -59,8 +59,7 @@ window.addEventListener('load', () => {
         // ...
         console.log(`Error code: ${errorCode}, error message: ${errorMessage}, email: ${email}, credential: ${credential}`);
     });
-    var credential = firebase.auth.GithubAuthProvider.credential();
-    console.log(credential);
+
     function githubSignout() {
         firebase.auth().signOut().then(function () {
             console.log(`Signed out!`);
@@ -83,7 +82,11 @@ window.addEventListener('load', () => {
         }
     });
     loginGithubButton.addEventListener('click', e => {
-        let login = new githubLogin();
+        if (firebase.auth().currentUser) {
+            let login = new githubLogin();
+        } else {
+            githubSignout();
+        }
     });
     //  update when changes occur
     db().ref('/messages').limitToLast(50).on('value', (s) => {
