@@ -14,8 +14,9 @@ window.addEventListener('load', () => {
                 , date: date
                 , timestamp: timestamp
             })
-            , users: (userId) => db().ref('users/' + userId).set({
+            , users: (userId, email) => db().ref('users/' + userId).set({
                 userId: userId
+                , email: email
             })
             , userMessage: (userId, message, key) => db().ref('users/' + userId + '/postedMessages/' + key).set({
                 text: message
@@ -30,42 +31,6 @@ window.addEventListener('load', () => {
     ----INIT FOR FIREBASE (always run first)
     ****************************************/
     firebase.initializeApp(configFirebase);
-    /****************************************
-    ----SIGN IN/OUT WITH GITHUB ACCOUNT------
-    ****************************************/
-    function githubLogin() {
-        const provider = new firebase.auth.GithubAuthProvider();
-        firebase.auth().signInWithRedirect(provider);
-        firebase.auth().getRedirectResult().then(function (result) {
-            if (result.credential) {
-                // This gives you a GitHub Access Token. You can use it to access the GitHub API.
-                let token = result.credential.accessToken;
-                // ...
-                console.log(`Token: ${token}`)
-            }
-            // The signed-in user info.
-            let user = result.user;
-        }).catch(function (error) {
-            console.log(`Inside catch`)
-                // Handle Errors here.
-            let errorCode = error.code;
-            let errorMessage = error.message;
-            // The email of the user's account used.
-            let email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            let credential = error.credential;
-            // ...
-            console.log(`Error code: ${errorCode}, error message: ${errorMessage}, email: ${email}, credential: ${credential}`);
-        });
-    }
-
-    function githubSignout() {
-        firebase.auth().signOut().then(function () {
-            console.log(`Signed out!`);
-        }, function (error) {
-            console.log(`Sign out didn't go as planned: ${error}`);
-        });
-    }
     /****************************************
     ----EVENT LISTENER----------------------
     ****************************************/
@@ -85,7 +50,7 @@ window.addEventListener('load', () => {
             let login = new githubLogin();
         }
         else {
-            githubSignout();
+            let logout = new githubSignout();
         }
     });
     //  update when changes occur
@@ -97,7 +62,7 @@ window.addEventListener('load', () => {
         // Once authenticated, instantiate Firechat with the logged in user
         if (user) {
             console.log(user);
-            routes.users(user.uid);
+            routes.users(user.uid, user.email);
         }
     });
     /****************************************
@@ -117,14 +82,52 @@ window.addEventListener('load', () => {
         displayMessages.innerHTML = '';
         let messageArray = [];
         for (let message in messages) {
-            messageArray.push(`<span class="postUser">${messages[message].userId}</span> <span class="postMessage">${messages[message].message}<span class="likeButton"><i class="fa fa-thumbs-up" aria-hidden="true"></i>
-</span><span class="dislikeButton"><i class="fa fa-thumbs-down" aria-hidden="true"></i>
-</span><span class="reactions">+1</span></span> <span class="postDate">${messages[message].date}</span>`);
+            messageArray.push(`<span class="postUser">${messages[message].userId}</span> 
+            <span class="postMessage">${messages[message].message}
+            <span class="likeButton"><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
+            <span class="dislikeButton"><i class="fa fa-thumbs-down" aria-hidden="true"></i></span>
+            <span class="reactions">+1</span></span> <span class="postDate">${messages[message].date}</span>`);
         }
         for (let i = messageArray.length - 1; i >= 0; i--) {
             let liMessage = document.createElement('li');
             liMessage.innerHTML = `${messageArray[i]}`;
             displayMessages.appendChild(liMessage);
         }
+    }
+    /****************************************
+    ----SIGN IN/OUT WITH GITHUB ACCOUNT------
+    ****************************************/
+    function githubLogin() {
+        const provider = new firebase.auth.GithubAuthProvider();
+        firebase.auth().signInWithRedirect(provider);
+        firebase.auth().getRedirectResult().then(function (result) {
+            if (result.credential) {
+                // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+                let token = result.credential.accessToken;
+                // ...
+                console.log(`Token: ${token}`)
+            }
+            // The signed-in user info.
+            let user = result.user;
+        }).catch(function (error) {
+            console.log(`Inside catch`);
+            // Handle Errors here.
+            let errorCode = error.code;
+            let errorMessage = error.message;
+            // The email of the user's account used.
+            let email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            let credential = error.credential;
+            // ...
+            console.log(`Error code: ${errorCode}, error message: ${errorMessage}, email: ${email}, credential: ${credential}`);
+        });
+    }
+
+    function githubSignout() {
+        firebase.auth().signOut().then(function () {
+            console.log(`Signed out!`);
+        }, function (error) {
+            console.log(`Sign out didn't go as planned: ${error}`);
+        });
     }
 });
