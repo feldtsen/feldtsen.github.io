@@ -82,7 +82,7 @@ window.addEventListener('load', () => {
         }
     });
     loginGithubButton.addEventListener('click', e => {
-        githubLogin();
+        let login = new githubLogin();
     });
     //  update when changes occur
     db().ref('/messages').limitToLast(50).on('value', (s) => {
