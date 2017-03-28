@@ -36,29 +36,29 @@ window.addEventListener('load', () => {
     function githubLogin() {
         const provider = new firebase.auth.GithubAuthProvider();
         firebase.auth().signInWithRedirect(provider);
-        firebase.auth().getRedirectResult().then(function (result) {
-            if (result.credential) {
-                // This gives you a GitHub Access Token. You can use it to access the GitHub API.
-                var token = result.credential.accessToken;
-                // ...
-                console.log(`Token: ${token}`)
-            }
-            // The signed-in user info.
-            var user = result.user;
-            console.log(user);
-        }).catch(function (error) {
-            console.log(`Inside catch`)
-                // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // The email of the user's account used.
-            var email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            var credential = error.credential;
-            // ...
-            console.log(`Error code: ${errorCode}, error message: ${errorMessage}, email: ${email}, credential: ${credential}`);
-        });
     }
+    firebase.auth().getRedirectResult().then(function (result) {
+        if (result.credential) {
+            // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+            var token = result.credential.accessToken;
+            // ...
+            console.log(`Token: ${token}`)
+        }
+        // The signed-in user info.
+        var user = result.user;
+        console.log(user);
+    }).catch(function (error) {
+        console.log(`Inside catch`)
+            // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+        console.log(`Error code: ${errorCode}, error message: ${errorMessage}, email: ${email}, credential: ${credential}`);
+    });
 
     function githubSignout() {
         firebase.auth().signOut().then(function () {
@@ -114,7 +114,7 @@ window.addEventListener('load', () => {
             displayMessages.appendChild(liMessage);
         }
     }
-    for(let key in localStorage) {
+    for (let key in localStorage) {
         console.log(key);
         console.log(localStorage);
         console.log(localStorage[key]);
