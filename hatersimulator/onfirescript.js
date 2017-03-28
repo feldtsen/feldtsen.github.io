@@ -46,7 +46,8 @@ window.addEventListener('load', () => {
         // The signed-in user info.
         let user = result.user;
         console.log(user);
-        console.log(user.uid);
+            console.log(user.uid)
+//            routes.users(user);
     }).catch(function (error) {
         console.log(`Inside catch`)
             // Handle Errors here.
