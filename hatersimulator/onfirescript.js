@@ -59,7 +59,8 @@ window.addEventListener('load', () => {
         // ...
         console.log(`Error code: ${errorCode}, error message: ${errorMessage}, email: ${email}, credential: ${credential}`);
     });
-
+    var credential = firebase.auth.GithubAuthProvider.credential();
+    console.log(credential);
     function githubSignout() {
         firebase.auth().signOut().then(function () {
             console.log(`Signed out!`);
