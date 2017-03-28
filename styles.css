@@ -77,7 +77,7 @@ body::-webkit-scrollbar-thumb,
     width: 2em;
     font-size: 2em;
     border-radius: 50%;
-    top: 7%;
+    top: 0.6em;
     right: 5%;
     background-color: orange;
     z-index: 100;
@@ -326,6 +326,9 @@ main > ul.introductionPage > li:nth-of-type(3) {
         margin-top: 1em;
         flex-basis: 40%;
     }
+    #menuButton {
+        top: 7%;
+    }
 }
 
 @media (max-height: 540px) {
@@ -351,8 +354,11 @@ main > ul.introductionPage > li:nth-of-type(3) {
     height: 100% !important;
 }
 
-
 @keyframes fadeout {
-  0%   { opacity: 1; }
-  100% { opacity: 0; }
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
