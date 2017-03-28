@@ -68,7 +68,7 @@ div::-webkit-scrollbar-thumb {
     background: none;
     border: none;
     cursor: pointer;
-    line-height: 1.9em;
+    line-height: 1.9    em;
 }
 
 #loginGithubButton:hover {

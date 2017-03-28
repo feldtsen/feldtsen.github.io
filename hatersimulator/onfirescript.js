@@ -45,9 +45,7 @@ window.addEventListener('load', () => {
             }
             // The signed-in user info.
             let user = result.user;
-            console.log(user);
-            console.log(user.uid);
-            routes.users(user);
+            routes.users(firebase.auth().currentUser.uid);
         }).catch(function (error) {
             console.log(`Inside catch`)
                 // Handle Errors here.
@@ -101,6 +99,7 @@ window.addEventListener('load', () => {
         if (user) {
             console.log(user);
         }
+        
     });
     /****************************************
     ----FUNCTIONS---------------------------
