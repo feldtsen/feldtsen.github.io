@@ -114,4 +114,7 @@ window.addEventListener('load', () => {
             displayMessages.appendChild(liMessage);
         }
     }
+    for(let key in localStorage) {
+        console.log(localStorage[key]);
+    }
 });
