@@ -110,7 +110,9 @@ window.addEventListener('load', () => {
         displayMessages.innerHTML = '';
         let messageArray = [];
         for (let message in messages) {
-            messageArray.push(`<span class="postUser">${messages[message].userId}</span> <span class="postMessage">${messages[message].message}</span> <span class="postDate">${messages[message].date}</span>`);
+            messageArray.push(`<span class="postUser">${messages[message].userId}</span> <span class="postMessage">${messages[message].message}<span class="likeButton"><i class="fa fa-thumbs-up" aria-hidden="true"></i>
+</span><span class="dislikeButton"><i class="fa fa-thumbs-down" aria-hidden="true"></i>
+</span><span class="reactions">+1</span></span> <span class="postDate">${messages[message].date}</span>`);
         }
         for (let i = messageArray.length - 1; i >= 0; i--) {
             let liMessage = document.createElement('li');

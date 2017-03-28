@@ -142,6 +142,13 @@ div::-webkit-scrollbar-thumb {
 #displayMessages > li > span:nth-of-type(3) {
     flex: 1;
 }
+.likeButton, .dislikeButton, #btnSend {
+    cursor: pointer;
+}
+.likeButton, .dislikeButton, .reactions {
+    float: right;
+    margin: 0.1em;
+}
 
 .postUser,
 .postMessage,
