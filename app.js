@@ -9,20 +9,20 @@ window.addEventListener('load', e => {
         paperstack: {
             title: `Paperstack`
             , image: `paperstack/cover.jpg`
-            , description: `something something something`
+            , description: `Paperstack something something`
             , path: `paperstack/`
         }
         , aTaleUntold: {
             title: `A Tale Untold`
             , image: `ataleuntold/cover.jpg`
-            , description: `something something something`
+            , description: `A Tale Untold something something`
             , path: `ataleuntold/`
         }
 //        , patatapClone: {
 //            title: `Patatap Clone`
-//            , image: `cover.jpg`
-//            , description: `something something something`
-//            , path: `patatapclone/index.html`
+//            , image: `patatapclone/cover.jpg`
+//            , description: `patatap something something`
+//            , path: `patatapclone/`
 //        }
     }
     addProject(projectsObj);

@@ -90,13 +90,6 @@ body::-webkit-scrollbar-thumb, .pages > li::-webkit-scrollbar-thumb {
     display: flex;
 }
 
-.flexColumn {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-}
-
 
 /*main (introduction)*/
 
@@ -230,11 +223,15 @@ main > ul.introductionPage > li:nth-of-type(3) {
 .cross {
     color: red;
 }
+#projects {
+    flex-wrap: wrap;
+}
 #projects > li {
-    text-align: center;
+    justify-content: center;
+    flex-basis: 50%;
 }
 #projects > li >img {
-    width: 50%;
+    width: 80%;
 }
 
 /* supports and media queries*/
@@ -284,6 +281,12 @@ main > ul.introductionPage > li:nth-of-type(3) {
     }
     .pages {
         margin: 0.29em;
+    }
+    #projects {
+        
+    }
+    #projects > li {
+        
     }
 }
 
