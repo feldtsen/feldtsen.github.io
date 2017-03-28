@@ -1,0 +1,376 @@
+/*MUST CONTAIN*/
+
+
+/*Fonts to use for the website*/
+
+@import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative|Merriweather');
+
+/*font-family: 'Merriweather', serif;
+font-family: 'Cinzel Decorative', cursive;*/
+
+
+/*CSS RESETTER*/
+
+h1,
+h3,
+h6,
+body,
+button,
+input,
+p,
+a,
+ol,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    font-size: 10px;
+    background-color:  rgb(233, 233, 233);
+}
+
+header {
+    height: 5em;
+    background-color: rgba( 0, 0, 0, 0);
+    line-height: 5em;
+    transition: 1s;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    z-index: 1;
+}
+
+
+
+h1 {
+    font-size: 2em;
+    font-family: 'Cinzel Decorative', cursive;
+}
+
+p {
+    font-size: 1.8em;
+}
+
+header h1 {
+    position: fixed;
+    right: 0.3em;
+    text-shadow: 0 0 0.1em rgba(0, 0, 0, 1);
+    letter-spacing: 0.1em;
+    font-size: 2em;
+    color: #c55c58;
+}
+
+h3,
+h6,
+p {
+    font-family: 'Merriweather', serif;
+}
+
+input {
+    color: black;
+}
+
+button {
+    background-color: #c55c58;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
+    color: white;
+}
+
+button:focus,
+input:focus {
+    outline: 0;
+}
+
+
+/*End of CSS Resetter*/
+
+
+/*Scrollbar design*/
+
+.container::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.sidenav::-webkit-scrollbar {
+    width: 0.5em;
+    background-color: rgb(50, 50, 50)
+}
+
+.container > li::-webkit-scrollbar {
+    width: 1em;
+}
+
+.container::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track,
+.container > li::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid black;
+}
+
+.container > li::-webkit-scrollbar-thumb {
+    background-color: rgba(30, 30, 30, 0.4);
+    outline: 1px solid black;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(150, 150, 150);
+    outline: 1px solid rgb(150, 150, 150);
+    border-image: 0.5em;
+}
+
+
+/*End of scrollbar design*/
+
+
+/*Dropdown Menu*/
+
+.sidenavButton {
+    top: 0.4em;
+    position: absolute;
+    z-index: 100;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+    width: 4em;
+}
+
+.sidenavButton:focus {
+    outline: none;
+}
+
+
+/*Sidenav*/
+
+.sidenav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 1.5s;
+    width: 100%;
+    height: 0;
+    z-index: 10;
+    overflow-x: hidden;
+    background-color: rgba(50, 50, 50, 1);
+}
+
+.sidenavOpen {
+    height: 100%;
+}
+
+.sidenav > ul > li {
+    margin-top: 1.5em;
+    flex-basis: 80%;
+    text-align: center;
+    font-size: 2.4em;
+    font-weight: 800;
+    padding: 1.2em;
+}
+
+.sidenav > ul > li > a {
+    display: block;
+    color: white;
+    transition: 0.3s;
+    height: 3em;
+    line-height: 3em;
+}
+
+.sidenav > ul > li > a:hover {
+    color: rgb(100, 100, 100);
+}
+
+
+/*End of dropdown menu*/
+
+
+/*Newsletter popup*/
+
+.newsletter {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(47, 55, 76, 0.7);
+    height: 6em;
+    align-items: center;
+    transition: 0.5s;
+    overflow: hidden;
+    padding-left: 0.3em;
+    animation: fadein 3s;
+    z-index: 1;
+    color: white;
+}
+
+.newsletter > label,
+.newsletter > input,
+.newsletter > div,
+.newsletter > button:nth-of-type(1) {
+    flex-basis: 42%;
+    line-height: 1.em;
+    height: 1.7em;
+    border: none;
+    text-align: center;
+    width: 100%;
+    font-size: 1.4em;
+}
+.newsletter > label {
+    font-size: 1.4em;
+    text-shadow: 0 0 0.1em black;
+}
+
+
+.newsletter > button:nth-of-type(2) {
+    position: absolute;
+    top: 0;
+    right: 0.6em;
+    font-size: 2em;
+    background-color: transparent;
+}
+
+.closeNewsletter {
+    height: 0;
+}
+
+
+/*End of Newsletter popup*/
+
+
+/*Footer*/
+
+#footer {
+    margin-top: 5em;
+    background-color: #2F374C;
+    text-align: left;
+    padding: 2em;
+}
+
+#footer h1 {
+    font-size: 2.4em;
+    color: white;
+    text-shadow: 0 0 0.1em black;
+    margin-bottom: 0.5em;
+}
+
+#footer p {
+    color: white;
+    margin-bottom: 1em;
+}
+
+#footer ul {
+    display: flex;
+    flex-direction: column;
+}
+
+#footer ul li {
+    flex: 1;
+}
+
+#footer button {
+    width: 13em;
+    font-size: 1.8em;
+    margin-bottom: 1em;
+}
+
+#footer ul li iframe {
+    height: 25em;
+    width: 100%;
+    opacity: 0.9;
+}
+
+
+
+
+/* Menu END OF MUST CONTAIN */
+
+
+/*Desktop settings*/
+
+@media (min-width: 690px) and (max-width: 900px) {
+    main > .centerContainer {
+        flex-direction: row;
+    }
+    h1 {
+        font-size: 3em;
+    }
+    header h1 {
+        font-size: 3.4em;
+    }
+    #about > div:nth-of-type(2) {
+        flex-direction: row;
+    }
+    #footer ul {
+        flex-direction: row;
+    }
+    .newsletter > label {
+    font-size: 1.8em;
+        margin-top: 0.5em;
+}
+}
+
+@media (min-width: 901px) {
+    .desktopHide {
+        display: none;
+    }
+    main > .centerContainer {
+        flex-direction: row;
+    }
+    h1 {
+        font-size: 3em;
+    }
+    header h1 {
+        font-size: 3.4em;
+    }
+    .newsletter {
+        align-items: center;
+        height: 4em;
+    }
+    .newsletter > h3,
+    .newsletter > input,
+    .newsletter > div,
+    .newsletter > button:nth-of-type(1) {
+        flex: 1;
+        line-height: 1.em;
+        margin: 0.7em 2.7em 0.4em 0.7em;
+        height: 1.7em;
+        border: none;
+        text-align: center;
+    }
+    .closeNewsletter {
+        height: 0;
+    }
+    .newsletter > button:nth-of-type(2) {
+        top: 0.35em;
+        right: 0.6em;
+    }
+    .newsletter > h3 {
+        font-size: 1.5em;
+    }
+    #about > div:nth-of-type(2) {
+        flex-direction: row;
+    }
+    #footer ul {
+        flex-direction: row;
+    }
+    .newsletter > label {
+    font-size: 1.8em;
+        margin-top: 0.5em;
+}
+}
+.headerScrolled {
+    background-color:rgba(47, 55, 76, 0.9);
+}
+
+/*End of Desktop settings*/

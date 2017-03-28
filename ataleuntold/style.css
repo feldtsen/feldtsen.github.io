@@ -1,0 +1,131 @@
+
+
+
+
+/* END OF MUST CONTAIN */
+
+
+
+main {
+    height: 100vh;
+    width: 100%;
+    background-image: url("https://images.unsplash.com/photo-1481627834876-b7833e8f5570?dpr=1.5&auto=compress,format&fit=crop&w=767&h=709&q=80&cs=tinysrgb&crop=");
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+main > div {
+    margin-left: 1em;
+}
+
+main > div > h1,
+main > div > button{
+    width: 70%;
+    color: white;
+}
+
+main > div > h1 {
+    margin-bottom: 1em;
+    color: white;
+    text-shadow: 0 0 0.1em black;
+}
+
+main > div > button {
+    margin-bottom: 4em;
+    font-size: 2em;
+}
+
+main a {
+    display: block;
+    color: white;
+}
+
+#about {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#about > div {
+    flex: 80%;
+    margin: 5em 2% 0 2%;
+}
+
+#about > div:nth-of-type(1) {
+    margin: 2em;
+}
+
+#about > div:nth-of-type(2) {
+    margin-bottom: 5em;
+    display: flex;
+    flex-direction: column;
+}
+#about > div > h1 {
+    color: #c55c58;
+    font-size: 2.4em;
+}
+
+#about > div:nth-of-type(2) > div {
+    padding: 1em;
+    text-align: center;
+}
+
+#about img {
+    width: 14em;
+    border-radius: 50%;
+    border: 1em solid #2F374C;
+}
+
+
+@media (min-width: 690px) and (max-width: 900px) {
+    main > .centerContainer {
+        flex-direction: row;
+    }
+    h1 {
+        font-size: 3em;
+    }
+    header h1 {
+        font-size: 3.4em;
+    }
+    #about > div:nth-of-type(2) {
+        flex-direction: row;
+    }
+    #footer nav ul {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 901px) {
+    .desktopHide {
+        display: none;
+    }
+    main > .centerContainer {
+        flex-direction: row;
+    }
+    h1 {
+        font-size: 3em;
+    }
+    header h1 {
+        font-size: 3.4em;
+    }
+   
+    #about > div:nth-of-type(2) {
+        flex-direction: row;
+    }
+    #footer nav ul {
+        flex-direction: row;
+    }
+}
+
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

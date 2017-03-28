@@ -10,20 +10,20 @@ window.addEventListener('load', e => {
             title: `Paperstack`
             , image: `paperstack/cover.jpg`
             , description: `something something something`
-            , path: `paperstack/index.html`
+            , path: `paperstack/`
         }
-//        , aTaleUntold: {
-//            title: `A Tale Untold`
-//            , image: `cover.jpg`
-//            , description: `something something something`
-//            , path: `ataleuntold/index.html`
-//        }
-//        , patatapClone: {
-//            title: `Patatap Clone`
-//            , image: `cover.jpg`
-//            , description: `something something something`
-//            , path: `patatapclone/index.html`
-//        }
+        , aTaleUntold: {
+            title: `A Tale Untold`
+            , image: `cover.jpg`
+            , description: `something something something`
+            , path: `ataleuntold/index.html`
+        }
+        , patatapClone: {
+            title: `Patatap Clone`
+            , image: `cover.jpg`
+            , description: `something something something`
+            , path: `patatapclone/index.html`
+        }
     }
     addProject(projectsObj);
     menuButton.addEventListener('click', e => {
