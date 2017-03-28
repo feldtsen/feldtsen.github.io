@@ -31,7 +31,7 @@ window.addEventListener('load', () => {
     ****************************************/
     firebase.initializeApp(configFirebase);
     /****************************************
-    ----SIGN IN WITH GITHUB ACCOUNT---------
+    ----SIGN IN/OUT WITH GITHUB ACCOUNT------
     ****************************************/
     function githubLogin() {
         const provider = new firebase.auth.GithubAuthProvider();
@@ -45,7 +45,7 @@ window.addEventListener('load', () => {
             }
             // The signed-in user info.
             var user = result.user;
-            console.log(`User: ${user}`);
+            console.log(user);
         }).catch(function (error) {
             console.log(`Inside catch`)
                 // Handle Errors here.
@@ -57,6 +57,14 @@ window.addEventListener('load', () => {
             var credential = error.credential;
             // ...
             console.log(`Error code: ${errorCode}, error message: ${errorMessage}, email: ${email}, credential: ${credential}`);
+        });
+    }
+
+    function githubSignout() {
+        firebase.auth().signOut().then(function () {
+            console.log(`Signed out!`);
+        }, function (error) {
+            console.log(`Sign out didn't go as planned: ${error}`);
         });
     }
     /****************************************
@@ -73,9 +81,9 @@ window.addEventListener('load', () => {
             sendMessage();
         }
     });
-    
-    loginGithubButton.addEventListener('click', e=>{
-       githubLogin(); 
+    loginGithubButton.addEventListener('click', e => {
+        if(token)
+        githubLogin();
     });
     //  update when changes occur
     db().ref('/messages').limitToLast(50).on('value', (s) => {
