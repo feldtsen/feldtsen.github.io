@@ -16,7 +16,7 @@ window.addEventListener('load', e => {
             title: `A Tale Untold`
             , image: `ataleuntold/cover.jpg`
             , description: `something something something`
-            , path: `ataleuntold/index.html`
+            , path: `ataleuntold/`
         }
 //        , patatapClone: {
 //            title: `Patatap Clone`
