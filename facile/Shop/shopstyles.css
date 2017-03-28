@@ -1,0 +1,297 @@
+body {
+	background-color: rgb(224, 224, 209);
+}
+#navbar {
+    background: rgba(50, 50, 50, 1);
+}
+
+/* main content */
+
+
+.introContent {
+	font-size: 50px;
+	font-family: 'Righteous', cursive;
+  	min-height: 75%;
+  	background-image: url("bg.jpg");
+  	background-attachment: fixed;
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+  	padding-top: 50px;	
+}
+
+.introContent h1 {
+	text-align: center;
+	color: white;
+	text-shadow: 1px 1px black;
+}
+
+.introContent .scrollDown {
+	font-size: 20px;
+	height: 70px;
+	width: 400px;
+	position: absolute;
+	text-align: right;
+	background: linear-gradient(135deg, transparent 40px, rgb(224, 224, 209) 0);
+	right: 0;
+	bottom: 0;
+}
+
+.introContent .scrollDown h3 {
+	padding:5px 15px 0 0;
+}
+.topContent .selectStyle {
+	background-color: rgba(50, 50, 50, 0.3);
+	border-radius: 3px;
+	margin-top: 10px;
+	height: 30px;
+	font-weight: 700;
+}
+
+.topContent {
+	margin:25px 15px 0 15px;
+	display: flex;
+	width: 90%;
+}
+
+.topContent > div {
+	flex-grow: 1;
+}
+
+
+.userData {
+	height: 40px;
+	padding-top: 50px;
+	display: flex;
+}
+.userData div {
+	flex-grow: 1;
+	margin-right: 15px;
+}
+
+.userData .login {
+	padding-top:10px;
+}
+
+.userData .password, .userData .email, .userData #loginSubmit, .userData .rememberMe {
+	margin-left: 15px;
+
+}
+
+.userData .rememberMe {
+	font-size: 15px;
+	padding: 0;
+	margin:0;
+}
+
+#shoppingCart {
+	padding-top: 15px;
+	text-align: right;
+	margin: 15px 0 0 0;
+	font-size: 20px;
+}
+
+#shoppingCart a {
+	color: black; 	
+}
+#shoppingCart a:hover {
+	border-bottom: 3px solid rgba(50, 50, 50, 0.5)
+}
+
+#shoppingCart .inCart {
+	background: rgba(50, 50, 50, 0.8);
+	padding: 0 5px 0 5px;
+	border-radius: 5px;
+	color: white;
+}
+
+
+
+.middleContent .productDisplay {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 50px;
+}
+
+.middleContent .productDisplay div {
+	flex-grow: 1;
+	width: 350px;
+	height: 350px;
+	margin: 10px;
+	justify-content: space-between;
+	background: white;
+	border: 1px solid black
+
+}
+
+.middleContent .productDisplay div h3 {
+	font-size: 50px;
+	margin: 0;
+	text-align: center;
+	color: white;
+	height: 100%;
+	text-shadow: 1px 1px black;
+	opacity: 0.9;
+}
+
+.middleContent .productDisplay div h3:hover::after{
+	content: "$ Price Here $";
+	font-family: 'Righteous', cursive;
+	border-top: 5px solid white;
+	border-bottom: 5px solid white;
+}
+
+.middleContent .productDisplay div h3:hover {
+	background-color: rgba(10, 10, 10, 0.5);
+}
+
+
+
+.middleContent div:nth-of-type(1) div:first-of-type {
+	background-image: url("product1.jpg");
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+}
+
+.middleContent div:nth-of-type(1) div:nth-of-type(2) {
+	background-image: url("product2.jpg");
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+}
+
+.middleContent div:nth-of-type(1) div:nth-of-type(3) {
+	background-image: url("product3.jpg");
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+}
+
+.middleContent div:nth-of-type(1) div:nth-of-type(4) {
+	background-image: url("product4.jpg");
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+}
+
+.middleContent div:nth-of-type(1) div:nth-of-type(5) {
+	background-image: url("product5.jpg");
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+}
+
+.middleContent div:nth-of-type(1) div:nth-of-type(6) {
+	background-image: url("product6.jpg");
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+}
+
+.middleContent div:nth-of-type(1) div:nth-of-type(7) {
+	background-image: url("product7.jpg");
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+}
+
+.middleContent div:nth-of-type(1) div:nth-of-type(8) {
+	background-image: url("product8.jpg");
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+}
+
+.middleContent div:nth-of-type(1) div:nth-of-type(9) {
+	background-image: url("product9.jpg");
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+}
+
+
+
+.middleContent .inCart {
+	background: white;
+	color: black;
+	border-radius: 5px;
+	padding: 0 5px 0 5px;
+}
+
+
+.middleContent .pager {
+	display: flex;
+	justify-content: center;
+}
+
+.middleContent .pager div {
+	flex-grow: 1;
+	text-align: center;
+	background: rgba(50, 50, 50, 1);
+	color: white;
+	border-radius: 5px;
+	font-size: 20px;
+	justify-content: space-between;
+	max-width: 50px;
+	margin: 5px 2px 10px 2px;
+
+}
+
+.middleContent .pager div:hover {
+	background-color: rgba(10, 10, 10, 1);
+}
+
+
+.middleContent a {
+	color: white;
+}
+
+.middleContent #currentPage {
+	background-color: rgba(10, 10, 10, 1);
+}
+
+.userData2 {
+	display: none;
+}
+
+@media (max-width: 940px) {
+	.scrollDown {
+		display: none;
+	}
+	.middleContent .productDisplay div h3:hover::after{
+	display: none;
+	}
+}
+
+@media (max-width: 630px) {
+	.userData {
+		display: none;
+	}
+	.userData2 {
+		display: block;
+		padding-top: 54px;
+		height: 120px;
+		padding-left: 10px;
+	}
+
+}
+
+@media (max-width: 590px) {
+	.topContent {
+		font-size: 20px;
+		flex-direction: column;
+	}
+	#shoppingCart {
+		text-align: left;
+	}
+}
+
+@media (max-width: 940px) {
+	.topContent {
+		width: 90%;
+	}
+}
+
+
+/* end main content */

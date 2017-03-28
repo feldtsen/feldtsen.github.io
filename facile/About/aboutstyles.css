@@ -1,0 +1,125 @@
+#navbar {
+    background: rgba(50, 50, 50, 1);
+}
+/* main content */
+.mainFlex {
+	display: flex;
+}
+.mainFlex  .center{
+ 	animation: fadein 8s;
+ 	color: white;
+ 	position: absolute;
+ 	top: 50%;
+ 	left: 50%;
+  	margin: -100px 0 0 -150px;
+  	text-align: center;
+  	font-family: 'Righteous', cursive;
+  	text-shadow: 2px 2px 5px black;
+}
+.mainFlex .center  h1 {
+	font-size: 90px;
+	letter-spacing: 10px;
+}
+/* animations */
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+/* end animations */
+.bgPic, .bgPic2, .bgPic3, .bgPic4, .bgPicFirst, .bgSpacer {
+  	position: relative;
+  	background-attachment: fixed;
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+}
+.bgPic2, .bgPic3, .bgPic4, .bgPicFirst{
+  	border-top: 20px solid rgba(50, 50, 50, 0.8);
+  	border-bottom: 20px solid rgba(50, 50, 50, 0.8);
+}
+.bgPic {
+	background-image: url("bg.jpg");
+  	min-height: 100%;
+}
+.bgPicFirst {
+	background-image: url("bgFirst.jpg");
+}
+.bgPicFirst .onPicFlex .backgroundChange {
+	background: rgba(50,50,50,0.8);
+	width: 100%;
+	text-align: center;
+}
+.bgPic2 {
+	background-image: url("bg2.jpg");
+	min-height: 40%
+}
+.bgPic3 {
+	background-image: url("bg3.jpg");
+	min-height: 40%
+}
+.bgPic4 {
+	background-image: url("bg4.jpg");
+	min-height: 40%
+}
+.bgSpacer {
+	min-height: 10%;
+	background-image: url("bg.jpg");
+}
+.onPicFlex {
+	display: flex;
+}
+.onPicFlex .profilePic {
+  	background-position: center;
+  	background-repeat: no-repeat;
+	background-size: cover;
+	width: 200px;
+	height:250px;
+	border-radius: 5px;
+	margin:5%;
+}
+.profilePic1 {
+	background-image: url("joachim.jpg");
+}
+.porfilePic2 {
+	background-image: url("favicon.png");
+}
+.profilePic3 {
+	background-image: url("favicon.png");
+}
+.onPicFlex .aboutMe {
+	width: 70%;
+	margin:5% 0 5%;
+	padding: 2%;
+	background: linear-gradient(to left, rgba(50,50,50,0), rgba(50,50,50,0.7));
+	color: white;
+	text-shadow: 1px 1px black;
+}
+.onPicFlex .aboutMe p {
+	font-size: 19px;
+}
+.onPicFlex .aboutMe h2 {
+	font-size: 25px;
+}
+.onPicFlex .gradientDirection {
+	background: linear-gradient(to right, rgba(50,50,50,0), rgba(50,50,50,0.7));
+}
+.bgPic3 {
+	text-align: right;
+}
+@media (max-width: 600px) {
+	.onPicFlex {
+	flex-direction: column;
+	}
+	.onPicFlex .gradientDirection {
+	background: linear-gradient(to left, rgba(50,50,50,0), rgba(50,50,50,0.7));
+	text-align: left;
+	}
+	.onPicFlex .aboutMe {
+		width: 90%;
+	}
+}
+/* end main content */

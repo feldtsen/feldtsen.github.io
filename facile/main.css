@@ -1,0 +1,76 @@
+
+
+/* main content */
+
+
+.bgPic {
+	background-image: url(test.jpg);
+  	background-attachment: fixed;
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+  	min-height: 100%;
+}
+
+
+#mainFlex {
+	display: flex;
+}
+
+#mainFlex  .center{
+ 	animation: fadein 8s;
+ 	color: white;
+ 	position: fixed;
+ 	top: 50%;
+ 	left: 50%;
+  	margin: -100px 0 0 -150px;
+  	text-align: center;
+  	font-family: 'Righteous', cursive;
+  	text-shadow: 2px 2px 5px black;
+}
+
+#mainFlex .center  h1 {
+	font-size: 90px;
+	letter-spacing: 10px;
+}
+
+#mainFlex .center  p {
+	font-size: 18px;
+}
+
+
+#mainFlex .center > hr {
+	border: none;
+	box-shadow: 2px 2px 5px black;
+	margin: -5px;
+	height: 10px;
+	background:white;
+}
+
+@media (max-width: 600px)
+{
+	#mainFlex .center{
+ 	position: absolute;
+ 
+}
+}
+
+
+/* animations */
+
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* end animations */
+
+
+
+/* end main content */
+
+

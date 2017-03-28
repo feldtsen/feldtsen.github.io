@@ -167,7 +167,6 @@ main > ul.introductionPage > li:nth-of-type(3) {
     position: inherit;
     z-index: 1;
     cursor: pointer;
-    
 }
 
 .menuOption:hover {
@@ -218,6 +217,7 @@ main > ul.introductionPage > li:nth-of-type(3) {
     cursor: default;
     color: white;
 }
+
 .pageContentActive {
     overflow-y: scroll;
 }
@@ -226,17 +226,50 @@ main > ul.introductionPage > li:nth-of-type(3) {
     color: red;
 }
 
+.pageTitle {
+    position: fixed;
+    font-size: 4em;
+    text-align: center;
+    margin: 1%;
+    text-shadow: 0 0 0.1em black;
+}
+
 #projects {
     flex-wrap: wrap;
+    justify-content: center;
+    margin: 7em 3% 3% 3%;
 }
 
 #projects > li {
     justify-content: center;
     flex-basis: 80%;
+    text-align: center;
+    padding: 1em;
+}
+
+#projects > li > h1 {
+    font-size: 2.4em;
 }
 
 #projects > li >img {
-    width: 80%;
+    width: 100%;
+}
+
+#projects > li > p {
+    font-size: 1.8em;
+}
+
+#projects > li > a {
+    border: 0.01em solid white;
+    font-size: 3em;
+}
+
+#projects > li > a:hover {
+    background-color: orange;
+}
+
+.toggleHidden {
+    visibility: hidden;
 }
 
 
@@ -288,10 +321,10 @@ main > ul.introductionPage > li:nth-of-type(3) {
     .pages {
         margin: 0.29em;
     }
-    
     #projects {}
     #projects > li {
-        flex-basis: 50%;
+        margin-top: 1em;
+        flex-basis: 40%;
     }
 }
 

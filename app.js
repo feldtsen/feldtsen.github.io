@@ -4,6 +4,7 @@ window.addEventListener('load', e => {
         , pageContent = document.getElementsByClassName('pageContent')
         , projectsContainer = document.getElementById('projects')
         , pagestatus = false
+        , hideMe = true
         , currentPage, menuStatus = false;
     let projectsObj = {
         paperstack: {
@@ -24,10 +25,35 @@ window.addEventListener('load', e => {
             , description: `patatap something something`
             , path: `patatapclone/`
         }
+        , hueHunch: {
+            title: `Hue Hunch`
+            , image: `huehunch/cover.jpg`
+            , description: `Hue hunch something something`
+            , path: `huehunch/`
+        }
+        , jQueryTodo: {
+            title: `jQuery todo list`
+            , image: `jquerytodo/cover.jpg`
+            , description: `jQuery todo something something`
+            , path: `jquerytodo/`
+        }
+        , writeline: {
+            title: `Writeline`
+            , image: `writeline/cover.jpg`
+            , description: `Writeline something something`
+            , path: `writeline/`
+        }
+        , facile: {
+            title: `Facile`
+            , image: `facile/cover.jpg`
+            , description: `Facile something something`
+            , path: `facile/`
+        }
     }
     addProject(projectsObj);
     menuButton.addEventListener('click', e => {
         menuToggle(!menuStatus);
+        projectsContainer.classList.add(`toggleHidden`);
         if (pagestatus) {
             menuOptions[currentPage].classList.toggle('activePage');
             pagestatus = false;
@@ -36,11 +62,15 @@ window.addEventListener('load', e => {
         else {
             document.getElementsByClassName('pages')[0].classList.toggle('active');
         }
+        if (hideMe) {
+            projectsContainer.classList.add(`toggleHidden`);
+        }
     });
     for (let i = 0; i < menuOptions.length; i++) {
         menuOptions[i].addEventListener('click', e => {
             menuOptions[i].classList.add('activePage');
             currentPage = i;
+            if(currentPage == '0')projectsContainer.classList.remove(`toggleHidden`);
             if (!pagestatus) {
                 menuOptions[i].classList.add('pageContentActive');
                 menuToggle(menuStatus, true);
@@ -70,7 +100,7 @@ window.addEventListener('load', e => {
                 <img src="${current.image}" alt="cover image for project">
                 <h1>${current.title}</h1>
                 <p>${current.description}</p>
-                <a href="${current.path}" target="_blank">View Project</a>
+                <a href="${current.path}" target="_blank">Live</a>
             `);
             projectsContainer.appendChild(liProject);
         }

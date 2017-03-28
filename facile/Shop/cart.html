@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<title>FACILE Official Website</title>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" type="image/png" href="favicon.png"/>
+	<link rel="stylesheet" href="footerheader.css">
+	<link rel="stylesheet" type="text/css" href="cartstyles.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans%7CRighteous%7CRusso+One" rel="stylesheet">
+
+</head>
+<body>
+
+
+<!--Navbar-->
+
+<header id="navbar">
+	<nav class="flexContainer">
+
+		<h2><a href="../index.html">Facile</a></h2>
+		<ul class="nav">
+			<li><a href="../index.html">Home</a></li>
+			<li><a href="shop.html" class="divider active">Shop</a></li>
+			<li><a href="../Blog/blog.html">Blog</a></li>
+			<li><a href="#">Forum</a></li>
+			<li><a href="../About/about.html">About</a></li>
+			<li><a href="../Contact/contact.html">Contact</a></li>
+		</ul>
+
+		<ul class="dropdown">
+			<li><img src="burgermenu.png" id="burgermenu" alt="dropdown">
+				<ul class="dropNav">
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="shop.html" class="active">Shop</a></li>
+					<li><a href="../Blog/blog.html">Blog</a></li>
+					<li><a href="#">Forum</a></li>
+					<li><a href="../About/about.html">About</a></li>
+					<li><a href="../Contact/contact.html">Contact</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</header>
+
+
+<!-- end navbar -->
+
+
+<!--content-->
+<div class="mainContent">
+
+<div>
+	<table>
+	<caption><h1>Your Cart</h1></caption>
+		<thead>
+			<tr>
+				<td>Product</td>
+				<td>Price</td>
+				<td>Qty</td>
+				<td>Subtotal</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Backpack</td>
+				<td>111$</td>
+				<td class="changeWidth"><button>-</button><input type="text" value="2" class="qtyNumber"><button>+</button></td>
+				<td>222$</td>
+			</tr>
+			<tr>
+				<td>Axe</td>
+				<td>77$</td>
+				<td class="changeWidth"><button>-</button><input type="text" value="3" class="qtyNumber"><button>+</button></td>
+				<td>231$</td>
+			</tr>
+			<tr>
+				<td>Jacket</td>
+				<td>500$</td>
+				<td class="changeWidth"><button>-</button><input type="text" value="1" class="qtyNumber"><button>+</button></td>
+				<td>500$</td>
+			</tr>
+			<tr>
+				<td>Total</td>
+				<td colspan="3">953$</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+</div>
+
+<div>
+<form method="get" action="shop.html">
+<button type="submit">Continue Shopping</button>
+</form>
+</div>
+
+<div class="payment">
+	<div>
+		<table>
+			<tbody>
+				<tr><td><input type="radio" name="selectCard" id="selectMC" checked><label for="selectMC"><img src="mc.png" height="35" alt="payment"></label></td></tr>
+				<tr><td class="wabwab"><input type="radio" name="selectCard" id="selectV"><label for="selectV"><img src="v.png" height="30" alt="payment"></label></td></tr>
+				<tr><td class="wabwab"><input type="radio" name="selectCard" id="selectPP"><label for="selectPP"><img src="pp.png" height="25" alt="payment"></label></td></tr>
+				<tr><td><input type="radio" name="selectCard" id="selectSC"><label for="selectSC"><img src="psc.png" height="25" alt="payment"></label></td></tr>
+			</tbody>
+		</table>
+	</div>
+	<div>
+		<table>
+			<tbody>
+				<tr>
+					<td>*Cardholder Name:</td>
+				</tr>
+				<tr>
+					<td><input type="text" name="firstname" placeholder="First Name"></td>
+				</tr>
+				<tr>
+					<td><input type="text" name="lastname" placeholder="Last Name"></td>
+				</tr>
+				<tr>
+					<td>*Card No:</td>
+				</tr>
+				<tr>
+					<td><input type="text" name="cardNo" placeholder="xxxx-xxxx-xxxx-xxxx"></td>
+				</tr>
+				<tr>
+					<td>*Expiration Date:</td>
+				</tr>
+				<tr>
+					<td><input type="text" class="cardDate">/<input type="text" class="cardDate"></td>
+				</tr>
+				<tr>
+					<td>*Security Code:</td>
+				</tr>
+				<tr><td><input type="text"></td></tr>
+				<tr>
+					<td><button type="submit">Pay My Order</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+
+
+<!--end content-->
+
+
+<footer>
+	<div>
+		<h1>Useful Links</h1>
+		<p><a href="#">Useful Link</a></p>
+		<p><a href="#">Useful Link Two</a></p>
+		<p><a href="#">Useful Link Three</a></p>
+	</div>
+	<div>
+		<h1>Address</h1>
+		<p>EC Utbildning AB</p>
+		<p>Mölndalsvägen 81</p>
+		<p>412 63 Göteborg</p>
+	</div>
+	<div>
+		<h1>Legal</h1>
+		<p>Copyright &copy; 2016</p>
+		<p>All rights reserved</p>
+		<p><a href="#">Terms & Conditions</a></p>
+	</div>
+</footer>
+
+</body>
+</html>

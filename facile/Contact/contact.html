@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<title>FACILE Official Website</title>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" type="image/png" href="favicon.png"/>
+	<link rel="stylesheet" href="footerheader.css">
+	<link rel="stylesheet" type="text/css" href="contactstyles.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans%7CRighteous%7CRusso+One" rel="stylesheet">
+</head>
+<body>
+
+
+<!--Navbar-->
+
+<header id="navbar">
+	<nav class="flexContainer">
+
+		<h2><a href="../index.html">Facile</a></h2>
+
+		<ul class="nav">
+			<li><a href="../index.html">Home</a></li>
+			<li><a href="../Shop/shop.html" class="divider">Shop</a></li>
+			<li><a href="../Blog/blog.html">Blog</a></li>
+			<li><a href="../Forum/forum.html">Forum</a></li>
+			<li><a href="../About/about.html">About</a></li>
+			<li><a href="contact.html" class="active">Contact</a></li>
+		</ul>
+
+		<ul class="dropdown">
+			<li><img src="burgermenu.png" id="burgermenu" alt="dropdown">
+				<ul class="dropNav">
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="../Shop/shop.html">Shop</a></li>
+					<li><a href="../Blog/blog.html">Blog</a></li>
+					<li><a href="../Forum/forum.html">Forum</a></li>
+					<li><a href="../About/about.html">About</a></li>
+					<li><a href="contact.html" class="active">Contact</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</header>
+
+
+<!-- end navbar -->
+
+
+<div class="bgPic">
+<div class="onPicFlex">
+	<div class="box">
+		<form>
+		<fieldset>
+			<legend>Anything on your mind?</legend>
+				<label>Your Name:</label><br>
+				<input type="text" name="yourname" placeholder="First Name" class="inputWidth">
+				<input type="text" name="yourname"  placeholder="Last Name" class="inputWidth"><br>
+				<label for="email">Your email: </label><br>
+				<input type="email" name="email" placeholder="example@outlook.com" id="email" class="inputWidth"><br>
+				<label for="concern">Your concern:</label><br>
+				<select name="concern" id="concern">
+					<option value="other">Other</option>
+					<option value="product">Related to our products</option>
+					<option value="login">Related to user account</option>
+				</select><br><br>
+				<label for="usertext">What is up? (Max 250 words)</label><br>
+				<textarea name="usertext" id="usertext" placeholder="Write your message here"></textarea><br>
+				<input type="submit" name="send" value="Send">
+			</fieldset>
+		</form>
+	</div>
+</div>
+</div>
+
+
+<footer>
+	<div>
+		<h1>Useful Links</h1>
+		<p><a href="#">Useful Link</a></p>
+		<p><a href="#">Useful Link Two</a></p>
+		<p><a href="#">Useful Link Three</a></p>
+	</div>
+	<div>
+		<h1>Address</h1>
+		<p>EC Utbildning AB</p>
+		<p>Mölndalsvägen 81</p>
+		<p>412 63 Göteborg</p>
+	</div>
+	<div>
+		<h1>Legal</h1>
+		<p>Copyright &copy; 2016</p>
+		<p>All rights reserved</p>
+		<p><a href="#">Terms & Conditions</a></p>
+	</div>
+</footer>
+
+</body>
+</html>
