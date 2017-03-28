@@ -66,7 +66,12 @@ window.addEventListener('load', e => {
         for (let project in projects) {
             let current = projects[project]
                 , liProject = document.createElement('li');
-            liProject.innerHTML = (`<img src="${current.image}" alt="cover image for project"><h1 class="projectTitle">${current.title}</h1><a href="${current.path}">View Project</a>`);
+            liProject.innerHTML = (`
+                <img src="${current.image}" alt="cover image for project">
+                <h1>${current.title}</h1>
+                <p>${current.description}</p>
+                <a href="${current.path}" target="_blank">View Project</a>
+            `);
             projectsContainer.appendChild(liProject);
         }
     }
