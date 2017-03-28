@@ -1,8 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Orbitron|Yanone+Kaffeesatz');
+html {
+    overflow: hidden;
+    height: 100%;
+}
 body {
     font-size: 10px;
     font-family: 'Yanone Kaffeesatz', sans-serif;
     overflow: hidden;
+    height: 100%;
 }
 
 h1,
@@ -70,10 +75,13 @@ header > ul > li {
     padding: 0 0.5em 0 0.5em;
 }
 
+header, headder > ul, header > ul > li {
+    height: 100%;
+}
+
 header > ul > li > a {
     display: block;
-    width: 100%;
-    line-height: 3.35em;
+    line-height: 10vh;
 }
 
 header > ul > li:nth-child(n + 2) {
@@ -326,7 +334,7 @@ i:hover {
         flex-basis: 47%;
     }
     header > ul > li > a {
-        line-height: 10.1vh;
+        line-height: 10vh;
     }
 }
 
