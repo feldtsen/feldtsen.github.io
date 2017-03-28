@@ -40,22 +40,22 @@ window.addEventListener('load', () => {
     firebase.auth().getRedirectResult().then(function (result) {
         if (result.credential) {
             // This gives you a GitHub Access Token. You can use it to access the GitHub API.
-            var token = result.credential.accessToken;
+            let token = result.credential.accessToken;
             // ...
             console.log(`Token: ${token}`)
         }
         // The signed-in user info.
-        var user = result.user;
+        let user = result.user;
         console.log(user);
     }).catch(function (error) {
         console.log(`Inside catch`)
             // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
+        let errorCode = error.code;
+        let errorMessage = error.message;
         // The email of the user's account used.
-        var email = error.email;
+        let email = error.email;
         // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
+        let credential = error.credential;
         // ...
         console.log(`Error code: ${errorCode}, error message: ${errorMessage}, email: ${email}, credential: ${credential}`);
     });
