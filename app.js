@@ -14,7 +14,7 @@ window.addEventListener('load', e => {
         }
         , aTaleUntold: {
             title: `A Tale Untold`
-            , image: `cover.jpg`
+            , image: `ataleuntold/cover.jpg`
             , description: `something something something`
             , path: `ataleuntold/index.html`
         }
