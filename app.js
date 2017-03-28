@@ -18,12 +18,12 @@ window.addEventListener('load', e => {
             , description: `A Tale Untold something something`
             , path: `ataleuntold/`
         }
-//        , patatapClone: {
-//            title: `Patatap Clone`
-//            , image: `patatapclone/cover.jpg`
-//            , description: `patatap something something`
-//            , path: `patatapclone/`
-//        }
+        , patatapClone: {
+            title: `Patatap Clone`
+            , image: `patatapclone/cover.jpg`
+            , description: `patatap something something`
+            , path: `patatapclone/`
+        }
     }
     addProject(projectsObj);
     menuButton.addEventListener('click', e => {
