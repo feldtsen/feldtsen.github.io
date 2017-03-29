@@ -135,7 +135,8 @@ div::-webkit-scrollbar-thumb {
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
-    margin-bottom: 0.8em;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
 }
 
 #inputControllers {
