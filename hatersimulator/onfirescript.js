@@ -63,7 +63,7 @@ window.addEventListener('load', () => {
         console.log(firebase.auth().currentUser);
         if (firebase.auth().currentUser) {
             usernameInput.value = firebase.auth().currentUser.providerData[0].displayName || firebase.auth().currentUser.providerData[0].email;
-            loginGithubButton.innerHTML = `<img src=${firebase.auth().currentUser.providerData[0]..photoURL}> logout`
+            loginGithubButton.innerHTML = `<img src=${firebase.auth().currentUser.providerData[0].photoURL}> logout`
         }
         else {
             usernameInput.value = `please log in`
