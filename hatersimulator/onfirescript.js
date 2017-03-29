@@ -50,10 +50,10 @@ window.addEventListener('load', () => {
     });
     loginGithubButton.addEventListener('click', e => {
         if (!firebase.auth().currentUser) {
-            let login = new githubLogin();
+            githubLogin();
         }
         else {
-            let logout = new githubSignout();
+            githubSignout();
         }
     });
     //  update when changes occur
