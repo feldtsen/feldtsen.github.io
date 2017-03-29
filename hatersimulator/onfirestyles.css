@@ -11,9 +11,11 @@ button {
     margin: 0;
     padding: 0;
 }
+
 button {
     outline: none;
 }
+
 html,
 body {
     height: 100%;
@@ -101,7 +103,7 @@ div::-webkit-scrollbar-thumb {
 
 .exit {
     position: absolute;
-    right: 0; 
+    right: 0;
     font-size: 0.6em;
     top: 0;
 }
@@ -126,8 +128,8 @@ div::-webkit-scrollbar-thumb {
 #loginButton > img {
     height: 1.5em;
     position: absolute;
-    right: 4em;
-    top: 0.5em;
+    right: 5em;
+    top: 0;
 }
 
 #intro {
@@ -262,9 +264,8 @@ div::-webkit-scrollbar-thumb {
         line-height: 3.2em;
     }
     #loginButton > img {
-
-    top: 0;
-}
+        top: 0.5em;
+    }
     #displayMessages > li {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
