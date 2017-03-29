@@ -25,6 +25,7 @@ window.addEventListener('load', () => {
                 text: message
             })
         }
+        , providerData = firebase.auth().currentUser.providerData[0]
         , btnSend = document.getElementById('btnSend')
         , messageInput = document.getElementById('messageInput')
         , usernameInput = document.getElementById('usernameInput')
@@ -44,34 +45,37 @@ window.addEventListener('load', () => {
     });
     //  sends data to the server on keypress enter
     messageInput.addEventListener('keypress', (e) => {
-        if (e.keyCode == '13' && firebase.auth().currentUser && messageInput.value != '') {
+        if (e.keyCode == '13' && providerData && messageInput.value != '') {
             sendMessage();
         }
     });
     loginGithubButton.addEventListener('click', e => {
-        if (!firebase.auth().currentUser) {
+        if (!providerData) {
             githubLogin();
         }
         else {
             githubSignout();
-            loginButton();
         }
     });
     //  update when changes occur
     db().ref('/messages').limitToLast(50).on('value', (s) => {
         let data = s.val();
-        if (firebase.auth().currentUser) {
-            loginGithubButton.innerHTML = `<img src=${firebase.auth().currentUser.providerData[0].photoURL}> logout`
-            usernameInput.value = firebase.auth().currentUser.providerData[0].displayName || firebase.auth().currentUser.providerData[0].email
+        if (providerData) {
+            usernameInput.value = providerData.displayName || providerData.email;
+            loginGithubButton.innerHTML = `<img src=${providerData.photoURL}> logout`
+        }
+        else {
+            usernameInput.value = `please log in`
+            loginGithubButton.innerHTML = `<i class="fa fa-github" aria-hidden="true"></i> login`;
         }
         displayMessage(data);
     });
-//    firebase.auth().onAuthStateChanged(function (user) {
-//        // Once authenticated, instantiate Firechat with the logged in user
-//        if (!user) {
-//            
-//        }
-//    });
+    //    firebase.auth().onAuthStateChanged(function (user) {
+    //        // Once authenticated, instantiate Firechat with the logged in user
+    //        if (!user) {
+    //            
+    //        }
+    //    });
     /****************************************
     ----FUNCTIONS---------------------------
     ****************************************/
@@ -130,9 +134,5 @@ window.addEventListener('load', () => {
         }, function (error) {
             console.log(`Sign out didn't go as planned: ${error}`);
         });
-    }
-    
-    function loginButton () {
-        return loginGithubButton.innerHTML = `<i class="fa fa-github" aria-hidden="true"></i> login`;
     }
 });
