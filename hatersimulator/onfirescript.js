@@ -34,7 +34,7 @@ window.addEventListener('load', () => {
     ----INIT FOR FIREBASE (always run first)
     ****************************************/
     firebase.initializeApp(configFirebase);
-    let currentUser = firebase.auth().currentUser;
+    let currentUser;
 
     /****************************************
     ----EVENT LISTENER----------------------
@@ -61,6 +61,7 @@ window.addEventListener('load', () => {
     //  update when changes occur and onload
     db().ref('/messages').limitToLast(50).on('value', (s) => {
         let data = s.val();
+        firebase.auth().currentUser;
         console.log(currentUser);
         if (currentUser) {
             usernameInput.value = currentUser.displayName || currentUser.email;
