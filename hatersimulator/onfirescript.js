@@ -105,7 +105,8 @@ window.addEventListener('load', () => {
     ----SIGN IN/OUT WITH GITHUB ACCOUNT------
     ****************************************/
     function githubLogin() {
-        const provider = new firebase.auth.GithubAuthProvider();
+//        const provider = new firebase.auth.GithubAuthProvider();
+        const provider = new firebase.auth.FacebookAuthProvider();
         firebase.auth().signInWithRedirect(provider);
     }
     firebase.auth().getRedirectResult().then(function (result) {
