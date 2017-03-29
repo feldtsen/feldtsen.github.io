@@ -61,6 +61,7 @@ window.addEventListener('load', () => {
     //  update when changes occur and onload
     db().ref('/messages').limitToLast(50).on('value', (s) => {
         let data = s.val();
+        console.log(currentUser);
         if (currentUser) {
             usernameInput.value = currentUser.displayName || currentUser.email;
             loginGithubButton.innerHTML = `<img src=${currentUser.photoURL}> logout`
