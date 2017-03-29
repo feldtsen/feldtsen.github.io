@@ -103,23 +103,23 @@ window.addEventListener('load', () => {
     function githubLogin() {
         const provider = new firebase.auth.GithubAuthProvider();
         firebase.auth().signInWithRedirect(provider);
-        firebase.auth().getRedirectResult().then(function (result) {
-            let user = result.user;
-            console.log(`redirect result`);
-            console.log(user);
-        }).catch(function (error) {
-            console.log(`Inside catch`);
-            // Handle Errors here.
-            let errorCode = error.code;
-            let errorMessage = error.message;
-            // The email of the user's account used.
-            let email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            let credential = error.credential;
-            // ...
-            console.log(`Error code: ${errorCode}, error message: ${errorMessage}, email: ${email}, credential: ${credential}`);
-        });
     }
+    firebase.auth().getRedirectResult().then(function (result) {
+        let user = result.user;
+        console.log(`redirect result`);
+        console.log(user);
+    }).catch(function (error) {
+        console.log(`Inside catch`);
+        // Handle Errors here.
+        let errorCode = error.code;
+        let errorMessage = error.message;
+        // The email of the user's account used.
+        let email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        let credential = error.credential;
+        // ...
+        console.log(`Error code: ${errorCode}, error message: ${errorMessage}, email: ${email}, credential: ${credential}`);
+    });
 
     function githubSignout() {
         firebase.auth().signOut().then(function () {
