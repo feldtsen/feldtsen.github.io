@@ -34,7 +34,6 @@ window.addEventListener('load', () => {
     ----INIT FOR FIREBASE (always run first)
     ****************************************/
     firebase.initializeApp(configFirebase);
-
     /****************************************
     ----EVENT LISTENER----------------------
     ****************************************/
@@ -60,8 +59,10 @@ window.addEventListener('load', () => {
     //  update when changes occur and onload
     db().ref('/messages').limitToLast(50).on('value', (s) => {
         let data = s.val();
-        console.log(firebase.auth().currentUser);
-        if (firebase.auth().currentUser) {
+        displayMessage(data);
+    });
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
             usernameInput.value = firebase.auth().currentUser.providerData[0].displayName || firebase.auth().currentUser.providerData[0].email;
             loginGithubButton.innerHTML = `<img src=${firebase.auth().currentUser.providerData[0].photoURL}> logout`
         }
@@ -69,14 +70,7 @@ window.addEventListener('load', () => {
             usernameInput.value = `please log in`
             loginGithubButton.innerHTML = `<i class="fa fa-github" aria-hidden="true"></i> login`;
         }
-        displayMessage(data);
     });
-    //    firebase.auth().onAuthStateChanged(function (user) {
-    //        // Once authenticated, instantiate Firechat with the logged in user
-    //        if (!user) {
-    //            
-    //        }
-    //    });
     /****************************************
     ----FUNCTIONS---------------------------
     ****************************************/
