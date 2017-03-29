@@ -25,7 +25,6 @@ window.addEventListener('load', () => {
                 text: message
             })
         }
-        , providerData = firebase.auth().currentUser.providerData[0]
         , btnSend = document.getElementById('btnSend')
         , messageInput = document.getElementById('messageInput')
         , usernameInput = document.getElementById('usernameInput')
@@ -35,6 +34,8 @@ window.addEventListener('load', () => {
     ----INIT FOR FIREBASE (always run first)
     ****************************************/
     firebase.initializeApp(configFirebase);
+    let providerData = firebase.auth().currentUser.providerData[0];
+
     /****************************************
     ----EVENT LISTENER----------------------
     ****************************************/
