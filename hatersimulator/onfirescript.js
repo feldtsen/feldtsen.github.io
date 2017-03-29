@@ -60,7 +60,7 @@ window.addEventListener('load', () => {
     db().ref('/messages').limitToLast(50).on('value', (s) => {
         let data = s.val();
         if (firebase.auth().currentUser) {
-            loginGithubButton.innerHTML = `<img src="${firebase.auth().currentUser.providerData[0].photoURL}"> logout`
+            loginGithubButton.innerHTML = `<img src=${firebase.auth().currentUser.providerData[0].photoURL}> logout`
             usernameInput.value = firebase.auth().currentUser.providerData[0].displayName || firebase.auth().currentUser.providerData[0].email
         } else {
             loginGithubButton.innerHTML = `<i class="fa fa-github" aria-hidden="true"></i> login`;
