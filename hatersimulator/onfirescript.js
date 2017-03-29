@@ -60,7 +60,7 @@ window.addEventListener('load', () => {
     db().ref('/messages').limitToLast(50).on('value', (s) => {
         let data = s.val();
         if (firebase.auth().currentUser) {
-            usernameInput.value = firebase.auth().currentUser.proverData[0].displayName || firebase.auth().currentUser.proverData[0].email
+            usernameInput.value = firebase.auth().currentUser.providerData[0].displayName || firebase.auth().currentUser.providerData[0].email
         }
         displayMessage(data);
     });
