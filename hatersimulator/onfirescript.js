@@ -61,13 +61,12 @@ window.addEventListener('load', () => {
         let data = s.val();
         displayMessage(data);
     });
-    firebase.auth().onAuthStateChanged(function (user) {
-        // Once authenticated, instantiate Firechat with the logged in user
-        if (user) {
-            console.log(user);
-            routes.users(user);
-        }
-    });
+    //    firebase.auth().onAuthStateChanged(function (user) {
+    //        // Once authenticated, instantiate Firechat with the logged in user
+    //        if (user) {
+    //            console.log(user);
+    //        }
+    //    });
     /****************************************
     ----FUNCTIONS---------------------------
     ****************************************/
@@ -106,8 +105,10 @@ window.addEventListener('load', () => {
     }
     firebase.auth().getRedirectResult().then(function (result) {
         let user = result.user;
-        console.log(`redirect result`);
         console.log(user);
+        if (user) {
+            routes.users(user);
+        }
     }).catch(function (error) {
         console.log(`Inside catch`);
         // Handle Errors here.
