@@ -125,11 +125,6 @@ div::-webkit-scrollbar-thumb {
 
 #loginButton > img {
     height: 1.5em;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 3em;
-    margin: auto;
 }
 
 #intro {

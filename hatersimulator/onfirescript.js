@@ -32,10 +32,7 @@ window.addEventListener('load', () => {
         , loginButton = document.getElementById('loginButton')
         , popup = document.getElementsByClassName('popup')[0]
         , exitPopup = document.getElementsByClassName('exit')[0]
-        , socials = document.querySelectorAll('.popup > li')
-        , facebook = false
-        , github = false
-        , twitter = false;
+        , socials = document.querySelectorAll('.popup > li');
     /****************************************
     ----INIT FOR FIREBASE (always run first)
     ****************************************/
@@ -61,16 +58,13 @@ window.addEventListener('load', () => {
         socials[i].addEventListener('click', e => {
             if (i == 2) userLogin(new firebase.auth.GithubAuthProvider());
             else if (i == 3) userLogin(new firebase.auth.FacebookAuthProvider());
-            else if (i == 4)userLogin(new firebase.auth.TwitterAuthProvider());
+            else if (i == 4) userLogin(new firebase.auth.TwitterAuthProvider());
         });
     }
     loginButton.addEventListener('click', e => {
-        //        if (!firebase.auth().currentUser) {
-        //            githubLogin();
-        //        }
-        //        else {
-        //            githubSignout();
-        //        }
+        if (firebase.auth().currentUser) {
+            githubSignout();
+        }
         popup.classList.add('popupActive')
     });
     //  update when changes occur and onload
@@ -81,7 +75,7 @@ window.addEventListener('load', () => {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             usernameInput.value = firebase.auth().currentUser.providerData[0].displayName || firebase.auth().currentUser.providerData[0].email;
-            loginButton.innerHTML = `<img src=${firebase.auth().currentUser.providerData[0].photoURL}> logout`;
+            loginButton.innerHTML = `logout <img src=${firebase.auth().currentUser.providerData[0].photoURL}>`;
         }
         else {
             usernameInput.value = `please log in`;
@@ -122,9 +116,7 @@ window.addEventListener('load', () => {
     ----SIGN IN/OUT WITH GITHUB ACCOUNT------
     ****************************************/
     function userLogin(provider) {
-        twitter = false;
-        facebook = false;
-        github = false;
+        popup.classList.remove('popupActive');
         firebase.auth().signInWithRedirect(provider);
     }
     firebase.auth().getRedirectResult().then(function (result) {
