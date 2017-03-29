@@ -14,7 +14,7 @@ window.addEventListener('load', () => {
                 , date: date
                 , timestamp: timestamp
             })
-            , users: (user) => db().ref('users/' + user.providerData[0].uid).set({
+            , users: (user) => db().ref('users/' + user.uid).set({
                 email: user.providerData[0].email
                 , name: user.providerData[0].displayName
                 , uid: user.providerData[0].uid
