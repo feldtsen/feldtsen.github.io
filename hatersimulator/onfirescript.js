@@ -34,7 +34,7 @@ window.addEventListener('load', () => {
     ----INIT FOR FIREBASE (always run first)
     ****************************************/
     firebase.initializeApp(configFirebase);
-    let providerData = ()=> firebase.auth().currentUser.providerData[0];
+    let firebase.auth().currentUser;
 
     /****************************************
     ----EVENT LISTENER----------------------
