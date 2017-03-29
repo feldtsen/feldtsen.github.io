@@ -85,7 +85,7 @@ div::-webkit-scrollbar-thumb {
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 2em;
+    right: 3em;
     margin: auto;
 }
 
