@@ -78,6 +78,10 @@ div::-webkit-scrollbar-thumb {
     color: #D75813;
 }
 
+ #loginGithubButton > img {
+        height: 2em;
+    }
+
 #intro {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -214,9 +218,7 @@ div::-webkit-scrollbar-thumb {
     #loginGithubButton {
         line-height: 3.2em;
     }
-    #loginGithubButton > img {
-        height: 2em;
-    }
+   
     #displayMessages > li {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
