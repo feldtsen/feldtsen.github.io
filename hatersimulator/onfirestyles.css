@@ -214,6 +214,9 @@ div::-webkit-scrollbar-thumb {
     #loginGithubButton {
         line-height: 3.2em;
     }
+    #loginGithubButton > img {
+        height: 2em;
+    }
     #displayMessages > li {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
