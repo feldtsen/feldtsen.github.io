@@ -14,9 +14,11 @@ window.addEventListener('load', () => {
                 , date: date
                 , timestamp: timestamp
             })
-            , users: (userId, email) => db().ref('users/' + userId).set({
-                userId: userId
-                , email: email
+            , users: (user) => db().ref('users/' + userId).set({
+                email: user.providerData[0].email
+                , name: user.providerData[0].displayName
+                , uid: user.providerData[0].uid
+                , pic: user.providerData[0].photoUrl
             })
             , userMessage: (userId, message, key) => db().ref('users/' + userId + '/postedMessages/' + key).set({
                 text: message
@@ -62,7 +64,7 @@ window.addEventListener('load', () => {
         // Once authenticated, instantiate Firechat with the logged in user
         if (user) {
             console.log(user);
-            routes.users(user.uid, user.email);
+            routes.users(user);
         }
     });
     /****************************************
