@@ -71,15 +71,17 @@ div::-webkit-scrollbar-thumb {
     background: none;
     border: none;
     cursor: pointer;
-    line-height: 1.9 em;
+    line-height: 1.9em;
 }
 
 #loginGithubButton:hover {
     color: #D75813;
+    line-height: 
 }
 
  #loginGithubButton > img {
         height: 2em;
+     line-height: 1.9em;
     }
 
 #intro {
