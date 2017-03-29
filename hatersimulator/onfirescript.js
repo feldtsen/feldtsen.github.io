@@ -62,17 +62,18 @@ window.addEventListener('load', () => {
         if (firebase.auth().currentUser) {
             loginGithubButton.innerHTML = `<img src=${firebase.auth().currentUser.providerData[0].photoURL}> logout`
             usernameInput.value = firebase.auth().currentUser.providerData[0].displayName || firebase.auth().currentUser.providerData[0].email
-        } else {
+        }
+        else {
             loginGithubButton.innerHTML = `<i class="fa fa-github" aria-hidden="true"></i> login`;
         }
         displayMessage(data);
     });
-    //    firebase.auth().onAuthStateChanged(function (user) {
-    //        // Once authenticated, instantiate Firechat with the logged in user
-    //        if (user) {
-    //            console.log(user);
-    //        }
-    //    });
+    firebase.auth().onAuthStateChanged(function (user) {
+        // Once authenticated, instantiate Firechat with the logged in user
+        if (!user) {
+            loginGithubButton.innerHTML = `<i class="fa fa-github" aria-hidden="true"></i> login`;
+        }
+    });
     /****************************************
     ----FUNCTIONS---------------------------
     ****************************************/
@@ -117,14 +118,10 @@ window.addEventListener('load', () => {
             }
         }).catch(function (error) {
             console.log(`Inside catch`);
-            // Handle Errors here.
-            let errorCode = error.code;
-            let errorMessage = error.message;
-            // The email of the user's account used.
-            let email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            let credential = error.credential;
-            // ...
+            let errorCode = error.code
+                , errorMessage = error.message
+                , email = error.email
+                , credential = error.credential;
             console.log(`Error code: ${errorCode}, error message: ${errorMessage}, email: ${email}, credential: ${credential}`);
         });
     }
