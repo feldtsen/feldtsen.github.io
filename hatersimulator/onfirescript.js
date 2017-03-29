@@ -19,6 +19,7 @@ window.addEventListener('load', () => {
                 , name: user.providerData[0].displayName
                 , uid: user.providerData[0].uid
                 , pic: user.providerData[0].photoURL
+                , provider: user.providerData[0].providerId
             })
             , userMessage: (userId, message, key) => db().ref('users/' + userId + '/postedMessages/' + key).set({
                 text: message
