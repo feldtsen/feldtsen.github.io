@@ -81,7 +81,7 @@ window.addEventListener('load', () => {
             , time = new Date()
             , date = `${time.getHours()}:${time.getMinutes()} - ${time.getDate()}/${time.getMonth()+1}/${time.getFullYear()}`
             , newMessage = routes.messages(username, message, date, time.getTime())
-            , user = routes.userMessage(userId, message, newMessage.key);
+            , userMessage = routes.userMessage(userId, message, newMessage.key);
         messageInput.value = '';
     }
 
@@ -107,21 +107,21 @@ window.addEventListener('load', () => {
     function githubLogin() {
         const provider = new firebase.auth.GithubAuthProvider();
         firebase.auth().signInWithRedirect(provider);
-        firebase.auth().getRedirectResult().then(function (result) {
-            let user = result.user;
-            console.log(user);
-            if (user) {
-                routes.users(user);
-            }
-        }).catch(function (error) {
-            console.log(`Inside catch`);
-            let errorCode = error.code
-                , errorMessage = error.message
-                , email = error.email
-                , credential = error.credential;
-            console.log(`Error code: ${errorCode}, error message: ${errorMessage}, email: ${email}, credential: ${credential}`);
-        });
     }
+    firebase.auth().getRedirectResult().then(function (result) {
+        let user = result.user;
+        console.log(user);
+        if (user) {
+            routes.users(user);
+        }
+    }).catch(function (error) {
+        console.log(`Inside catch`);
+        let errorCode = error.code
+            , errorMessage = error.message
+            , email = error.email
+            , credential = error.credential;
+        console.log(`Error code: ${errorCode}, error message: ${errorMessage}, email: ${email}, credential: ${credential}`);
+    });
 
     function githubSignout() {
         firebase.auth().signOut().then(function () {
