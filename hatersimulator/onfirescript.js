@@ -8,8 +8,8 @@ window.addEventListener('load', () => {
         }
         , db = firebase.database
         , routes = {
-            messages: (userId, message, date, timestamp, key) => db().ref('messages/').push({
-                userId: userId
+            messages: (username, message, date, timestamp, key) => db().ref('messages/').push({
+                name: username
                 , message: message
                 , date: date
                 , timestamp: timestamp
@@ -39,12 +39,12 @@ window.addEventListener('load', () => {
     ****************************************/
     //  sends data to the server on button click
     btnSend.addEventListener('click', (e) => {
-        if (usernameInput.value != '' && messageInput.value != '') sendMessage();
+        if (firebase.auth().currentUser && messageInput.value != '') sendMessage();
         else console.log('Enter username and/or message');
     });
     //  sends data to the server on keypress enter
     messageInput.addEventListener('keypress', (e) => {
-        if (e.keyCode == '13' && usernameInput.value != '' && messageInput.value != '') {
+        if (e.keyCode == '13' && firebase.auth().currentUser && messageInput.value != '') {
             sendMessage();
         }
     });
@@ -59,6 +59,9 @@ window.addEventListener('load', () => {
     //  update when changes occur
     db().ref('/messages').limitToLast(50).on('value', (s) => {
         let data = s.val();
+        if (firebase.auth().currentUser) {
+            usernameInput.value = firebase.auth().currentUser.proverData[0].displayName || firebase.auth().currentUser.proverData[0].email
+        }
         displayMessage(data);
     });
     //    firebase.auth().onAuthStateChanged(function (user) {
@@ -72,10 +75,11 @@ window.addEventListener('load', () => {
     ****************************************/
     function sendMessage() {
         let message = messageInput.value
-            , userId = usernameInput.value
+            , userId = firebase.auth().uid
+            , username = firebase.auth().currentUser.providerData[0].displayName || firebase.auth().currentUser.providerData[0].email
             , time = new Date()
             , date = `${time.getHours()}:${time.getMinutes()} - ${time.getDate()}/${time.getMonth()+1}/${time.getFullYear()}`
-            , newMessage = routes.messages(userId, message, date, time.getTime())
+            , newMessage = routes.messages(username, message, date, time.getTime())
             , user = routes.userMessage(userId, message, newMessage.key);
         messageInput.value = '';
     }
@@ -84,7 +88,7 @@ window.addEventListener('load', () => {
         displayMessages.innerHTML = '';
         let messageArray = [];
         for (let message in messages) {
-            messageArray.push(`<span class="postUser">${messages[message].userId}</span> 
+            messageArray.push(`<span class="postUser">${messages[message].name}</span> 
             <span class="postMessage">${messages[message].message}
             <span class="likeButton"><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
             <span class="dislikeButton"><i class="fa fa-thumbs-down" aria-hidden="true"></i></span>
@@ -108,6 +112,7 @@ window.addEventListener('load', () => {
         console.log(user);
         if (user) {
             routes.users(user);
+            usernameInput.value = user.proverData[0].displayName || user.proverData[0].email
         }
     }).catch(function (error) {
         console.log(`Inside catch`);
