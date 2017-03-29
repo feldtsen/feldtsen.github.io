@@ -34,7 +34,6 @@ window.addEventListener('load', () => {
     ----INIT FOR FIREBASE (always run first)
     ****************************************/
     firebase.initializeApp(configFirebase);
-    let currentUser;
 
     /****************************************
     ----EVENT LISTENER----------------------
@@ -46,12 +45,12 @@ window.addEventListener('load', () => {
     });
     //  sends data to the server on keypress enter
     messageInput.addEventListener('keypress', (e) => {
-        if (e.keyCode == '13' && currentUser && messageInput.value != '') {
+        if (e.keyCode == '13' && firebase.auth().currentUser && messageInput.value != '') {
             sendMessage();
         }
     });
     loginGithubButton.addEventListener('click', e => {
-        if (!currentUser) {
+        if (!firebase.auth().currentUser) {
             githubLogin();
         }
         else {
@@ -61,11 +60,10 @@ window.addEventListener('load', () => {
     //  update when changes occur and onload
     db().ref('/messages').limitToLast(50).on('value', (s) => {
         let data = s.val();
-        currentUser = firebase.auth().currentUser;
-        console.log(currentUser);
-        if (currentUser) {
-            usernameInput.value = currentUser.displayName || currentUser.email;
-            loginGithubButton.innerHTML = `<img src=${currentUser.photoURL}> logout`
+        console.log(firebase.auth().currentUser);
+        if (firebase.auth().currentUser) {
+            usernameInput.value = firebase.auth().currentUser.providerData[0].displayName || firebase.auth().currentUser.providerData[0].email;
+            loginGithubButton.innerHTML = `<img src=${firebase.auth().currentUser.providerData[0]..photoURL}> logout`
         }
         else {
             usernameInput.value = `please log in`
@@ -85,7 +83,7 @@ window.addEventListener('load', () => {
     function sendMessage() {
         let message = messageInput.value
             , userId = firebase.auth().currentUser.uid
-            , username = firebase.auth().currentUser.currentUser[0].displayName || firebase.auth().currentUser.currentUser[0].email
+            , username = firebase.auth().currentUser.providerData[0].displayName || firebase.auth().currentUser.providerData[0].email
             , time = new Date()
             , date = `${time.getHours()}:${time.getMinutes()} - ${time.getDate()}/${time.getMonth()+1}/${time.getFullYear()}`
             , newMessage = routes.messages(username, message, date, time.getTime())
