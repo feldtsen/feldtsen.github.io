@@ -75,7 +75,7 @@ window.addEventListener('load', () => {
     ****************************************/
     function sendMessage() {
         let message = messageInput.value
-            , userId = firebase.auth().uid
+            , userId = firebase.auth().currentUser.uid
             , username = firebase.auth().currentUser.providerData[0].displayName || firebase.auth().currentUser.providerData[0].email
             , time = new Date()
             , date = `${time.getHours()}:${time.getMinutes()} - ${time.getDate()}/${time.getMonth()+1}/${time.getFullYear()}`
