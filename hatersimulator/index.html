@@ -10,11 +10,19 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> </head>
 
 <body>
+    <ul class="popup">
+        <li>Log in with one of the following providers</li>
+        <li class="exit"><i class="fa fa-times-circle" aria-hidden="true"></i> </li>
+        <li><i class="fa fa-github" aria-hidden="true"></i> Github</li>
+        <li><i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook</li>
+        <li><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</li>
+    </ul>
     <div id="intro">
-        <button id="loginGithubButton"></button>
-        <h1>Hatersimulator</h1> </div>
+        <h1>Chatnip</h1>
+        <button id="loginButton"></button>
+    </div>
     <div id="inputControllers">
-        <input type="text" id="usernameInput"  disabled>
+        <input type="text" id="usernameInput" disabled>
         <input type="text" id="messageInput" placeholder="message">
         <input type="submit" id="btnSend" value="Send"> </div>
     <div id="messageContainer">
@@ -23,4 +31,5 @@
     <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
     <script src="onfirescript.js"></script>
 </body>
+
 </html>

@@ -28,8 +28,14 @@ window.addEventListener('load', () => {
         , btnSend = document.getElementById('btnSend')
         , messageInput = document.getElementById('messageInput')
         , usernameInput = document.getElementById('usernameInput')
-        , loginGithubButton = document.getElementById('loginGithubButton')
-        , displayMessages = document.getElementById('displayMessages');
+        , displayMessages = document.getElementById('displayMessages')
+        , loginButton = document.getElementById('loginButton')
+        , popup = document.getElementsByClassName('popup')[0]
+        , exitPopup = document.getElementsByClassName('exit')[0]
+        , socials = document.querySelectorAll('.popup > li')
+        , facebook = false
+        , github = false
+        , twitter = false;
     /****************************************
     ----INIT FOR FIREBASE (always run first)
     ****************************************/
@@ -48,13 +54,24 @@ window.addEventListener('load', () => {
             sendMessage();
         }
     });
-    loginGithubButton.addEventListener('click', e => {
-        if (!firebase.auth().currentUser) {
-            githubLogin();
-        }
-        else {
-            githubSignout();
-        }
+    exitPopup.addEventListener('click', e => {
+        popup.classList.remove('popupActive');
+    });
+    for (let i = 0; i < socials.length; i++) {
+        socials[i].addEventListener('click', e => {
+            if (i == 2) userLogin(new firebase.auth.GithubAuthProvider());
+            else if (i == 3) userLogin(new firebase.auth.FacebookAuthProvider());
+            else if (i == 4)userLogin(new firebase.auth.TwitterAuthProvider());
+        });
+    }
+    loginButton.addEventListener('click', e => {
+        //        if (!firebase.auth().currentUser) {
+        //            githubLogin();
+        //        }
+        //        else {
+        //            githubSignout();
+        //        }
+        popup.classList.add('popupActive')
     });
     //  update when changes occur and onload
     db().ref('/messages').limitToLast(50).on('value', (s) => {
@@ -64,11 +81,11 @@ window.addEventListener('load', () => {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             usernameInput.value = firebase.auth().currentUser.providerData[0].displayName || firebase.auth().currentUser.providerData[0].email;
-            loginGithubButton.innerHTML = `<img src=${firebase.auth().currentUser.providerData[0].photoURL}> logout`
+            loginButton.innerHTML = `<img src=${firebase.auth().currentUser.providerData[0].photoURL}> logout`;
         }
         else {
-            usernameInput.value = `please log in`
-            loginGithubButton.innerHTML = `<i class="fa fa-github" aria-hidden="true"></i> login`;
+            usernameInput.value = `please log in`;
+            loginButton.innerHTML = `login `;
         }
     });
     /****************************************
@@ -104,9 +121,10 @@ window.addEventListener('load', () => {
     /****************************************
     ----SIGN IN/OUT WITH GITHUB ACCOUNT------
     ****************************************/
-    function githubLogin() {
-//        const provider = new firebase.auth.GithubAuthProvider();
-        const provider = new firebase.auth.FacebookAuthProvider();
+    function userLogin(provider) {
+        twitter = false;
+        facebook = false;
+        github = false;
         firebase.auth().signInWithRedirect(provider);
     }
     firebase.auth().getRedirectResult().then(function (result) {
