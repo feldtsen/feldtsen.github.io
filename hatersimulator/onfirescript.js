@@ -58,7 +58,7 @@ window.addEventListener('load', () => {
             githubSignout();
         }
     });
-    //  update when changes occur
+    //  update when changes occur and onload
     db().ref('/messages').limitToLast(50).on('value', (s) => {
         let data = s.val();
         if (currentUser) {
