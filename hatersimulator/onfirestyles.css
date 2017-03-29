@@ -153,7 +153,6 @@ div::-webkit-scrollbar-thumb {
     outline: none;
     padding: 0.2em;
     background-color: rgb(40, 40, 40);
-    font-family: 'VT323', monospace;
     font-size: 1.4em;
     color: white;
 }

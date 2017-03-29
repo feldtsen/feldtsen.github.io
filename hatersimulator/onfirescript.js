@@ -75,7 +75,7 @@ window.addEventListener('load', () => {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             usernameInput.value = firebase.auth().currentUser.providerData[0].displayName || firebase.auth().currentUser.providerData[0].email;
-            loginButton.innerHTML = `logout <img src=${firebase.auth().currentUser.providerData[0].photoURL}>`;
+            loginButton.innerHTML = `<img src=${firebase.auth().currentUser.providerData[0].photoURL}> logout`;
         }
         else {
             usernameInput.value = `please log in`;
