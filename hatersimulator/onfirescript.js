@@ -50,13 +50,7 @@ window.addEventListener('load', () => {
     });
     loginGithubButton.addEventListener('click', e => {
         if (!firebase.auth().currentUser) {
-            let login = new Promise((res, rej) => {
-                res(githubLogin());
-            });
-            
-            login.then(()=>{
-                console.log('logged in');
-            })
+            githubLogin();
         }
         else {
             githubSignout();
