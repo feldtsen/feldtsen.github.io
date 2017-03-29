@@ -1,12 +1,6 @@
 window.addEventListener('load', () => {
-    let configFirebase = {
-            apiKey: "AIzaSyA0-UW8lNLaBJbM5Uo1kKOOT2MITAqyV6I"
-            , authDomain: "fir-chat-5ec52.firebaseapp.com"
-            , databaseURL: "https://fir-chat-5ec52.firebaseio.com"
-            , storageBucket: "fir-chat-5ec52.appspot.com"
-            , messagingSenderId: "582101038579"
-        }
-        , db = firebase.database
+   
+        let db = firebase.database
         , routes = {
             messages: (username, message, date, timestamp, key) => db().ref('messages/').push({
                 name: username
@@ -33,7 +27,7 @@ window.addEventListener('load', () => {
     /****************************************
     ----INIT FOR FIREBASE (always run first)
     ****************************************/
-    firebase.initializeApp(configFirebase);
+     
     /****************************************
     ----EVENT LISTENER----------------------
     ****************************************/
