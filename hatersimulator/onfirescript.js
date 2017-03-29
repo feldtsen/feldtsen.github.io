@@ -60,7 +60,10 @@ window.addEventListener('load', () => {
     db().ref('/messages').limitToLast(50).on('value', (s) => {
         let data = s.val();
         if (firebase.auth().currentUser) {
+            loginGithubButton.innerHTML = `${firebase.auth().currentUser.providerData[0].photoURL} logout`
             usernameInput.value = firebase.auth().currentUser.providerData[0].displayName || firebase.auth().currentUser.providerData[0].email
+        } else {
+            loginGithubButton.innerHTML = `<i class="fa fa-github" aria-hidden="true"></i> login`;
         }
         displayMessage(data);
     });
@@ -111,7 +114,6 @@ window.addEventListener('load', () => {
             console.log(user);
             if (user) {
                 routes.users(user);
-                usernameInput.value = user.proverData[0].displayName || user.proverData[0].email
             }
         }).catch(function (error) {
             console.log(`Inside catch`);
