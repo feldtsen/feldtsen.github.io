@@ -54,6 +54,7 @@ window.addEventListener('load', () => {
         }
         else {
             githubSignout();
+            loginButton();
         }
     });
     //  update when changes occur
@@ -63,17 +64,14 @@ window.addEventListener('load', () => {
             loginGithubButton.innerHTML = `<img src=${firebase.auth().currentUser.providerData[0].photoURL}> logout`
             usernameInput.value = firebase.auth().currentUser.providerData[0].displayName || firebase.auth().currentUser.providerData[0].email
         }
-        else {
-            loginGithubButton.innerHTML = `<i class="fa fa-github" aria-hidden="true"></i> login`;
-        }
         displayMessage(data);
     });
-    firebase.auth().onAuthStateChanged(function (user) {
-        // Once authenticated, instantiate Firechat with the logged in user
-        if (!user) {
-            loginGithubButton.innerHTML = `<i class="fa fa-github" aria-hidden="true"></i> login`;
-        }
-    });
+//    firebase.auth().onAuthStateChanged(function (user) {
+//        // Once authenticated, instantiate Firechat with the logged in user
+//        if (!user) {
+//            
+//        }
+//    });
     /****************************************
     ----FUNCTIONS---------------------------
     ****************************************/
@@ -132,5 +130,9 @@ window.addEventListener('load', () => {
         }, function (error) {
             console.log(`Sign out didn't go as planned: ${error}`);
         });
+    }
+    
+    function loginButton () {
+        return loginGithubButton.innerHTML = `<i class="fa fa-github" aria-hidden="true"></i> login`;
     }
 });
