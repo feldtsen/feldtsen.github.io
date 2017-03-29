@@ -61,7 +61,7 @@ window.addEventListener('load', () => {
     //  update when changes occur and onload
     db().ref('/messages').limitToLast(50).on('value', (s) => {
         let data = s.val();
-        firebase.auth().currentUser;
+        currentUser = firebase.auth().currentUser;
         console.log(currentUser);
         if (currentUser) {
             usernameInput.value = currentUser.displayName || currentUser.email;
