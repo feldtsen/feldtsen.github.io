@@ -48,6 +48,9 @@ body::-webkit-scrollbar,
 div::-webkit-scrollbar {
     width: 0.7em;
 }
+.postUser::-webkit-scrollbar {
+ display: none;   
+}
 
 body::-webkit-scrollbar-scrollbar-track,
 div::-webkit-scrollbar-track {
@@ -68,14 +71,20 @@ div::-webkit-scrollbar-thumb {
     background: none;
     border: none;
     cursor: pointer;
-    line-height: 1.9    em;
+    line-height: 1.9 em;
 }
 
 #loginGithubButton:hover {
     color: #D75813;
 }
+
 #intro {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
     margin-bottom: 0.8em;
 }
@@ -87,7 +96,12 @@ div::-webkit-scrollbar-thumb {
 }
 
 #inputControllers {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 
@@ -106,14 +120,20 @@ div::-webkit-scrollbar-thumb {
 }
 
 #inputControllers > input:nth-of-type(1) {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
 }
 
 #inputControllers > input:nth-of-type(2) {
+    -webkit-box-flex: 5;
+    -ms-flex: 5;
     flex: 5;
 }
 
 #inputControllers > input:nth-of-type(3) {
+    -webkit-box-flex: 2;
+    -ms-flex: 2;
     flex: 2;
 }
 
@@ -125,27 +145,44 @@ div::-webkit-scrollbar-thumb {
 }
 
 #displayMessages > li {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     margin: 1em 0.5em 1em 0.5em;
     border-bottom: 0.1em solid #586073;
 }
 
 #displayMessages > li > span:nth-of-type(1) {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
 }
 
 #displayMessages > li > span:nth-of-type(2) {
+    -webkit-box-flex: 5;
+    -ms-flex: 5;
     flex: 5;
 }
 
 #displayMessages > li > span:nth-of-type(3) {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
 }
-.likeButton, .dislikeButton, #btnSend {
+
+.likeButton,
+.dislikeButton,
+#btnSend {
     cursor: pointer;
 }
-.likeButton, .dislikeButton, .reactions {
+
+.likeButton,
+.dislikeButton,
+.reactions {
     float: right;
     margin: 0.1em;
 }
@@ -171,14 +208,22 @@ div::-webkit-scrollbar-thumb {
     h1 {
         font-size: 4em;
     }
-    
-#loginGithubButton {
-    line-height: 3.2em;
-}
+    .postUser {
+        
+    }
+    #loginGithubButton {
+        line-height: 3.2em;
+    }
     #displayMessages > li {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
         flex-direction: row;
     }
     #inputControllers {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
         flex-direction: row;
     }
     #inputControllers > input {
