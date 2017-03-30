@@ -128,7 +128,7 @@ window.addEventListener('load', () => {
             <span class="postMessage">${messages[message].metadata.message}
             <span class="likeButton"><i class="fa fa-thumbs-up like" aria-hidden="true"></i></span>
             <span class="dislikeButton"><i class="fa fa-thumbs-down dislike" aria-hidden="true"></i></span>
-            <span class="reactions">${messages[message].metadata.reaction}</span></span> <span class="postDate">${messages[message].metadata.date}</span>`);
+            <span class="reactions">${messages[message].reactionStatus.reaction}</span></span> <span class="postDate">${messages[message].metadata.date}</span>`);
         }
         for (let i = messageArray.length - 1; i >= 0; i--) {
             let liMessage = document.createElement('li');
