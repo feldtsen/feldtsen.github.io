@@ -112,7 +112,8 @@ window.addEventListener('load', () => {
             , date = `${time.getHours()}:${time.getMinutes()} - ${time.getDate()}/${time.getMonth()+1}/${time.getFullYear()}`
             , newMessage = routes.messages()
             , messageMetadata = routes.messageMetadata(username(), message, date, time.getTime(), newMessage.key)
-            , updateReaction = routes.updateReaction(newMessage.key, 0) && routes.updateReactionStatus(false)
+            , updateReaction = routes.updateReaction(newMessage.key, 0)
+            , updateReactionStatus = routes.updateReactionStatus(false, newMessage.key)
             , userMessage = routes.userMessage(userId, message, newMessage.key);
         messageInput.value = '';
     }
