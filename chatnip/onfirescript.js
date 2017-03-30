@@ -168,10 +168,9 @@ window.addEventListener('load', () => {
         let like = document.getElementsByClassName('like')
             , dislike = document.getElementsByClassName('dislike');
         for (let i = 0; i < displayMessages.children.length; i++) {
-            let newReaction = data[messageKeys[i]].reactionStatus.reaction + 1
-                , status = `${data[messageKeys[i]].reactionStatus}.${firebase.auth().currentUser.uid}.reacted`;
-            console.log(status);
             like[i].addEventListener('click', e => {
+                let newReaction = data[messageKeys[i]].reactionStatus.reaction + 1
+                    , status = `${data[messageKeys[i]].reactionStatus}.${firebase.auth().currentUser.uid}.reacted`;
                 if (!status) {
                     routes.updateReaction(messageKeys[i], newReaction);
                 }
