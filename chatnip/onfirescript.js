@@ -22,7 +22,7 @@ window.addEventListener('load', () => {
                 , pic: user.providerData[0].photoURL
                 , provider: user.providerData[0].providerId
             })
-            , userMessage: (userId, message, key) => db().ref('users/' + userId + '/postedMessages/' + key).set({
+            , userMessage: (userId, message, key) => db().ref('users/' + userId + '/postedMessages/' + key).update({
                 text: message
             })
             , updateReaction: (key, number) => db().ref(`messages/${key}`).update({
