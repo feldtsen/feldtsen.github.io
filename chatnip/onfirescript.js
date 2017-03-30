@@ -22,7 +22,7 @@ window.addEventListener('load', () => {
                 , pic: user.providerData[0].photoURL
                 , provider: user.providerData[0].providerId
             })
-            , userMessage: (userId, message, key) => db().ref('users/' + userId + '/postedMessages/' + key).update({
+            , userMessage: (userId, message, key) => db().ref('users/' + userId + '/postedMessages/' + key).update  ({
                 text: message
             })
             , updateReaction: (key, number) => db().ref(`messages/${key}`).update({
@@ -134,16 +134,11 @@ window.addEventListener('load', () => {
     }
     firebase.auth().getRedirectResult().then(function (result) {
         let user = result.user;
-        console.log(user);
         if (user) {
             routes.users(user);
         }
     }).catch(function (error) {
-        console.log(`Inside catch`);
-        let errorCode = error.code
-            , errorMessage = error.message
-            , email = error.email
-            , credential = error.credential;
+        let errorCode = error.code, errorMessage = error.message, email = error.email, credential = error.credential;
         console.log(`Error code: ${errorCode}, error message: ${errorMessage}, email: ${email}, credential: ${credential}`);
     });
 
