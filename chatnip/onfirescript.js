@@ -16,7 +16,7 @@ window.addEventListener('load', () => {
                 , timestamp: timestamp
             })
             , users: (user) => db().ref('users/' + user.uid).update({
-                created: true
+                user: true
             })
             , userMetadata: (user) => db().ref('users/' + user.uid + '/metadata').update({
                 email: user.providerData[0].email
