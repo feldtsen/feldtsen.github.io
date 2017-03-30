@@ -171,7 +171,8 @@ window.addEventListener('load', () => {
         for (let i = 0; i < displayMessages.children.length; i++) {
             let newReaction = data[messageKeys[i]].reactionStatus.reaction + 1;
             like[i].addEventListener('click', e => {
-                if(data.reactionStatus + '.' +uid != true) {
+                console.log(data.reactionStatus + '.' + uid);
+                if(data.reactionStatus + '.' + uid != true) {
                 routes.updateReaction(messageKeys[i], newReaction);
                 routes.updateReactionStatus(true, messageKeys[i]);
                 }
