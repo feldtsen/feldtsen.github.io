@@ -166,20 +166,22 @@ window.addEventListener('load', () => {
 
     function likeDislikeButtons(data) {
         let like = document.getElementsByClassName('like')
-            , dislike = document.getElementsByClassName('dislike');
+            , dislike = document.getElementsByClassName('dislike')
+            , status = `${data[messageKeys[i]].reactionStatus}.${firebase.auth().currenUser.uid}.reacted`;
+        console.log(status);
         for (let i = 0; i < displayMessages.children.length; i++) {
             let newReaction = data[messageKeys[i]].reactionStatus.reaction + 1;
-            like[i].addEventListener('click', e => {
-                if (data[messageKeys[i]].reactionStatus + '.' + firebase.auth().currentUser.uid + '.' + 'reacted' != true) {
+            like[i].addEventListener('click', e =>
+                if (status) {
                     routes.updateReaction(messageKeys[i], newReaction);
                 }
                 routes.updateReactionStatus(true, messageKeys[i]);
             });
-            dislike[i].addEventListener('click', e => {
-                let newReaction = data[messageKeys[i]].reactionStatus.reaction - 1;
-                routes.updateReaction(messageKeys[i], newReaction);
-                routes.updateReactionStatus(true, messageKeys[i]);
-            });
-        }
+        dislike[i].addEventListener('click', e => {
+            let newReaction = data[messageKeys[i]].reactionStatus.reaction - 1;
+            routes.updateReaction(messageKeys[i], newReaction);
+            routes.updateReactionStatus(true, messageKeys[i]);
+        });
     }
+}
 });
