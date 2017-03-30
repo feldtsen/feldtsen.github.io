@@ -122,7 +122,7 @@ window.addEventListener('load', () => {
         for (let i = 0; i < likeButton.length; i++){
             likeButton[i].addEventListener('click', e=>{
                 db().ref(`/messages/-KgTj6tKIOk5489zBdgp`).update({
-                    reaction: Number(+1)
+                    reaction: Number(+2)
                 });
             });
         }
