@@ -108,14 +108,23 @@ window.addEventListener('load', () => {
         for (let message in messages) {
             messageArray.push(`<span class="postUser">${messages[message].name}</span> 
             <span class="postMessage">${messages[message].message}
-            <span class="likeButton"><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
-            <span class="dislikeButton"><i class="fa fa-thumbs-down" aria-hidden="true"></i></span>
+            <span class="likeButton"><i class="fa fa-thumbs-up likeButton" aria-hidden="true"></i></span>
+            <span class="dislikeButton"><i class="fa fa-thumbs-down dislikeButton" aria-hidden="true"></i></span>
             <span class="reactions">${messages[message].reaction}</span></span> <span class="postDate">${messages[message].date}</span>`);
         }
         for (let i = messageArray.length - 1; i >= 0; i--) {
             let liMessage = document.createElement('li');
             liMessage.innerHTML = `${messageArray[i]}`;
             displayMessages.appendChild(liMessage);
+        }
+        let likeButton = document.getElementsByClassName('likeButton'),
+            dislikeButton = document.getElementsByClassName('dislikeButton');
+        for (let i = 0; i < likeButton.length; i++){
+            likeButton[i].addEventListener('click', e=>{
+                db().ref(`/messages`).update({
+                    reaction: Number(+1)
+                });
+            });
         }
     }
     /****************************************
