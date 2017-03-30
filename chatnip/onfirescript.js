@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
         , db = firebase.database
         , routes = {
             messages: (username, message, date, timestamp) => db().ref('messages/').push()
-            , messageMetadata: (username, message, date, timestamp, key) => db().ref('messages' + key + '/metadata').update({
+            , messageMetadata: (username, message, date, timestamp, key) => db().ref('messages/' + key + '/metadata').update({
                 name: username
                 , message: message
                 , date: date
@@ -80,7 +80,7 @@ window.addEventListener('load', () => {
         popup.classList.add('popupActive')
     });
     //  update when changes occur and onload
-    db().ref('/messages').limitToLast(50).on('value', (s) => {
+    db().ref('/messages').limitToLast(50).on('value', s => {
         let data = s.val();
         console.log(data);
         messageKeys = [];
@@ -122,11 +122,11 @@ window.addEventListener('load', () => {
         let messageArray = [];
         for (let message in messages) {
             messageKeys.unshift(message);
-            messageArray.push(`<span class="postUser">${messages[message].name}</span> 
-            <span class="postMessage">${messages[message].message}
+            messageArray.push(`<span class="postUser">${messages[message].metadata.name}</span> 
+            <span class="postMessage">${messages[message].metadata.message}
             <span class="likeButton"><i class="fa fa-thumbs-up like" aria-hidden="true"></i></span>
             <span class="dislikeButton"><i class="fa fa-thumbs-down dislike" aria-hidden="true"></i></span>
-            <span class="reactions">${messages[message].reaction}</span></span> <span class="postDate">${messages[message].date}</span>`);
+            <span class="reactions">${messages[message].metadata.reaction}</span></span> <span class="postDate">${messages[message].metadata.date}</span>`);
         }
         for (let i = messageArray.length - 1; i >= 0; i--) {
             let liMessage = document.createElement('li');
