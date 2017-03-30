@@ -25,6 +25,9 @@ window.addEventListener('load', () => {
             , userMessage: (userId, message, key) => db().ref('users/' + userId + '/postedMessages/' + key).set({
                 text: message
             })
+            , updateReaction: (key, number) => db().ref(`messages/${key}`).update({
+                reaction: Number(number)
+            })
         }
         , btnSend = document.getElementById('btnSend')
         , messageInput = document.getElementById('messageInput')
@@ -33,7 +36,8 @@ window.addEventListener('load', () => {
         , loginButton = document.getElementById('loginButton')
         , popup = document.getElementsByClassName('popup')[0]
         , exitPopup = document.getElementsByClassName('exit')[0]
-        , socials = document.querySelectorAll('.popup > li');
+        , socials = document.querySelectorAll('.popup > li')
+        , messageKeys = [];
     /****************************************
     ----INIT FOR FIREBASE (always run first)
     ****************************************/
@@ -71,7 +75,9 @@ window.addEventListener('load', () => {
     //  update when changes occur and onload
     db().ref('/messages').limitToLast(50).on('value', (s) => {
         let data = s.val();
+        messageKeys = [];
         displayMessage(data);
+        likeDislikeButtons();
     });
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -92,7 +98,7 @@ window.addEventListener('load', () => {
             , user = firebase.auth().currentUser.providerData[0].displayName || firebase.auth().currentUser.providerData[0].email
             , username = () => {
                 if (user == firebase.auth().currentUser.providerData[0].email) return user.substring(0, user.indexOf('@'));
-                else  if (/\s/.test(user)) return user.substring(0, user.indexOf(' '));
+                else if (/\s/.test(user)) return user.substring(0, user.indexOf(' '));
                 else return user;
             }
             , time = new Date()
@@ -106,10 +112,11 @@ window.addEventListener('load', () => {
         displayMessages.innerHTML = '';
         let messageArray = [];
         for (let message in messages) {
+            messageKeys.unshift(message);
             messageArray.push(`<span class="postUser">${messages[message].name}</span> 
             <span class="postMessage">${messages[message].message}
-            <span class="likeButton"><i class="fa fa-thumbs-up likeButton" aria-hidden="true"></i></span>
-            <span class="dislikeButton"><i class="fa fa-thumbs-down dislikeButton" aria-hidden="true"></i></span>
+            <span class="likeButton"><i class="fa fa-thumbs-up like" aria-hidden="true"></i></span>
+            <span class="dislikeButton"><i class="fa fa-thumbs-down dislike" aria-hidden="true"></i></span>
             <span class="reactions">${messages[message].reaction}</span></span> <span class="postDate">${messages[message].date}</span>`);
         }
         for (let i = messageArray.length - 1; i >= 0; i--) {
@@ -117,15 +124,7 @@ window.addEventListener('load', () => {
             liMessage.innerHTML = `${messageArray[i]}`;
             displayMessages.appendChild(liMessage);
         }
-        let likeButton = document.getElementsByClassName('likeButton'),
-            dislikeButton = document.getElementsByClassName('dislikeButton');
-        for (let i = 0; i < likeButton.length; i++){
-            likeButton[i].addEventListener('click', e=>{
-                db().ref(`/messages/-KgTj6tKIOk5489zBdgp`).update({
-                    reaction: Number(+2)
-                });
-            });
-        }
+        console.log(messageKeys);
     }
     /****************************************
     ----SIGN IN/OUT WITH GITHUB ACCOUNT------
@@ -155,5 +154,22 @@ window.addEventListener('load', () => {
         }, function (error) {
             console.log(`Sign out didn't go as planned: ${error}`);
         });
+    }
+
+    function likeDislikeButtons() {
+        let like = document.getElementsByClassName('like')
+            , dislike = document.getElementsByClassName('dislike');
+        for (let i = 0; i < displayMessages.children.length; i++) {
+            like[i].addEventListener('click', e => {
+                console.log(i);
+                console.log(messageKeys[i]);
+                routes.updateReaction(messageKeys[i], 2);
+            });
+            dislike[i].addEventListener('click', e => {
+                console.log(i);
+                console.log(messageKeys[i]);
+                routes.updateReaction(messageKeys[i], -2);
+            });
+        }
     }
 });
