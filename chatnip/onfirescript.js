@@ -28,8 +28,11 @@ window.addEventListener('load', () => {
             , userMessage: (userId, message, key) => db().ref('users/' + userId + '/postedMessages/' + key).update({
                 text: message
             })
-            , updateReaction: (key, number) => db().ref(`messages/${key}/reactionStatus/`).update({
-                    reaction: Number(number)  
+            , updateReaction: (key, number, value) => db().ref(`messages/${key}/reactionStatus/`).update({
+                    reaction: Number(number), 
+                    reactionStatus: db().ref(`messages/${key}/reactionStatus/${firebase.auth().currentUser.uid}`).update({
+                        reacted: value
+                    })
             })
             , updateReactionStatus: (value, key) => db().ref(`messages/${key}/reactionStatus/${firebase.auth().currentUser.uid}`).update({
                 reacted: value
@@ -112,8 +115,7 @@ window.addEventListener('load', () => {
             , date = `${time.getHours()}:${time.getMinutes()} - ${time.getDate()}/${time.getMonth()+1}/${time.getFullYear()}`
             , newMessage = routes.messages()
             , messageMetadata = routes.messageMetadata(username(), message, date, time.getTime(), newMessage.key)
-            , updateReaction = routes.updateReaction(newMessage.key, 0)
-            , updateReactionStatus = routes.updateReactionStatus(false, newMessage.key)
+            , updateReaction = routes.updateReaction(newMessage.key, 0, false)
             , userMessage = routes.userMessage(userId, message, newMessage.key);
         messageInput.value = '';
     }
