@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
             , updateReaction: (key, number) => db().ref(`messages/${key}`).update({
                 reaction: Number(number)
             })
-            , updateReactionStatus: () => db().ref(`messages/reactionStatus/${firebase.auth().currentUser.uid}`).update({
+            , updateReactionStatus: (key) => db().ref(`messages/${key}/reactionStatus/${firebase.auth().currentUser.uid}`).update({
                 reacted: true
             })
         }
@@ -163,12 +163,12 @@ window.addEventListener('load', () => {
             let newReaction = data[messageKeys[i]].reaction + 1;
             like[i].addEventListener('click', e => {
                 routes.updateReaction(messageKeys[i], newReaction);
-                routes.updateReactionStatus();
+                routes.updateReactionStatus(messageKeys[i]);
             });
             dislike[i].addEventListener('click', e => {
                 let newReaction = data[messageKeys[i]].reaction - 1;
                 routes.updateReaction(messageKeys[i], newReaction);
-                routes.updateReactionStatus();
+                routes.updateReactionStatus(messageKeys[i]);
             });
         }
     }
