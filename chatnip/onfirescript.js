@@ -8,7 +8,8 @@ window.addEventListener('load', () => {
         }
         , db = firebase.database
         , routes = {
-            messages: (username, message, date, timestamp, key) => db().ref('messages/').push({
+            messages: (username, message, date, timestamp) => db().ref('messages/').push(),
+            messageMetadata: (username, message, date, timestamp, key) => db().ref('messages' + key +'/metadata').update({
                 name: username
                 , message: message
                 , date: date
@@ -28,8 +29,8 @@ window.addEventListener('load', () => {
             , updateReaction: (key, number) => db().ref(`messages/${key}`).update({
                 reaction: Number(number)
             })
-            , updateReactionStatus: (key) => db().ref(`messages/${key}/reactionStatus/${firebase.auth().currentUser.uid}`).update({
-                reacted: true
+            , updateReactionStatus: (key, value) => db().ref(`messages/${key}/reactionStatus/${firebase.auth().currentUser.uid}`).update({
+                reacted: value
             })
         }
         , btnSend = document.getElementById('btnSend')
@@ -106,7 +107,8 @@ window.addEventListener('load', () => {
             }
             , time = new Date()
             , date = `${time.getHours()}:${time.getMinutes()} - ${time.getDate()}/${time.getMonth()+1}/${time.getFullYear()}`
-            , newMessage = routes.messages(username(), message, date, time.getTime())
+            , newMessage = routes.messages()
+            , messageMetadata = routes.messagesMetadata(username(), message, date, time.getTime(), newMessage.key)
             , userMessage = routes.userMessage(userId, message, newMessage.key);
         messageInput.value = '';
     }
@@ -129,7 +131,7 @@ window.addEventListener('load', () => {
         }
     }
     /****************************************
-    ----SIGN IN/OUT WITH GITHUB ACCOUNT------
+    ----SIGN IN/OUT -------------------------
     ****************************************/
     function userLogin(provider) {
         popup.classList.remove('popupActive');
