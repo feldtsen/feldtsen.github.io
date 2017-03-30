@@ -89,7 +89,8 @@ window.addEventListener('load', () => {
     function sendMessage() {
         let message = messageInput.value
             , userId = firebase.auth().currentUser.uid
-            , username = firebase.auth().currentUser.providerData[0].displayName || firebase.auth().currentUser.providerData[0].email
+            , user = firebase.auth().currentUser.providerData[0].displayName || firebase.auth().currentUser.providerData[0].email
+            , username = user.substring(0, user.indexOf('@'))
             , time = new Date()
             , date = `${time.getHours()}:${time.getMinutes()} - ${time.getDate()}/${time.getMonth()+1}/${time.getFullYear()}`
             , newMessage = routes.messages(username, message, date, time.getTime())
