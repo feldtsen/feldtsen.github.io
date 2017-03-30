@@ -167,12 +167,13 @@ window.addEventListener('load', () => {
     function likeDislikeButtons(data) {
         let like = document.getElementsByClassName('like')
             , dislike = document.getElementsByClassName('dislike'),
-            uid = firebase.auth().currentUser.uid;
+            uid = firebase.auth().currentUser.uid,
+            savedData = data;
         for (let i = 0; i < displayMessages.children.length; i++) {
             let newReaction = data[messageKeys[i]].reactionStatus.reaction + 1;
             like[i].addEventListener('click', e => {
                 console.log(data.reactionStatus + '.' + uid);
-                if(data.reactionStatus + '.' + uid + 'reacted' != true) {
+                if(savedData.reactionStatus + '.' + uid + 'reacted' != true) {
                 routes.updateReaction(messageKeys[i], newReaction);
                 routes.updateReactionStatus(true, messageKeys[i]);
                 }
