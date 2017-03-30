@@ -111,7 +111,7 @@ window.addEventListener('load', () => {
             , newMessage = routes.messages()
             , messageMetadata = routes.messageMetadata(username(), message, date, time.getTime(), newMessage.key)
             , updateReaction = routes.updateReaction(newMessage.key, 0)
-            , updateReactionStatus = routes.updateReactionStatus(false, newMessage.key)
+            , updateReactionStatus = routes.updateReactionStatus(null, newMessage.key)
             , userMessage = routes.userMessage(userId, message, newMessage.key);
         messageInput.value = '';
     }
