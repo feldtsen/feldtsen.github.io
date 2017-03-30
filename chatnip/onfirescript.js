@@ -108,7 +108,7 @@ window.addEventListener('load', () => {
             , time = new Date()
             , date = `${time.getHours()}:${time.getMinutes()} - ${time.getDate()}/${time.getMonth()+1}/${time.getFullYear()}`
             , newMessage = routes.messages()
-            , messageMetadata = routes.messagesMetadata(username(), message, date, time.getTime(), newMessage.key)
+            , messageMetadata = routes.messageMetadata(username(), message, date, time.getTime(), newMessage.key)
             , userMessage = routes.userMessage(userId, message, newMessage.key);
         messageInput.value = '';
     }
