@@ -172,7 +172,7 @@ window.addEventListener('load', () => {
             let newReaction = data[messageKeys[i]].reactionStatus.reaction + 1;
             like[i].addEventListener('click', e => {
                 console.log(data.reactionStatus + '.' + uid);
-                if(data.reactionStatus + '.' + uid != true) {
+                if(data.reactionStatus + '.' + uid + 'reacted' != true) {
                 routes.updateReaction(messageKeys[i], newReaction);
                 routes.updateReactionStatus(true, messageKeys[i]);
                 }
