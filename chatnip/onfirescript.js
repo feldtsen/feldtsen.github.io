@@ -89,10 +89,14 @@ window.addEventListener('load', () => {
     function sendMessage() {
         let message = messageInput.value
             , userId = firebase.auth().currentUser.uid
-            , username = firebase.auth().currentUser.providerData[0].displayName || (firebase.auth().currentUser.providerData[0].email && firebase.auth().currentUser.providerData[0].emai.substring(0, firebase.auth().currentUser.providerData[0].emai.indexOf('@')))
+            , user = firebase.auth().currentUser.providerData[0].displayName || firebase.auth().currentUser.providerData[0].email
+            , username = () => {
+                if (user == firebase.auth().currentUser.providerData[0].email) return user.substring(0, user.indexOf('@'));
+                else return user;
+            }
             , time = new Date()
             , date = `${time.getHours()}:${time.getMinutes()} - ${time.getDate()}/${time.getMonth()+1}/${time.getFullYear()}`
-            , newMessage = routes.messages(username, message, date, time.getTime())
+            , newMessage = routes.messages(username(), message, date, time.getTime())
             , userMessage = routes.userMessage(userId, message, newMessage.key);
         messageInput.value = '';
     }
