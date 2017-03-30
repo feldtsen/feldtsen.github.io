@@ -28,10 +28,8 @@ window.addEventListener('load', () => {
             , userMessage: (userId, message, key) => db().ref('users/' + userId + '/postedMessages/' + key).update({
                 text: message
             })
-            , updateReaction: (key, number) => db().ref(`messages/${key}/metadata/`).update({
-                reactionStatus: db().ref(`messages/${key}/reactionStatus/`).update({
-                    reaction: Number(number)
-                })
+            , updateReaction: (key, number) => db().ref(`messages/${key}/reactionStatus/`).update({
+                    reaction: Number(number)  
             })
             , updateReactionStatus: (key) => db().ref(`messages/${key}/reactionStatus/${firebase.auth().currentUser.uid}`).update({
                 reacted: true
