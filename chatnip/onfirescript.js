@@ -31,8 +31,8 @@ window.addEventListener('load', () => {
             , updateReaction: (key, number) => db().ref(`messages/${key}/reactionStatus/`).update({
                     reaction: Number(number)  
             })
-            , updateReactionStatus: (key) => db().ref(`messages/${key}/reactionStatus/${firebase.auth().currentUser.uid}`).update({
-                reacted: true
+            , updateReactionStatus: (value, key) => db().ref(`messages/${key}/reactionStatus/${firebase.auth().currentUser.uid}`).update({
+                reacted: value
             })
         }
         , btnSend = document.getElementById('btnSend')
@@ -112,7 +112,7 @@ window.addEventListener('load', () => {
             , date = `${time.getHours()}:${time.getMinutes()} - ${time.getDate()}/${time.getMonth()+1}/${time.getFullYear()}`
             , newMessage = routes.messages()
             , messageMetadata = routes.messageMetadata(username(), message, date, time.getTime(), newMessage.key)
-            , updateReaction = routes.updateReaction(newMessage.key, 0)
+            , updateReaction = routes.updateReaction(newMessage.key, 0) && routes.updateReactionStatus(false)
             , userMessage = routes.userMessage(userId, message, newMessage.key);
         messageInput.value = '';
     }
@@ -170,12 +170,12 @@ window.addEventListener('load', () => {
             let newReaction = data[messageKeys[i]].reactionStatus.reaction + 1;
             like[i].addEventListener('click', e => {
                 routes.updateReaction(messageKeys[i], newReaction);
-                routes.updateReactionStatus(messageKeys[i]);
+                routes.updateReactionStatus(true, messageKeys[i]);
             });
             dislike[i].addEventListener('click', e => {
                 let newReaction = data[messageKeys[i]].reactionStatus.reaction - 1;
                 routes.updateReaction(messageKeys[i], newReaction);
-                routes.updateReactionStatus(messageKeys[i]);
+                routes.updateReactionStatus(true, messageKeys[i]);
             });
         }
     }
