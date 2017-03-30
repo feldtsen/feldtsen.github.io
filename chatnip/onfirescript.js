@@ -121,8 +121,8 @@ window.addEventListener('load', () => {
             dislikeButton = document.getElementsByClassName('dislikeButton');
         for (let i = 0; i < likeButton.length; i++){
             likeButton[i].addEventListener('click', e=>{
-                db().ref(`/messages`).update({
-                    reaction: Number(+1)
+                db().ref(`/messages/-KgTj6tKIOk5489zBdgp`).update({
+                    reaction: Number(1)
                 });
             });
         }
