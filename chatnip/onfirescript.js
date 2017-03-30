@@ -31,7 +31,7 @@ window.addEventListener('load', () => {
             })
             , updateReaction: (key, number) => db().ref(`messages/${key}/metadata/`).update({
                 reaction: Number(number),
-                reactionStatus: db().ref(`reactionStatus/`).update({
+                reactionStatus: db().ref(`messages/${key}/reactionStatus/`).update({
                     reaction: Number(0)
                 })
             })
