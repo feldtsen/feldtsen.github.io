@@ -8,24 +8,23 @@ window.addEventListener('load', () => {
         }
         , db = firebase.database
         , routes = {
-            messages: (username, message, date, timestamp) => db().ref('messages/').push(),
-            messageMetadata: (username, message, date, timestamp, key) => db().ref('messages' + key +'/metadata').update({
+            messages: (username, message, date, timestamp) => db().ref('messages/').push()
+            , messageMetadata: (username, message, date, timestamp, key) => db().ref('messages' + key + '/metadata').update({
                 name: username
                 , message: message
                 , date: date
                 , reaction: Number(0)
                 , timestamp: timestamp
             })
-            , users: (user) => db().ref('users/' + user.uid).update({
+            , users: (user) => db().ref('users/' + user.uid).update()
+            , userMetadata: (user) => db().ref('users/' + user.uid + '/metadata').update({
                 email: user.providerData[0].email
                 , name: user.providerData[0].displayName
                 , uid: user.providerData[0].uid
                 , pic: user.providerData[0].photoURL
                 , provider: user.providerData[0].providerId
             })
-            , userMessage: (userId, message, key) => db().ref('users/' + userId + '/postedMessages/' + key).update({
-                text: message
-            })
+            , userMessage: (userId, message, key) => db().ref('users/' + userId + '/postedMessages/' + key).update()
             , updateReaction: (key, number) => db().ref(`messages/${key}`).update({
                 reaction: Number(number)
             })
@@ -79,6 +78,7 @@ window.addEventListener('load', () => {
     //  update when changes occur and onload
     db().ref('/messages').limitToLast(50).on('value', (s) => {
         let data = s.val();
+        console.log(data);
         messageKeys = [];
         displayMessage(data);
         likeDislikeButtons(data);
@@ -141,6 +141,7 @@ window.addEventListener('load', () => {
         let user = result.user;
         if (user) {
             routes.users(user);
+            routes.userMetadata(user);
         }
     }).catch(function (error) {
         let errorCode = error.code
