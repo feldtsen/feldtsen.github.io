@@ -46,12 +46,12 @@ window.addEventListener('load', () => {
     ----EVENT LISTENER----------------------
     ****************************************/
     //  sends data to the server on button click
-    btnSend.addEventListener('click', (e) => {
+    btnSend.addEventListener('click', e => {
         if (firebase.auth().currentUser && messageInput.value != '') sendMessage();
         else console.log('Enter username and/or message');
     });
     //  sends data to the server on keypress enter
-    messageInput.addEventListener('keypress', (e) => {
+    messageInput.addEventListener('keypress', e => {
         if (e.keyCode == '13' && firebase.auth().currentUser && messageInput.value != '') {
             sendMessage();
         }
@@ -77,7 +77,7 @@ window.addEventListener('load', () => {
         let data = s.val();
         messageKeys = [];
         displayMessage(data);
-        likeDislikeButtons();
+        likeDislikeButtons(data);
     });
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -155,15 +155,17 @@ window.addEventListener('load', () => {
         });
     }
 
-    function likeDislikeButtons() {
+    function likeDislikeButtons(data) {
         let like = document.getElementsByClassName('like')
             , dislike = document.getElementsByClassName('dislike');
         for (let i = 0; i < displayMessages.children.length; i++) {
+            let newReaction = data[messageKeys[i]].reaction + 1;
             like[i].addEventListener('click', e => {
-                routes.updateReaction(messageKeys[i], 2);
+                routes.updateReaction(messageKeys[i], newReaction);
             });
             dislike[i].addEventListener('click', e => {
-                routes.updateReaction(messageKeys[i], -2);
+                let newReaction = data[messageKeys[i]].reaction - 1;
+                routes.updateReaction(messageKeys[i], newReaction);
             });
         }
     }
