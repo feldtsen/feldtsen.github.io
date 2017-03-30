@@ -29,7 +29,7 @@ window.addEventListener('load', () => {
                 text: message
             })
             , updateReaction: (key, number) => db().ref(`messages/${key}/reactionStatus/`).update({
-                    reaction: Number(number)  
+                reaction: Number(number)
             })
             , updateReactionStatus: (value, key) => db().ref(`messages/${key}/reactionStatus/${firebase.auth().currentUser.uid}`).update({
                 reacted: value
@@ -82,7 +82,6 @@ window.addEventListener('load', () => {
     db().ref('/messages').limitToLast(50).on('value', s => {
         let data = s.val();
         console.log(data);
-        messageKeys = [];
         displayMessage(data);
         likeDislikeButtons(data);
     });
@@ -122,6 +121,7 @@ window.addEventListener('load', () => {
         displayMessages.innerHTML = '';
         let messageArray = [];
         for (let message in messages) {
+            console.log(message);
             messageKeys.unshift(message);
             messageArray.push(`<span class="postUser">${messages[message].metadata.name}</span> 
             <span class="postMessage">${messages[message].metadata.message}
@@ -166,12 +166,15 @@ window.addEventListener('load', () => {
 
     function likeDislikeButtons(data) {
         let like = document.getElementsByClassName('like')
-            , dislike = document.getElementsByClassName('dislike');
+            , dislike = document.getElementsByClassName('dislike'),
+            uid = firebase.auth().currentUser.uid;
         for (let i = 0; i < displayMessages.children.length; i++) {
             let newReaction = data[messageKeys[i]].reactionStatus.reaction + 1;
             like[i].addEventListener('click', e => {
+                if(data.reactionStatus.uid != true) {
                 routes.updateReaction(messageKeys[i], newReaction);
                 routes.updateReactionStatus(true, messageKeys[i]);
+                }
             });
             dislike[i].addEventListener('click', e => {
                 let newReaction = data[messageKeys[i]].reactionStatus.reaction - 1;
