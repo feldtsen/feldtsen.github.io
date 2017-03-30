@@ -124,7 +124,6 @@ window.addEventListener('load', () => {
             liMessage.innerHTML = `${messageArray[i]}`;
             displayMessages.appendChild(liMessage);
         }
-        console.log(messageKeys);
     }
     /****************************************
     ----SIGN IN/OUT WITH GITHUB ACCOUNT------
@@ -161,13 +160,9 @@ window.addEventListener('load', () => {
             , dislike = document.getElementsByClassName('dislike');
         for (let i = 0; i < displayMessages.children.length; i++) {
             like[i].addEventListener('click', e => {
-                console.log(i);
-                console.log(messageKeys[i]);
                 routes.updateReaction(messageKeys[i], 2);
             });
             dislike[i].addEventListener('click', e => {
-                console.log(i);
-                console.log(messageKeys[i]);
                 routes.updateReaction(messageKeys[i], -2);
             });
         }
