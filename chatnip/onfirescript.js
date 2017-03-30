@@ -13,7 +13,6 @@ window.addEventListener('load', () => {
                 name: username
                 , message: message
                 , date: date
-                , reaction: Number(0)
                 , timestamp: timestamp
             })
             , users: (user) => db().ref('users/' + user.uid).update({
@@ -30,9 +29,8 @@ window.addEventListener('load', () => {
                 text: message
             })
             , updateReaction: (key, number) => db().ref(`messages/${key}/metadata/`).update({
-                reaction: Number(number),
                 reactionStatus: db().ref(`messages/${key}/reactionStatus/`).update({
-                    reaction: Number(0)
+                    reaction: Number(number)
                 })
             })
             , updateReactionStatus: (key) => db().ref(`messages/${key}/reactionStatus/${firebase.auth().currentUser.uid}`).update({
@@ -116,6 +114,7 @@ window.addEventListener('load', () => {
             , date = `${time.getHours()}:${time.getMinutes()} - ${time.getDate()}/${time.getMonth()+1}/${time.getFullYear()}`
             , newMessage = routes.messages()
             , messageMetadata = routes.messageMetadata(username(), message, date, time.getTime(), newMessage.key)
+            , updateReaction = routes.updateReaction(newMessage.key, 0)
             , userMessage = routes.userMessage(userId, message, newMessage.key);
         messageInput.value = '';
     }
