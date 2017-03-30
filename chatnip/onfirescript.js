@@ -92,7 +92,8 @@ window.addEventListener('load', () => {
             , user = firebase.auth().currentUser.providerData[0].displayName || firebase.auth().currentUser.providerData[0].email
             , username = () => {
                 if (user == firebase.auth().currentUser.providerData[0].email) return user.substring(0, user.indexOf('@'));
-                else return user.substring(0, user.indexOf(' '));
+                else  if (/\s/.test(user)) return user.substring(0, user.indexOf(' '));
+                else return user;
             }
             , time = new Date()
             , date = `${time.getHours()}:${time.getMinutes()} - ${time.getDate()}/${time.getMonth()+1}/${time.getFullYear()}`
