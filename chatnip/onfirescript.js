@@ -81,7 +81,6 @@ window.addEventListener('load', () => {
     //  update when changes occur and onload
     db().ref('/messages').limitToLast(50).on('value', s => {
         let data = s.val();
-        console.log(data);
         displayMessage(data);
         likeDislikeButtons(data);
     });
@@ -121,7 +120,6 @@ window.addEventListener('load', () => {
         displayMessages.innerHTML = '';
         let messageArray = [];
         for (let message in messages) {
-            console.log(message);
             messageKeys.unshift(message);
             messageArray.push(`<span class="postUser">${messages[message].metadata.name}</span> 
             <span class="postMessage">${messages[message].metadata.message}
