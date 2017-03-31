@@ -168,8 +168,7 @@ window.addEventListener('load', () => {
         for (let i = 0; i < displayMessages.children.length; i++) {
             like[i].addEventListener('click', e => {
                 let newReaction = data[messageKeys[i]].reactionStatus.reaction + 1;
-                let thisPostRef = new Firebase("https://fir-chat-5ec52.firebaseio.com/messages/" + messageKeys[i] + "/reactionStatus/" + firebase.auth().currentUser.uid + "/reacted");
-                if (!thisPostRef) routes.updateReaction(messageKeys[i], newReaction);
+                routes.updateReaction(messageKeys[i], newReaction);
                 routes.updateReactionStatus(true, messageKeys[i]);
             });
             dislike[i].addEventListener('click', e => {
