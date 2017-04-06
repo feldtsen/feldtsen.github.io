@@ -41,6 +41,9 @@ h1 {
 #loadMore {
     margin-bottom: 20px;
 }
+p {
+    margin: 0 2% 0 2%;
+}
 input, #login, #loadMore {
     background: none;
     border: none;
