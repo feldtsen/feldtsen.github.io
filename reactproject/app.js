@@ -151,7 +151,7 @@ class SelectMe extends React.Component {
             },
             {
                 count: this.state.valueThree,
-                action:  () => this.setState({valueThree: this.state.valueThree + 1, msg: 'Second button clicked'}),
+                action:  () => this.setState({valueThree: this.state.valueThree + 1, msg: 'Third button clicked'}),
                 setStyle:  {color: 'black'}
             }
         ],
