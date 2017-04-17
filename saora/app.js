@@ -3,22 +3,22 @@ class App extends React.Component{
         super(props);
         //binding
         this.addOne = this.addOne.bind(this);
+        this.removeOne = this.removeOne.bind(this);
         //states
         this.state = {
-            test: 0,
-            message: "It is lower than 10"
-
+            test: 0
         };
     }
     addOne(){
-        this.setState({
-            test: this.state.test +1
-        });
+        if (this.state.test < 20)this.setState({test: this.state.test +1});
+    }
+    removeOne(){
+        if (this.state.test > 0) this.setState({test: this.state.test - 1});
     }
     render(){
         return(
           <section>
-              <Test test={this.state.test} message={this.state.message}  addOne={this.addOne}/>
+              <Test test={this.state.test} addOne={this.addOne} removeOne={this.removeOne}/>
           </section>
         );
     }
@@ -26,10 +26,12 @@ class App extends React.Component{
 
 class Test extends React.Component {
     render(){
+        let status = this.props.test < 10  ? `${this.props.test} < 10`: `${this.props.test} >= 10`;
         return(
             <div>
-                <h1>Hello, stranger! Your number is: {this.props.test < 10  ? `It's lower than 10 (${this.props.test})`: `It's higher than 10 (${this.props.test})`}</h1>
-                <button onClick={this.props.addOne}>Button</button>
+                <p>{status}</p>
+                <button onClick={this.props.addOne}>+1</button>
+                <button onClick={this.props.removeOne}>-1</button>
             </div>
         );
     }
