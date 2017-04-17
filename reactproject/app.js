@@ -169,7 +169,6 @@ class SelectMe extends React.Component {
         );
     }
 }
-
 function Setup() {
     return(
     <div className="appContainer">
@@ -180,7 +179,5 @@ function Setup() {
     </div>
     );
 }
-
-
 ReactDOM.render(<Setup />, document.getElementById('root'));
 
