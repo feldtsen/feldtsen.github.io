@@ -1,28 +1,41 @@
-class Test extends React.Component {
+class App extends React.Component{
     constructor(props){
         super(props);
+        //binding
+        this.addOne = this.addOne.bind(this);
+        //states
         this.state = {
-            test: 0
+            test: 0,
+            message: "It is lower than 10"
+
         };
     }
-
-    render(){
-        return(
-            <div>
-                <h1>Hello, World! {this.state.test}</h1>
-            </div>
-        );
+    addOne(){
+        this.setState({
+            test: this.state.test +1
+        });
     }
-}
-
-class Page extends React.Component{
     render(){
         return(
           <section>
-              <Test/>
+              <Test test={this.state.test} message={this.state.message}  addOne={this.addOne}/>
           </section>
         );
     }
 }
 
-ReactDOM.render(<Page/>, document.getElementById('root'));
+class Test extends React.Component {
+    render(){
+        return(
+            <div>
+                <h1>Hello, stranger! Your number is: {this.props.test < 10  ? `It's lower than 10 (${this.props.test})`: `It's higher than 10 (${this.props.test})`}</h1>
+                <button onClick={this.props.addOne}>Button</button>
+            </div>
+        );
+    }
+
+
+}
+
+
+ReactDOM.render(<App/>, document.getElementById('root'));
