@@ -25,18 +25,34 @@ class App extends React.Component{
 }
 
 class Test extends React.Component {
+    constructor(props){
+        super(props);
+        this.focusInput = this.focusInput.bind(this);
+    }
+
+    componentDidMount(){
+        this.inputinput.value = 'mounted';
+    }
+
+    focusInput() {
+        this.inputinput.focus();
+        this.inputinput.select();
+    }
+
     render(){
-        let status = this.props.test < 10  ? `${this.props.test} < 10`: `${this.props.test} >= 10`;
+        let status;
+        if (this.props.test === 10) status = `${this.props.test} = 10`;
+        else status = this.props.test < 10  ? `${this.props.test} < 10`: `${this.props.test} > 10`;
         return(
             <div>
                 <p>{status}</p>
                 <button onClick={this.props.addOne}>+1</button>
                 <button onClick={this.props.removeOne}>-1</button>
+                <input type="text" ref={ input => {this.inputinput = input;} } />
+                <button onClick={this.focusInput}>Focus input</button>
             </div>
         );
     }
-
-
 }
 
 
