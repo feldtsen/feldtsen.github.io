@@ -12,9 +12,7 @@ body {
     text-align: center;
     color: white;
     text-shadow: 0 0 0.1em black;
-    background: #44A08D;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #093637, #44A08D);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #093637, #44A08D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #44A08D;
 }
 li > span {
     padding-right: 1em;
@@ -33,6 +31,7 @@ input{
     color:white;
     height: 1.8em;
     font-size: 1.8em;
+    outline: none;
 }
 span {
     font-size: 1.8em;
@@ -41,7 +40,7 @@ span {
 button {
     margin:0;
     padding:0;
-    background-color: #44A08D;
+    background-color: #093637;
     color: white;
     text-shadow: 0 0 0.1em #000;
     font-weight: 800;
@@ -51,8 +50,9 @@ button {
     font-size: 1.8em;
     cursor: pointer;
     opacity: 0.5;
-    transition: 0.5s;
+    transition: 0.3s;
 }
+
 button:hover{
     opacity: 1;
 }
