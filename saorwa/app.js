@@ -123,7 +123,7 @@ class EditTodo extends React.Component {
     }
     render(){
         return this.props.editable ?
-            <li> <input type="text" defaultValue={this.props.textContent} placeholder="Edit to do" onChange={this.props.handleUpdateTextChange} />
+            <li><input type="text"  defaultValue={this.props.textContent} ref={input=>this.editInput = input} placeholder="Edit to do" onChange={this.props.handleUpdateTextChange} />
             <button onClick={this.handleChangeClick}>Save</button></li>:
             <button onClick={this.handleEditClick}>Edit</button>
     }
