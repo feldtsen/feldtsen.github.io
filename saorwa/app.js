@@ -114,16 +114,20 @@ class EditTodo extends React.Component {
         super();
         this.handleChangeClick = this.handleChangeClick.bind(this);
         this.handleEditClick = this.handleEditClick.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
     }
     handleChangeClick(){
         this.props.editTodoAction(this.props.index);
+    }
+    handleKeyPress (e) {
+        if (e.key === 'Enter') this.handleChangeClick();
     }
     handleEditClick(){
         this.props.makeEditable(this.props.index);
     }
     render(){
         return this.props.editable ?
-            <li><input type="text"  defaultValue={this.props.textContent} ref={input=>this.editInput = input} placeholder="Edit to do" onChange={this.props.handleUpdateTextChange} />
+            <li><input type="text"  defaultValue={this.props.textContent}  placeholder="Edit to do" onChange={this.props.handleUpdateTextChange} onKeyPress={this.handleKeyPress}/>
             <button onClick={this.handleChangeClick}>Save</button></li>:
             <button onClick={this.handleEditClick}>Edit</button>
     }
