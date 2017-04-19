@@ -59,7 +59,6 @@ class App extends React.Component {
         );
     }
 }
-
 class AddTodo extends React.Component {
     constructor(){
         super();
@@ -93,14 +92,21 @@ class Todos extends React.Component {
             <RemoveTodo deleteTodo={this.props.deleteTodo} index={i}/>
             <EditTodo makeEditable={this.props.makeEditable} index={i}/>
         </li>):
-            <li key={i} ><input type="text" defaultValue={todo.text} placeholder="Edit to do" onChange={this.props.handleUpdateTextChange} /><EditTodo editable={todo.edit} editTodoAction={this.props.editTodo} index={i}/></li>});
+            <EditTodo key={i} editable={todo.edit} editTodoAction={this.props.editTodo} index={i} textContent={todo.text} handleUpdateTextChange={this.props.handleUpdateTextChange}/>});
 
         return <ul>{todos}</ul>
     }
 }
 class RemoveTodo extends React.Component {
+    constructor(){
+        super();
+        this.handleClick = this.handleClick.bind(this);
+    }
+    handleClick(){
+        this.props.deleteTodo(this.props.index);
+    }
     render(){
-        return <button onClick={()=>this.props.deleteTodo(this.props.index)}>Delete</button>
+        return <button onClick={this.handleClick}>Delete</button>
     }
 }
 class EditTodo extends React.Component {
@@ -116,11 +122,10 @@ class EditTodo extends React.Component {
         this.props.makeEditable(this.props.index);
     }
     render(){
-        return this.props.editable ? <button onClick={this.handleChangeClick}>Save</button> : <button onClick={this.handleEditClick}>Edit</button>
+        return this.props.editable ?
+            <li> <input type="text" defaultValue={this.props.textContent} placeholder="Edit to do" onChange={this.props.handleUpdateTextChange} />
+            <button onClick={this.handleChangeClick}>Save</button></li>:
+            <button onClick={this.handleEditClick}>Edit</button>
     }
 }
-
-
-
-
 ReactDOM.render(<App/>, document.getElementById('root'));
