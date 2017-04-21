@@ -1,0 +1,22 @@
+body {
+    text-align: center;
+}
+
+#buttonLiftAnimation {
+    background-color: rgb(150, 150, 150);
+    color: white;
+    border: none;
+    outline:none;
+    width: 140px;
+    height: 45px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#buttonLiftAnimation:hover {
+    background-color: white;
+    width: 145px;
+    color: black;
+    height: 50px;
+    box-shadow: 0 0 20px black;
+}
