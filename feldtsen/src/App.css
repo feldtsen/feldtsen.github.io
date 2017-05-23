@@ -1,0 +1,55 @@
+.tracker {
+    position: fixed;
+    right: 0;
+    top: 0;
+    font-size: 1.4em;
+    z-index: 1;
+    color: white;
+    text-shadow: 0 0 1px black;
+}
+
+.mainContainer, .mainContainer > div {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: rgb(30, 30, 30);
+}
+
+.one {
+    left: 0;
+    top: 0;
+    background-color: chocolate;
+}
+.two {
+    right: 0;
+    top: 0;
+    background-color: darkolivegreen;
+}
+
+.three {
+    z-index: 1;
+    top: 40%;
+    left: 0;
+    background-color: cadetblue;
+}
+
+.four {
+    z-index: 1;
+    top: 40%;
+    right: 0;
+    background-color: beige;
+}
+
+.five {
+    left: 0;
+    bottom: 0;
+    background-color: aquamarine;
+}
+.six {
+    right: 0;
+    bottom: 0;
+    background-color: lightcoral;
+}

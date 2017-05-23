@@ -1,0 +1,13 @@
+html,
+body,
+ul,
+h1,
+div,
+p{
+  margin: 0;
+  padding: 0;
+}
+body {
+  overflow: hidden;
+  size: 10px;
+}
