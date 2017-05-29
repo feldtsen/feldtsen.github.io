@@ -3,26 +3,23 @@ import './App.css';
 
 const wheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "wheel";
 
-class App extends Component {
+export default class App extends Component {
     constructor(props){
         super(props);
         this.state = {
             location: 0,
-            chapterOneHeight: 0,
-            pageWidth: window.innerWidth,
-            pageHeight: window.innerHeight,
-            oneWidth: 70,
-            oneHeight: 40,
-            twoWidth: 30,
-            twoHeight: 40,
-            threeWidth: 50,
-            threeHeight: 30,
-            fourWidth: 50,
-            fourHeight: 30,
-            fiveWidth: 30,
-            fiveHeight: 30,
-            sixWidth: 70,
-            sixHeight: 30,
+            maxLocation: 150,
+            animationPoints: 0,
+            letterArray: ['f', 'e', 'l' , 'd' , 't', 's' ,'e', 'n'],
+            numberArray: [.7, .3, 1, .8, .7, 1, .2, .8],
+            pageStyle: {
+                width: window.innerWidth,
+                height: window.innerHeight,
+                classNameMain: 'intro',
+                classNameContent: 'introContent',
+                classNameBar: 'introBar',
+                progress: 100/3
+            }
         };
     }
 
@@ -43,13 +40,13 @@ class App extends Component {
             current = this.state;
         direction > 0 ? current.location-- : current.location++;
         if(current.location < 0) current.location = 0;
-        else if (current.location > 300) current.location = 300;
+        else if (current.location > this.state.maxLocation) current.location = this.state.maxLocation;
         this.pageTracker(current.location);
     };
 
     handleKeydown = (e) =>{
         const key = e.keyCode;
-        if (key === 40  && this.state.location < 300){
+        if (key === 40  && this.state.location < this.state.maxLocation){
             const current = this.state;
             current.location++;
             this.pageTracker(current.location);
@@ -60,53 +57,121 @@ class App extends Component {
         }
     };
 
+
     pageTracker = (currentLocation) =>{
         let current = this.state;
         current.location = currentLocation;
-        if(currentLocation <= 70) {
-            current.oneWidth = 70 - currentLocation;
-            current.twoWidth =  30 + currentLocation;
-        }
-        if(currentLocation <= 50) {
-            current.threeWidth = 50 + currentLocation;
-            current.fourWidth = 50 - currentLocation;
-        }
-        if(currentLocation <= 30) {
-            current.fiveWidth = 30 - currentLocation;
-            current.sixWidth = 70 + currentLocation;
-        }
-        if(currentLocation >= 30 && currentLocation <= 60){
-            current.threeHeight = currentLocation;
-            current.fourHeight = currentLocation;
-        }
-
+        this.animationPointsTracker(currentLocation);
+        this.displayTracker(currentLocation);
         this.setState({current});
 
     };
+
+
+    displayTracker = (currentLocation) => {
+        let current = this.state;
+        switch (currentLocation) {
+            case 49:
+                if(current.pageStyle.classNameMain !== 'intro') {
+                    current.pageStyle.classNameMain = 'intro';
+                    current.pageStyle.classNameContent = 'introContent';
+                    current.pageStyle.classNameBar = 'introBar';
+                    current.pageStyle.progress = 100/3;
+                    this.sliceLettersToArray('feldtsen');
+                }
+                break;
+            case 50:
+                if(current.pageStyle.classNameMain !== 'projects'){
+                    current.pageStyle.classNameMain = 'projects';
+                    current.pageStyle.classNameContent = 'projectsContent';
+                    current.pageStyle.classNameBar = 'projectsBar';
+                    current.pageStyle.progress = ((this.state.location + 50)*100) / this.state.maxLocation;
+                    this.sliceLettersToArray('projects');
+                }
+
+                break;
+            case 99:
+                if(current.pageStyle.classNameMain !== 'projects'){
+                    current.pageStyle.classNameMain = 'projects';
+                    current.pageStyle.classNameContent = 'projectsContent';
+                    current.pageStyle.classNameBar = 'projectsBar';
+                    current.pageStyle.progress = (this.state.location*100) / this.state.maxLocation;
+                    this.sliceLettersToArray('projects');
+                }
+
+                break;
+            case 100:
+                if(current.pageStyle.classNameMain !== 'contact') {
+                    current.pageStyle.classNameMain = 'contact';
+                    current.pageStyle.classNameContent = 'contactContent';
+                    current.pageStyle.classNameBar = 'contactBar';
+                    current.pageStyle.progress = 100;
+                    this.sliceLettersToArray('contact');
+                }
+                break;
+            default:
+                break;
+        }
+    };
+
+    animationPointsTracker = (currentLocation) => {
+        let current = this.state;
+        if(currentLocation >= 0 && currentLocation <= 50){
+            current.animationPoints = currentLocation;
+        }
+        if (currentLocation >= 50 && currentLocation <= 100) {
+            current.animationPoints = currentLocation - 50;
+        }
+        if (currentLocation >= 100){
+            current.animationPoints = currentLocation - 100;
+        }
+    };
+
     responsiveChecker = () => {
-        this.setState({
-            pageWidth: window.innerWidth,
-            pageHeight: window.innerHeight
-        });
+        const current = this.state;
+        current.pageStyle.width = window.innerWidth;
+        current.pageStyle.height = window.innerHeight;
+        this.setState({current});
+    };
+    sliceLettersToArray = (string) => {
+        let stringToArray = string.split(''), newNumberArray = [], current = this.state;
+        for(let i = 0; i<string.length; i++) newNumberArray.push(Math.random());
+        current.letterArray = stringToArray;
+        current.numberArray = newNumberArray;
     };
 
     render() {
         return (
-          <div className="canvas" style={{width: this.state.pageWidth, height: this.state.pageHeight}}>
-              <p className="tracker">{this.state.location}</p>
-              <div className="mainContainer">
-                  <div className='one' style={{width: `${this.state.oneWidth}%`, height: `${this.state.oneHeight}%`}}> </div>
-                  <div className='two' style={{width: `${this.state.twoWidth}%`, height: `${this.state.twoHeight}%`}}> </div>
-                  <div className='three' style={{width: `${this.state.threeWidth}%`, height: `${this.state.threeHeight}%`}}> </div>
-                  <div className='four' style={{width: `${this.state.fourWidth}%`, height: `${this.state.fourHeight}%`}}> </div>
-                  <div className='five' style={{width: `${this.state.fiveWidth}%`, height: `${this.state.fiveHeight}%`}}> </div>
-                  <div className='six' style={{width: `${this.state.sixWidth}%`, height: `${this.state.sixHeight}%`}}> </div>
-              </div>
+          <div className="canvas" >
+              <p className="tracker">{this.state.location} / {this.state.maxLocation}</p>
+              <main className={this.state.pageStyle.classNameMain} style={{width: `${this.state.pageStyle.width}px`,
+                  height: `${this.state.pageStyle.height}px`,
+                  }}>
+
+                  <div className={this.state.pageStyle.classNameContent} style={{width: `${this.state.pageStyle.width * 0.95}px`,
+                      height: `${this.state.pageStyle.height * 0.8}px`,
+                  }}>
+                      <h1>
+                          {
+                              this.state.letterArray.map((letter, i)=>{return <span key={letter + i} style={{
+                                  transform: `translateY(${(this.state.animationPoints * this.state.numberArray[i])/3}px)`
+                              }}>{letter}</span>})
+                          }
+                      </h1>
+                  </div>
+                  <div className="progress" style={{width: `${this.state.pageStyle.width * 0.05}px`,
+                      height: `${this.state.pageStyle.height * 0.8}px`,
+                  }}>
+                        <div className={this.state.pageStyle.classNameBar} style={{height: `${this.state.pageStyle.progress}%`}}> </div>
+                  </div>
+
+              </main>
           </div>
         );
     }
 }
 
 
+// style={{height: `${(this.state.location*100) / this.state.maxLocation}%`}}
 
-export default App;
+

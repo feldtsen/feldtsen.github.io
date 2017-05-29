@@ -2,54 +2,97 @@
     position: fixed;
     right: 0;
     top: 0;
-    font-size: 1.4em;
+    font-size: 3em;
     z-index: 1;
     color: white;
     text-shadow: 0 0 1px black;
 }
 
-.mainContainer, .mainContainer > div {
+main {
+    transition: 0.5s;
+}
+main > div {
     position: absolute;
-    height: 100%;
-    width: 100%;
-}
-
-body {
-    background-color: rgb(30, 30, 30);
-}
-
-.one {
-    left: 0;
-    top: 0;
-    background-color: chocolate;
-}
-.two {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
     right: 0;
-    top: 0;
-    background-color: darkolivegreen;
+}
+main > div > h1 {
+    margin: 1% 0 0 2%;
+}
+main > div > h1 > span {
+    text-shadow: 0 0 1px rgba(50, 50, 50, 1);
+    font-size: 1.6em;
+    animation: fadein 1s;
 }
 
-.three {
-    z-index: 1;
-    top: 40%;
-    left: 0;
+.progress > div {
+    transition: 0.5s;
+    border-bottom-width: 0.5em;
+    border-top-width: 0.5em;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    box-sizing:border-box;
+
+}
+/*INTRO*/
+.intro {
+    background-color: cadetblue;
+    color: lightcoral;
+}
+.introContent {
+    background-color: burlywood;
+}
+.introBar {
+    background-color:lightcoral;
+    border-bottom-color: burlywood;
+    border-top-color: burlywood;
+}
+/*PROJECTS*/
+.projects {
+    background-color: lightcoral;
+    color: burlywood;
+}
+.projectsContent {
     background-color: cadetblue;
 }
-
-.four {
-    z-index: 1;
-    top: 40%;
-    right: 0;
-    background-color: beige;
+.projectsBar {
+    background-color:burlywood;
+    border-bottom-color: cadetblue;
+    border-top-color: cadetblue;
 }
-
-.five {
-    left: 0;
-    bottom: 0;
-    background-color: aquamarine;
+/*CONTACT*/
+.contact {
+    background-color: burlywood;
+    color: cadetblue;
 }
-.six {
-    right: 0;
-    bottom: 0;
+.contactContent {
     background-color: lightcoral;
+}
+.contactBar {
+    background-color:cadetblue;
+    border-bottom-color: lightcoral;
+    border-top-color: lightcoral;
+}
+
+
+span {
+    display: inline-block;
+}
+
+.progress {
+    position: absolute;
+    left: 0;
+    bottom: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+}
+
+@keyframes fadein {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
 }
