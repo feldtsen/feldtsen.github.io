@@ -24,14 +24,14 @@ main > div > h1 {
 }
 main > div > h1 > span {
     text-shadow: 0 0 1px rgba(50, 50, 50, 1);
-    font-size: 1.6em;
+    font-size: 2em;
     animation: fadein 1s;
 }
 
 .progress > div {
     transition: 0.5s;
-    border-bottom-width: 0.5em;
-    border-top-width: 0.5em;
+    border-bottom-width: 0.25em;
+    border-top-width: 0.25em;
     border-bottom-style: solid;
     border-top-style: solid;
     box-sizing:border-box;
@@ -39,42 +39,42 @@ main > div > h1 > span {
 }
 /*INTRO*/
 .intro {
-    background-color: cadetblue;
-    color: lightcoral;
+    background-color: rgb(50, 50, 50);
+    color: rgb(20, 20, 20);
 }
 .introContent {
     background-color: burlywood;
 }
 .introBar {
-    background-color:lightcoral;
+    background-color:rgb(20, 20, 20);
     border-bottom-color: burlywood;
     border-top-color: burlywood;
 }
 /*PROJECTS*/
 .projects {
-    background-color: lightcoral;
+    background-color: rgb(20, 20, 20);
     color: burlywood;
 }
 .projectsContent {
-    background-color: cadetblue;
+    background-color: rgb(50, 50, 50);
 }
 .projectsBar {
     background-color:burlywood;
-    border-bottom-color: cadetblue;
-    border-top-color: cadetblue;
+    border-bottom-color: rgb(50, 50, 50);
+    border-top-color: rgb(50, 50, 50);
 }
 /*CONTACT*/
 .contact {
-    background-color: burlywood;
-    color: cadetblue;
+    background-color: rgb(50, 50, 50);
+    color:  rgb(20, 20, 20);
 }
 .contactContent {
-    background-color: lightcoral;
+    background-color: burlywood;
 }
 .contactBar {
-    background-color:cadetblue;
-    border-bottom-color: lightcoral;
-    border-top-color: lightcoral;
+    background-color:rgb(20, 20, 20);
+    border-bottom-color: burlywood;
+    border-top-color: burlywood;
 }
 
 
@@ -90,6 +90,13 @@ span {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 
+}
+
+.progress > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
 }
 
 @keyframes fadein {
