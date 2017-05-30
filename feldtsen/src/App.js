@@ -43,7 +43,7 @@ export default class App extends Component {
         let current = this.state;
         let yLocation = e.targetTouches[0].screenY;
         console.log(yLocation);
-        yLocation > current.touchMove ? current.location ++ : current.location --;
+        yLocation > current.touchMove ? current.location -- : current.location ++;
         current.touchMove = yLocation;
         if(current.location < 0) current.location = 0;
         else if (current.location > this.state.maxLocation) current.location = this.state.maxLocation;
