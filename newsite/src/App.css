@@ -93,14 +93,6 @@
 .progress {
     height: 100%;
     background-color: #FF9800;
-    position: absolute;
-}
-
-.progressStatus {
-    position: absolute;
-    color: #212121;
-    right: 0;
-    margin-right: 1em;
 }
 
 
@@ -113,4 +105,5 @@
 
 .front > h1 {
     font-size: 4.5em;
+    margin: 1em 0 0 1em;
 }
