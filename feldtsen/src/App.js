@@ -10,7 +10,7 @@ export default class App extends Component {
             location: 0,
             maxLocation: 150,
             animationPoints: 0,
-            letterArray: ['f', 'e', 'l' , 'd' , 't', 's' ,'e', 'n'],
+            letterArray: ['f', 'e', 'l', 'd', 't', 's', 'e', 'n'],
             numberArray: [.7, .3, 1, .8, .7, 1, .2, .8],
             currentPage: 1,
             touchMove: 0,
@@ -20,9 +20,20 @@ export default class App extends Component {
                 classNameMain: 'intro',
                 classNameContent: 'introContent',
                 classNameBar: 'introBar',
-                progress: 100/3
-            }
-        };
+                progress: 100 / 3
+            },
+            projectsArray: [
+                {title: 'Project One'},
+                {title: 'Project Two'},
+                {title: 'Project Three'},
+                {title: 'Project Four'},
+                {title: 'Project Five'},
+                {title: 'Project Six'},
+                {title: 'Project Seven'},
+                {title: 'Project Eight'},
+                {title: 'View more'},
+            ]
+        }
     }
 
     componentDidMount(){
@@ -73,6 +84,14 @@ export default class App extends Component {
     };
 
 
+    responsiveChecker = () => {
+        const current = this.state;
+        current.pageStyle.width = window.innerWidth;
+        current.pageStyle.height = window.innerHeight;
+        this.setState({current});
+    };
+
+
     pageTracker = (currentLocation) =>{
         let current = this.state;
         current.location = currentLocation;
@@ -81,7 +100,6 @@ export default class App extends Component {
         this.setState({current});
 
     };
-
 
     displayTracker = (currentLocation) => {
         let current = this.state;
@@ -93,7 +111,7 @@ export default class App extends Component {
                     current.pageStyle.classNameContent = 'introContent';
                     current.pageStyle.classNameBar = 'introBar';
                     current.pageStyle.progress = 100/3;
-                    this.sliceLettersToArray('feldtsen');
+                    this.sliceLettersToArray('Hello');
                 }
                 break;
             case 50:
@@ -103,7 +121,7 @@ export default class App extends Component {
                     current.pageStyle.classNameContent = 'projectsContent';
                     current.pageStyle.classNameBar = 'projectsBar';
                     current.pageStyle.progress = ((this.state.location + 50)*100) / this.state.maxLocation;
-                    this.sliceLettersToArray('projects');
+                    this.sliceLettersToArray('serious-stuff');
                 }
 
                 break;
@@ -114,7 +132,7 @@ export default class App extends Component {
                     current.pageStyle.classNameContent = 'projectsContent';
                     current.pageStyle.classNameBar = 'projectsBar';
                     current.pageStyle.progress = (this.state.location*100) / this.state.maxLocation;
-                    this.sliceLettersToArray('projects');
+                    this.sliceLettersToArray('serious-stuff');
                 }
 
                 break;
@@ -125,7 +143,7 @@ export default class App extends Component {
                     current.pageStyle.classNameContent = 'contactContent';
                     current.pageStyle.classNameBar = 'contactBar';
                     current.pageStyle.progress = 100;
-                    this.sliceLettersToArray('contact');
+                    this.sliceLettersToArray('hit-me-up');
                 }
                 break;
             default:
@@ -144,13 +162,6 @@ export default class App extends Component {
         if (currentLocation >= 100){
             current.animationPoints = currentLocation - 100;
         }
-    };
-
-    responsiveChecker = () => {
-        const current = this.state;
-        current.pageStyle.width = window.innerWidth;
-        current.pageStyle.height = window.innerHeight;
-        this.setState({current});
     };
     sliceLettersToArray = (string) => {
         let stringToArray = string.split(''), newNumberArray = [], current = this.state;
@@ -177,7 +188,19 @@ export default class App extends Component {
                               }}>{letter}</span>})
                           }
                       </h1>
+                      <ul className="tiles">
+                          {
+                              this.state.projectsArray.map((project, i)=>{
+                                  return(
+                                      <li key={project.title + i}>
+                                          <h1>{project.title}</h1>
+                                      </li>
+                                  )
+                              })
+                          }
+                      </ul>
                   </div>
+
                   <div className="progress" style={{
                       width: `${this.state.pageStyle.width * 0.05}px`,
                       height: `${this.state.pageStyle.height}px`,
@@ -190,7 +213,6 @@ export default class App extends Component {
                             </div>
                         </div>
                   </div>
-
               </main>
           </div>
         );

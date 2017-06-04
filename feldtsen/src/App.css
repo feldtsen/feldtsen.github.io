@@ -76,6 +76,23 @@ main > div > h1 > span {
     border-bottom-color: burlywood;
     border-top-color: burlywood;
 }
+/*tiles*/
+.tiles {
+    height: inherit;
+    width: inherit;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 0;
+}
+
+.tiles > li{
+    flex-basis: calc(100% /3);
+}
+.tiles > li:nth-of-type(1) {
+    }
+/*indicator*/
+
 
 
 span {
