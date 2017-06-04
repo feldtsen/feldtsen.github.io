@@ -112,8 +112,10 @@ export default class App extends Component {
                 {
                     this.state.projectsTop.map((project, i )=> {
                         return(
-                            <li key={project.title + i} style={{width: `${(meta.windowWidth*(this.state.projectsTop.length))/this.state.projectsTop.length}px`, backgroundImage: `url(${project.image})`}}>
-                                <h1>{project.title}</h1>
+                            <li key={project.title + i} style={{width: `${(meta.windowWidth*(this.state.projectsTop.length))/this.state.projectsTop.length}px`}}>
+                                <h3>{project.title}</h3>
+                                <p></p>
+                                <button style={{backgroundImage: `url(${project.image})`}}>+</button>
                             </li>
                         )
                     })
@@ -123,19 +125,23 @@ export default class App extends Component {
                 {
                     this.state.projectsBottom.map((project, i) => {
                         return(
-                            <li key={project + i} style={{width: `${(meta.windowWidth*(this.state.projectsTop.length / 2))/(this.state.projectsBottom.length)}px`, backgroundImage: `url(${project.image})`}}>
-                                <h1>{project.title}</h1>
+                            <li key={project + i} style={{width: `${(meta.windowWidth*(this.state.projectsTop.length / 2))/(this.state.projectsBottom.length)}px`}}>
+                                <h3>{project.title}</h3>
+                                <p></p>
+                                <button style={{backgroundImage: `url(${project.image})`}}>+</button>
                             </li>
                         )
                     })
                 }
             </ul>
-            <div className="end" style={{width: meta.windowWidth}}>
-
+            <div className="front" style={{width: meta.windowWidth}}>
+                <h1>Feldtsen</h1>
             </div>
         </main>
         <div className="progressBar" style={{width: meta.windowWidth + 'px'}}>
-            <div className="progress" style={{width: `${meta.location*100/meta.maxLocation}%`}}> </div>
+            <div className="progress" style={{width: `${meta.location*100/meta.maxLocation}%`}}>
+                <p className="progressStatus">{Math.floor(meta.location*100/meta.maxLocation)}%</p>
+            </div>
         </div>
 
     </div>

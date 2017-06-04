@@ -1,3 +1,4 @@
+
 .pageTracker {
     position: fixed;
     right: 0;
@@ -8,17 +9,29 @@
     text-shadow: 0 0 1px black;
 }
 
+
 .content {
     width: 100%;
     height: 98%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
+
+
 
 .content > ul {
     height: 100%;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -27,26 +40,78 @@
 }
 
 .content > ul > li {
-height: 100%;
-background-color: indianred;
-}
-.content > ul:nth-of-type(2)>li{
+    height: 100%;
+    background-size: cover;
 }
 
+.content > ul > li:nth-of-type(odd){
+    background-color: #455A64;
+}
+
+.content > ul > li:nth-of-type(even){
+    background-color: #607D8B;
+}
+
+.content > ul > li > button{
+    position: absolute;
+    border: none;
+    outline: none;
+    text-shadow: 0 0 3px black;
+    cursor: pointer;
+    font-size: 4em;
+    bottom: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: white;
+    background-size: cover;
+    margin: 1em;
+    width: 1.4em;
+    border-radius: 50%;
+    height: 1.4em;
+}
+
+.content > ul > li > button:focus{
+    height: inherit;
+    width: inherit;
+    margin: 0;
+    border-radius: 0;
+}
+
+
+.content > ul > li > h3{
+    font-size: 3.8em;
+    margin: 1em;
+    color: #212121;
+}
+
+
 .progressBar {
-    background-color: rgb(60,60,60);
+    background-color: #455A64;
     height: 2%;
 }
 
 .progress {
     height: 100%;
-    background-color:orange;
+    background-color: #FF9800;
+    position: absolute;
+}
+
+.progressStatus {
+    position: absolute;
+    color: #212121;
+    right: 0;
+    margin-right: 1em;
 }
 
 
-.end {
+.front {
     position: absolute;
-    z-index:-1;
     height: 98%;
-    background-color: rgb(30, 30, 30);
+    z-index:-1;
+    background-color:  #607D8B;
+}
+
+.front > h1 {
+    font-size: 4.5em;
+    margin: 1.5em;
 }
