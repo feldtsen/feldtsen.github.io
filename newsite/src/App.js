@@ -108,7 +108,7 @@ export default class App extends Component {
     <div style={{height: meta.windowHeight + 'px', width: (meta.windowWidth * this.state.projectsTop.length) +'px'}}>
         <p className='pageTracker'>{meta.location}</p>
         <main className="content" >
-            <ul style={{transform: `translateX(${-meta.location*100/meta.maxLocation}%)`, marginLeft: meta.windowWidth}}>
+            <ul style={{transform: `translateX(${-meta.location*100/meta.maxLocation}%)`, webkitTransform: `translateX(${(-meta.location*100/meta.maxLocation)}%)`,  marginLeft: meta.windowWidth}}>
                 {
                     this.state.projectsTop.map((project, i )=> {
                         return(
@@ -121,7 +121,7 @@ export default class App extends Component {
                     })
                 }
             </ul>
-            <ul style={{transform: `translateX(${(-meta.location*100/meta.maxLocation)/2}%)`, marginLeft: meta.windowWidth}}>
+            <ul style={{transform: `translateX(${(-meta.location*100/meta.maxLocation)/2}%)`, webkitTransform: `translateX(${(-meta.location*100/meta.maxLocation)/2}%)`, marginLeft: meta.windowWidth}}>
                 {
                     this.state.projectsBottom.map((project, i) => {
                         return(
