@@ -2,6 +2,7 @@
   "name": "newsite",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://feldtsen.github.io/newsite/build",
   "dependencies": {
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
