@@ -1,15 +1,18 @@
 html, body, div, h1, p, ul, li, button, h3 {
   margin: 0;
   padding: 0;
+  overflow: hidden;
   font-family: 'Josefin Sans', sans-serif;
 }
 body {
   font-size: 10px;
-  overflow: hidden;
-
 }
 
 ul {
   list-style: none;
 }
 
+
+li {
+  overflow: auto;
+}
