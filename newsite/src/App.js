@@ -175,7 +175,7 @@ export default class App extends Component {
                                         <li key={used+i}>{used}</li>
                                     )})}
                                 </ul>
-                                <a onMouseEnter={this.previewController} style={{backgroundImage:`url(${project.image})`}} href={meta.previewOpen?project.link:'#'}>+</a>
+                                <a onMouseEnter={this.previewController} onMouseLeave={this.previewController} style={{backgroundImage:`url(${project.image})`}} href={meta.previewOpen?project.link:'#'}>+</a>
                             </li>
                         )
                     })
@@ -193,7 +193,7 @@ export default class App extends Component {
                                         <li key={used+i}>{used}</li>
                                     )})}
                                 </ul>
-                                <a style={{backgroundImage:`url(${project.image})`}} onMouseEnter={this.previewController} href={project.link}>+</a>
+                                <a style={{backgroundImage:`url(${project.image})`}} onMouseEnter={this.previewController} onMouseLeave={this.previewController}href={meta.previewOpen?project.link:'#'}>+</a>
                             </li>
                         )
                     })
