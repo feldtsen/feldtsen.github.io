@@ -1,0 +1,79 @@
+
+/*
+ul > li:hover {
+    background-color: rgba(30, 30, 30, 0.4)
+}
+*/
+header {
+        background-color:rgba(47, 55, 76, 0.9);
+
+}
+
+main {
+    margin-top: 7em;
+    text-align: center;
+    margin-bottom: 20em;
+}
+main li {
+    margin-top: 0.3em;
+    font-size: 2em;
+    cursor: pointer;
+    color: #c55c58;
+    text-shadow: 0 0 0.01em black;
+}
+
+
+.answer {
+    border-bottom: 0.1em solid black;
+    margin: 1em 0 1em 0;
+    color: black;
+    padding: 1em;
+    font-size: 18px;
+    width: 90%;
+    text-align: left;
+    margin: 0 auto;
+    display: none;
+}
+
+.displayAnswer {
+    display: block;
+}
+
+.color{
+	background-color: black;
+	
+
+}
+
+
+.form-control{
+    margin: 1em;
+	width: 80%;
+	height: 2.5em;
+}
+
+@media (min-width: 690px) and (max-width: 900px) {
+    .form-control {
+        width: 50%;
+    }
+    .answer {
+        width: 50%;
+    }
+    
+}
+
+@media (min-width: 901px) {
+    .form-control {
+        width: 50%;
+    }
+    .answer {
+        width: 50%;
+    }
+    
+}
+.headerScrolled {
+    background-color:rgba(47, 55, 76, 0.9);
+}
+
+
+

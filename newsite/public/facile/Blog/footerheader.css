@@ -1,0 +1,178 @@
+
+/* default */
+
+body, html {
+	height: 100%;
+	font-family: 'PT Sans', sans-serif;
+}
+
+html, body, h1, ul, header {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+
+
+/* navbar */
+
+#navbar {
+	height: 50px;
+	border-bottom: 1px solid black;
+	background: rgba(50, 50, 50, 0.6);
+	position: fixed;
+	width: 100%;
+	z-index: 10000;
+	}
+
+#navbar .flexContainer {
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	height: 50px;
+	align-items: center;
+}
+
+#navbar .flexContainer ul {
+	display: flex;
+	list-style: none;
+}
+
+#navbar .flexContainer li {
+	padding-left: 30px;
+}
+
+#navbar .flexContainer h2 a{
+	color: white; 
+	font-size: 30px;
+	font-family: 'Righteous', cursive;
+}
+
+#navbar .flexContainer li a {
+	font-family: 'Russo One', sans-serif;
+	color: white;
+	font-size: 20px;
+	text-shadow: 1px 1px black;	
+	letter-spacing: 2px;
+}
+
+#navbar .divider {
+	margin-right: 40px;
+}
+
+#navbar .flexContainer li a:hover {
+	animation: changeColor 1s;
+	animation-fill-mode: forwards;
+}
+
+
+#navbar > .flexContainer > .nav .active, #navbar > .flexContainer > .dropdown .active {
+	color: #b08c4f;
+}
+
+
+#navbar ul:nth-of-type(2) {
+	display: none;
+}
+
+
+/* animation */
+
+@keyframes changeColor{
+	to {
+		color:  #b08c4f;
+		text-shadow: 1px 1px black;
+	}
+}
+
+/* end animation */
+
+
+
+
+@media (max-width: 770px) {
+	#navbar ul:nth-of-type(1) {
+		display: none;
+	}
+
+	#navbar ul:nth-of-type(2) {
+		display: inline-block;
+		position: relative;
+
+	}
+
+	#navbar .dropNav {
+		display: none;
+		position: absolute;
+		right: 0;
+		background-color:rgba(50, 50, 50, 1);
+		box-shadow: 0 8px 16px 0;
+		min-width: 150px;
+		opacity: 0.9;
+	}
+
+	#navbar .dropNav a {
+		display: block;
+		width: 75%;
+		border-bottom:1px solid black;
+		text-align: center;
+		margin: 10px 0 10px 0;
+	}
+
+	#navbar #burgermenu {
+		width: 45px;
+		height: 45px;
+	}
+	
+
+	#navbar .dropdown:hover .dropNav {
+		display: block;
+	}
+
+
+
+}
+
+/* end navbar */
+
+
+
+/* footer */
+
+footer {
+	display: flex;
+	padding: 0;
+	background: rgba(50,50,50, 1);
+	color: white;
+	z-index: 10;
+}
+
+footer div {
+	flex-grow: 1;
+	margin:0 2% 0 2%;
+	text-align: center;
+}
+
+footer div a {
+	color:white;
+}
+
+footer div h1 {
+	margin-top:2%; 	
+	font-size: 20px;
+}
+
+
+@media (max-width: 570px) {
+	footer {
+		flex-direction: column;
+
+	}
+}
+
+/* end footer */

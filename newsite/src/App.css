@@ -50,15 +50,27 @@
 
 .content > ul > li:nth-of-type(even){
     background-color: #607D8B;
+    opacity: 0.97;
 }
 
-.content > ul > li > button{
+.content > ul > li > a{
+    text-decoration: none;
     position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
     outline: none;
     opacity: 0.8;
     text-shadow: 0 0 3px black;
     cursor: pointer;
     font-size: 4em;
+    text-align: center;
     bottom: 0;
     -webkit-transition: 0.5s;
     transition: 0.5s;
@@ -72,7 +84,7 @@
 
 }
 
-.content > ul > li > button:hover{
+.content > ul > li > a:hover{
     height: inherit;
     width: inherit;
     margin: 0;
@@ -142,5 +154,5 @@
 
 .front > h1 {
     font-size: 4.5em;
-    margin: 1em 0 0 1em;
+    margin: 0.7em 0 0 5%;
 }

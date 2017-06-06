@@ -15,11 +15,13 @@ export default class App extends Component {
                 touchMove: 0,
                 windowHeight: window.innerHeight,
                 windowWidth: window.innerWidth,
+                previewOpen: false
             },
             projectsTop: [
                 {
                     title: 'Widgify',
                     image: './pic/widgify.png',
+                    link: './widgify',
                     description: 'Widgify makes the internet easy. ' +
                     'On this site we have gathered essential functions to keep you on track with the latest.',
                     used: ['Node.js', 'firebase', 'React.js', 'materialUI', 'API', 'SCRUM']
@@ -27,23 +29,27 @@ export default class App extends Component {
                 {
                     title: 'Chatnip',
                     image: './pic/chatnip.png',
+                    link: './chatnip',
                     description: 'Real-time chat',
                     used: ['firebase', 'Js', 'HTML5', 'CSS3']
                 },
                 {
                     title: 'Huehunch',
                     image: './pic/huehunch.png',
+                    link: './huehunch',
                     description: 'Can you pick the right RGB-color?',
                     used: ['Js', 'HTML5', 'CSS3']
                 },
                 {
                     title: 'Paperstack',
                     image: './pic/paperstack.png',
+                    link: './paperstack',
                     description: 'Perfect place to keep a list of your books.',
                     used: ['Crud', 'API', 'HTML5', 'Js']
                 },
                 {   title: 'Patatap clone',
                     image: './pic/patatapclone.png',
+                    link: './patatapClone',
                     description: 'Do you feel the beat?',
                     used: ['Js libraries', 'HTML5', 'CSS3', 'Canvas']
                 },
@@ -52,24 +58,28 @@ export default class App extends Component {
                 {
                     title: 'Writeline',
                     image: './pic/writeline.png',
+                    link: './writeline',
                     description: 'Draw geometric shapes.',
                     used: ['Js', 'Canvas', 'HTML5', 'CSS3']
                 },
                 {
                     title: 'Todo',
                     image: './pic/todo.png',
+                    link: './jQueryTodo',
                     description: 'Be on track',
                     used: ['Js', 'jQuery', 'HTML5', 'CSS3']
                 },
                 {
                     title: 'Facile',
                     image: './pic/facile.png',
+                    link: './facile',
                     description: 'Webshop.',
                     used: ['HTML5', 'CSS3']
                 },
                 {
                     title: 'A tale untold',
                     image: './pic/ataleuntold.png',
+                    link: './ataleuntold',
                     description: 'Webshop for books.',
                     used: ['localStorage', 'CMS', 'Js', 'HTML', 'CSS3' ]
                 },
@@ -137,6 +147,11 @@ export default class App extends Component {
         this.setState({current})
     };
 
+    previewController = () =>{
+      let meta = this.state.meta;
+      meta.previewOpen = !meta.previewOpen;
+      this.setState({meta});
+    };
 
     /*
      * style={{width: `${(this.state.meta.windowWidth/this.state.meta.maxLocation) * this.state.meta.location}px`}}
@@ -160,7 +175,7 @@ export default class App extends Component {
                                         <li key={used+i}>{used}</li>
                                     )})}
                                 </ul>
-                                <button style={{backgroundImage: `url(${project.image})`}}>+</button>
+                                <a onMouseEnter={this.previewController} style={{backgroundImage:`url(${project.image})`}} href={meta.previewOpen?project.link:'#'}>+</a>
                             </li>
                         )
                     })
@@ -178,7 +193,7 @@ export default class App extends Component {
                                         <li key={used+i}>{used}</li>
                                     )})}
                                 </ul>
-                                <button style={{backgroundImage:`url(${project.image})`}}>+</button>
+                                <a style={{backgroundImage:`url(${project.image})`}} onMouseEnter={this.previewController} href={project.link}>+</a>
                             </li>
                         )
                     })

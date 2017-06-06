@@ -1,0 +1,121 @@
+body {
+	background-color: rgb(224, 224, 209);
+}
+#navbar {
+    background: rgba(50, 50, 50, 1);
+}
+
+/* main content */
+
+
+.mainContent {
+  	min-height: 50%;
+  	display: flex;	
+  	margin: 0 auto;
+  	font-family: "Righteous", cursive;
+  	color: white;
+  	letter-spacing: 2px;
+  	font-weight: 700;
+  	font-size: 15px;
+}
+
+.mainContent div caption {
+	color: black;
+}
+
+.mainContent div:first-of-type {
+	flex-grow: 3;
+	margin-top: 75px;
+}
+
+.mainContent div:nth-of-type(2) {
+	flex-grow: 1;
+	background: blue;
+	text-align: right;
+
+}
+
+.mainContent div:first-of-type table {
+	width: 100%;
+	text-align: center;
+}
+
+.mainContent div:first-of-type td {
+	height: 50px;
+}
+
+.mainContent div:first-of-type table tr {
+	background: rgba(50,50,50,0.7);
+}
+.mainContent div:first-of-type table thead tr:first-of-type {
+	background: rgba(20,20,20,0.7);
+}
+
+.mainContent div:first-of-type table tbody tr td:first-of-type {
+	text-align: left;
+	padding-left: 15px;
+}
+
+.mainContent div:first-of-type table .qtyNumber {
+	width: 20px;
+	text-align: center;
+}
+
+
+@media (max-width: 330px) {
+	div.mainContent div table tbody tr .changeWidth{
+		min-width: 70px;
+	}
+}
+
+
+
+
+
+
+.payment {
+	display: flex;
+	min-height: 50%;
+	padding-top: 25px;
+	width: 70%;
+}
+
+.payment div:first-of-type {
+	flex-grow: 2;	
+}
+.payment div:nth-of-type(2){
+	flex-grow:20;
+}
+
+.payment div:nth-of-type(2) input {
+	background: rgba(50, 50, 50, 0.7);
+	border:3px solid rgba(20, 20, 20, 0.3);
+	color: white;
+}
+
+.payment div:nth-of-type(2) button {
+	display: block;
+	background: rgba(200, 200, 200, 0.7);
+	border:3px solid rgba(70, 70, 70, 0.3);
+}
+
+.payment div:nth-of-type(2) button:hover {
+	background: rgba(70,70,70,0.5);
+}
+.payment div:first-of-type table tr {
+	height: 50px; 
+}
+
+
+.payment .cardDate {
+	max-width: 20px;
+}
+
+
+
+@media (max-width: 935px) {
+	.payment {
+		flex-direction: column;
+	}
+}
+/* end main content */
