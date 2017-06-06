@@ -24,7 +24,7 @@
             <entry file="file://$PROJECT_DIR$/src/App.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="36">
-                  <caret line="148" column="54" lean-forward="true" selection-start-line="148" selection-start-column="54" selection-end-line="148" selection-end-column="54" />
+                  <caret line="148" column="54" lean-forward="false" selection-start-line="148" selection-start-column="54" selection-end-line="148" selection-end-column="54" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                     <marker date="1496708015738" expanded="true" signature="273:4077" ph="{...}" />
@@ -327,12 +327,12 @@
       <workItem from="1496346980948" duration="7018000" />
       <workItem from="1496438283736" duration="307000" />
       <workItem from="1496438646974" duration="20149000" />
-      <workItem from="1496584746631" duration="26476000" />
+      <workItem from="1496584746631" duration="26658000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57217000" />
+    <option name="totallyTimeSpent" value="57399000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="32" y="-11" width="1889" height="1092" extended-state="6" />
@@ -667,7 +667,7 @@
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
-          <caret line="148" column="54" lean-forward="true" selection-start-line="148" selection-start-column="54" selection-end-line="148" selection-end-column="54" />
+          <caret line="148" column="54" lean-forward="false" selection-start-line="148" selection-start-column="54" selection-end-line="148" selection-end-column="54" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
             <marker date="1496708015738" expanded="true" signature="273:4077" ph="{...}" />
