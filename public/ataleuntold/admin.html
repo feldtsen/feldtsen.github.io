@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Admin</title>
+    <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="admin.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+ </head>
+
+<body>
+    <div class="col-sm-6">
+        <h3>Admin Meny</h3>
+        <hr/>
+        <div class="col-xs-3">
+            <!-- required for floating -->
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs tabs-left">
+                <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+                <li><a href="#mail" data-toggle="tab">Read/ Send Mail</a></li>
+                <li><a href="#settings" data-toggle="tab">Product Settings</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-9">
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane active" id="home">
+                    <h1>Welcome administrator!</h1>
+                </div>
+                <div class="tab-pane" id="mail">
+                    <div class="container">
+                        <h1>Mail</h1> <hr> <a href="#compose-modal" data-toggle="modal" id="compose-button" class="btn btn-primary pull-right ">Compose</a>
+                        <button id="authorize-button" class="btn btn-primary ">Authorize</button>
+                        <table class="table table-striped table-inbox">
+                            <thead>
+                                <tr>
+                                    <th>From</th>
+                                    <th>Subject</th>
+                                    <th>Date/Time</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <div class="modal fade" id="compose-modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                                    <h4 class="modal-title">Compose</h4> </div>
+                                <form onsubmit="return sendEmail();">
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" id="compose-to" placeholder="To" required /> </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="compose-subject" placeholder="Subject" required /> </div>
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="compose-message" placeholder="Message" rows="10" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="submit" id="send-button" class="btn btn-primary">Send</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="reply-modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                                    <h4 class="modal-title">Reply</h4> </div>
+                                <form onsubmit="return sendReply();">
+                                    <input type="hidden" id="reply-message-id" />
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="reply-to" disabled /> </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control disabled" id="reply-subject" disabled /> </div>
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="reply-message" placeholder="Message" rows="10" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="submit" id="reply-button" class="btn btn-primary">Send</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="settings"><h1>Change Showing Products</h1><hr>
+                    <h3>Change author one (currently <span id="previewAuthorOne"></span>):</h3>
+                    <input type="text" id="contentAuthorOne">
+                    <button id="updateAuthorOne">Update</button>
+                    <h3>Change author two (currently <span id="previewAuthorTwo"></span>):</h3>
+                    <input type="text" id="contentAuthorTwo">
+                    <button id="updateAuthorTwo">Update</button>
+                    <h3>Change author three (currently <span id="previewAuthorThree"></span>):</h3>
+                    <input type="text" id="contentAuthorThree">
+                    <button id="updateAuthorThree">Update</button>
+                    <h3>Change author four (currently <span id="previewAuthorFour"></span>):</h3>
+                    <input type="text" id="contentAuthorFour">
+                    <button id="updateAuthorFour">Update</button>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <script src="jquery-3.1.1.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="adminMail.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+</body>
+
+</html>

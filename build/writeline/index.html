@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>WriteLine: formed to perfection</title>
+	<link rel="stylesheet" href="main.css">
+	<link href="https://fonts.googleapis.com/css?family=Electrolize" rel="stylesheet"> </head>
+
+<body>
+	<div class="flex primaryButtons">
+		<button class="triangleButton">Triangle</button>
+		<button class="rectangleButton">Rectangle</button>
+		<button class="circleButton">Circle</button>
+		<button class="polygonButton">Polygon</button>
+		<button class="cancelDrawingButton">Cancel</button>
+		<button class="clearCanvasButton">Clear</button>
+	</div>
+	<div class="dropdown menuButtons">
+		<button onclick="myFunction()" class="dropbtn">Configurations</button>
+		<div id="myDropdown" class="dropdownContent">
+			<button class="triangleButton">Triangle</button>
+			<button class="rectangleButton">Rectangle</button>
+			<button class="circleButton">Circle</button>
+			<button class="polygonButton">Polygon</button>
+			<button class="cancelDrawingButton">Cancel</button>
+			<button class="clearCanvasButton">Clear</button>
+			<button id="triforce">Super secret button</button>
+			<audio id="heylisten" src="DangerZone.mp3" ></audio>
+		</div>
+	</div>
+	<div class="flex color">
+		<select id="colorSelector">
+			<option selected disabled value="black">Choose desired color:</option>
+			<option>Black</option>
+			<option>Red</option>
+			<option>Green</option>
+			<option>Blue</option>
+			<option disabled>Your colors:</option>
+		</select>
+		<input type="text" maxlength="7" placeholder="#ff6600 or #f60" id="userColor">
+		<input type="submit" value="Add Color" id="submitColor" pattern="[7]"> </div>
+	<p id="info">Click on wanted shape-button to start drawing</p>
+	<canvas id="canvas" width="600px" height="600px">Canvas not supported</canvas>
+	<div class="flex">
+		<button id="JSONExpButton">Export to JSON</button>
+		<button id="JSONImpButton">Import to Canvas</button>
+	</div>
+	<div id="JSONExport"></div>
+	<input type="text" id="JSONImport" placeholder="Input JSON here"></input>
+	<script src="js.js"></script>
+</body>
+
+</html>
