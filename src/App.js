@@ -21,7 +21,7 @@ export default class App extends Component {
                 {
                     title: 'Widgify',
                     image: './pic/widgify.png',
-                    link: './widgify',
+                    link: './widgify/',
                     description: 'Widgify makes the internet easy. ' +
                     'On this site we have gathered essential functions to keep you on track with the latest.',
                     used: ['Node.js', 'firebase', 'React.js', 'materialUI', 'API', 'SCRUM']
@@ -29,57 +29,57 @@ export default class App extends Component {
                 {
                     title: 'Chatnip',
                     image: './pic/chatnip.png',
-                    link: './chatnip',
+                    link: './chatnip/',
                     description: 'Real-time chat',
                     used: ['firebase', 'Js', 'HTML5', 'CSS3']
                 },
                 {
                     title: 'Huehunch',
                     image: './pic/huehunch.png',
-                    link: './huehunch',
+                    link: './huehunch/',
                     description: 'Can you pick the right RGB-color?',
                     used: ['Js', 'HTML5', 'CSS3']
                 },
                 {
                     title: 'Paperstack',
                     image: './pic/paperstack.png',
-                    link: './paperstack',
+                    link: 'https://feldtsen.github.io/paperstack/',
                     description: 'Perfect place to keep a list of your books.',
                     used: ['Crud', 'API', 'HTML5', 'Js']
                 },
                 {   title: 'Patatap clone',
                     image: './pic/patatapclone.png',
-                    link: './patatapClone',
+                    link: './patatapClone/',
                     description: 'Do you feel the beat?',
                     used: ['Js libraries', 'HTML5', 'CSS3', 'Canvas']
-                },
+                }
             ],
             projectsBottom: [
                 {
                     title: 'Writeline',
                     image: './pic/writeline.png',
-                    link: './writeline',
+                    link: './writeline/',
                     description: 'Draw geometric shapes.',
                     used: ['Js', 'Canvas', 'HTML5', 'CSS3']
                 },
                 {
                     title: 'Todo',
                     image: './pic/todo.png',
-                    link: './jQueryTodo',
+                    link: './jQueryTodo/',
                     description: 'Be on track',
                     used: ['Js', 'jQuery', 'HTML5', 'CSS3']
                 },
                 {
                     title: 'Facile',
                     image: './pic/facile.png',
-                    link: './facile',
+                    link: './facile/',
                     description: 'Webshop.',
                     used: ['HTML5', 'CSS3']
                 },
                 {
                     title: 'A tale untold',
                     image: './pic/ataleuntold.png',
-                    link: './ataleuntold',
+                    link: './ataleuntold/',
                     description: 'Webshop for books.',
                     used: ['localStorage', 'CMS', 'Js', 'HTML', 'CSS3' ]
                 },
