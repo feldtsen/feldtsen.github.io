@@ -21,7 +21,7 @@ export default class App extends Component {
                 {
                     title: 'Widgify',
                     image: './pic/widgify.png',
-                    link: './widgify/',
+                    link: 'https://iammille.github.io/widgify/build/',
                     description: 'Widgify makes the internet easy. ' +
                     'On this site we have gathered essential functions to keep you on track with the latest.',
                     used: ['Node.js', 'firebase', 'React.js', 'materialUI', 'API', 'SCRUM']
