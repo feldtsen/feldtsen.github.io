@@ -36,7 +36,7 @@ export default class App extends Component {
                 {
                     title: 'Huehunch',
                     image: './pic/huehunch.png',
-                    link: './huehunch/',
+                    link: './static/huehunch/',
                     description: 'Can you pick the right RGB-color?',
                     used: ['Js', 'HTML5', 'CSS3']
                 },
