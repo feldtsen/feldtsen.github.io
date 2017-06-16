@@ -1,0 +1,364 @@
+/*fonts*/
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,800');
+
+/*resetting values*/
+
+body,
+html,
+ul,
+h1,
+h2,
+h3,
+p,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li,
+a {
+    list-style: none;
+    text-decoration: none;
+    color: white;
+}
+
+a {
+    display: block;
+}
+
+button {
+    border: none;
+    background: none;
+    color: white;
+    outline: none;
+}
+
+
+/*Setting sized*/
+
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    -webkit-overflow-scrolling: touch;
+    font-size: 10px;
+    height: 100%;
+    font-family: 'Raleway', sans-serif;
+    overflow: hidden
+}
+
+body::-webkit-scrollbar,
+.pages > li::-webkit-scrollbar {
+    width: 0.5em;
+    background-color: rgba(50, 50, 50, 1);
+}
+
+body::-webkit-scrollbar-track,
+.pages > li::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 01em rgba(150, 150, 150, 1);
+}
+
+body::-webkit-scrollbar-thumb,
+.pages > li::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 0.4em rgba(0, 0, 0, 0.5);
+    background-color: rgba(200, 200, 200, 1);
+}
+
+
+/*menu button*/
+
+#menuButton {
+    position: fixed;
+    height: 2em;
+    width: 2em;
+    font-size: 2em;
+    border-radius: 50%;
+    top: 0.7em;
+    right: 5%;
+    background-color: orange;
+    z-index: 100;
+    cursor: pointer;
+}
+
+
+/*flex settings*/
+
+.flexParent {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+
+/*main (introduction)*/
+
+main {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url(pictures/introductionpicture.jpg);
+    background-position: top;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main > ul {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+
+/*introduction page*/
+
+main > ul.introductionPage > li {
+    width: 95%;
+    left: 2.5%;
+    position: inherit;
+}
+
+main > ul.introductionPage > li:nth-of-type(1) {
+    top: 5%;
+    font-size: 2em;
+    text-align: center;
+}
+
+main > ul.introductionPage > li:nth-of-type(2) {
+    top: 26%;
+    text-align: left;
+    font-size: 2em;
+}
+
+main > ul.introductionPage > li:nth-of-type(3) {
+    top: 85%;
+    color: transparent;
+    text-align: center;
+    font-size: 2em;
+    letter-spacing: 1em;
+    font-weight: 800;
+}
+
+.transparentText {
+    color: rgba(255, 255, 255, 0.3);
+    text-shadow: 0.05em 0.05em rgba(0, 0, 0, 0.3);
+}
+
+
+/*menu page*/
+
+.pages {
+    z-index: -1;
+    opacity: 0;
+    height: 100%;
+    border: none;
+    width: 100%;
+    overflow: hidden;
+}
+
+.menuOption {
+    overflow: hidden;
+    position: inherit;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.menuOption:hover {
+    color: orange;
+}
+
+.menuOption:nth-of-type(1) {
+    height: 50%;
+    width: 100%;
+    background-image: url(pictures/menu/one.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: aqua;
+}
+
+.menuOption:nth-of-type(2),
+.menuOption:nth-of-type(3) {
+    height: 50%;
+    width: 50%;
+    bottom: 0;
+}
+
+.menuOption:nth-of-type(2) {
+    background-color: black;
+}
+
+.menuOption:nth-of-type(3) {
+    bottom: 0;
+    right: 0;
+    background-color: gray;
+}
+
+.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+
+/*projects page*/
+
+.menuOption {
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.activePage:hover {
+    cursor: default;
+    color: white;
+}
+
+.pageContentActive {
+    overflow-y: scroll;
+}
+
+.cross {
+    color: red;
+}
+
+.pageTitle {
+    position: fixed;
+    font-size: 4em;
+    text-align: center;
+    margin: 1%;
+    text-shadow: 0 0 0.1em black;
+}
+
+#projects {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 7em 3% 3% 3%;
+}
+
+#projects > li {
+    justify-content: center;
+    flex-basis: 80%;
+    text-align: center;
+    padding: 1em;
+}
+
+#projects > li > h1 {
+    font-size: 2.4em;
+}
+
+#projects > li img {
+    width: 100%;
+}
+
+#projects > li > p {
+    font-size: 1.8em;
+}
+
+#projects > li > a:nth-of-type(2) {
+    border: 0.01em solid white;
+    font-size: 3em;
+}
+
+#projects > li > a:hover {
+    background-color: orange;
+}
+
+.toggleHidden {
+    visibility: hidden;
+    opacity: 1;
+}
+
+
+/* supports and media queries*/
+
+@supports(-webkit-text-stroke: 0.05em rgba(255, 255, 255, 0.4)) {
+    .transparentText {
+        color: transparent;
+        -webkit-text-stroke: 0.05em rgba(255, 255, 255, 0.4);
+        text-shadow: none;
+    }
+}
+
+@media (min-width: 751px) {
+    main > ul {
+        border: 0.3em solid white;
+        width: 95%;
+        height: 95%;
+        top: 2.5%;
+        left: 2.5%;
+    }
+    main > ul.introductionPage > li:nth-of-type(2) {
+        font-size: 3.5em;
+    }
+    main > ul.introductionPage > li:nth-of-type(3) {
+        letter-spacing: 2.3em;
+    }
+    .active {
+        top: 2.5%;
+        left: 2.5%;
+        width: 95%;
+        height: 95%;
+    }
+    .menuOption:nth-of-type(1),
+    .menuOption:nth-of-type(2),
+    .menuOption:nth-of-type(3) {
+        width: 50%;
+    }
+    .menuOption:nth-of-type(1) {
+        height: 100%;
+    }
+    .menuOption:nth-of-type(2) {
+        top: 0;
+    }
+    .menuOption:nth-of-type(2),
+    .menuOption:nth-of-type(3) {
+        right: 0;
+    }
+    .pages {
+        margin: 0.29em;
+    }
+    #projects > li {
+        margin-top: 1em;
+        flex-basis: 40%;
+    }
+    #menuButton {
+        top: 7%;
+    }
+}
+
+@media (max-height: 540px) {
+    .pages {
+        border: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        margin: 0;
+        left: 0;
+    }
+    main > ul.introductionPage > li:nth-of-type(2) {
+        font-size: 2em;
+    }
+    main > ul.introductionPage > li:nth-of-type(3) {
+        letter-spacing: 0em;
+    }
+}
+
+.activePage {
+    z-index: 60 !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

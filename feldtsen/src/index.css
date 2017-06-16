@@ -1,0 +1,21 @@
+html,
+body,
+ul,
+h1,
+div,
+p,
+li,
+h3,
+ul{
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+
+body {
+  overflow: hidden;
+  size: 10px;
+  font-family: 'Amatic SC', cursive;
+}
