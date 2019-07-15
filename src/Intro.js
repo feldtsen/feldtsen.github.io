@@ -6,6 +6,7 @@ function Intro(props) {
     return (
         <div className="Intro">
             <h1>{user.name}</h1>
+            <h3>{user.subTitle}</h3>
         </div>
     );
 }
