@@ -4,7 +4,7 @@ import './App.css';
 function Intro(props) {
     let user = props.user[0];
     return (
-        <div className="Intro">
+        <div style={{height: props.windowHeight * 0.6}} className="Intro">
             <h1>{user.name}</h1>
             <h3>{user.subTitle}</h3>
         </div>
