@@ -1,1 +1,0 @@
-{"version":3,"sources":["App.css"],"names":[],"mappings":"AAAA,EACI,QAAS,CACT,SACJ,CAEA,KACI,kBACJ","file":"main.604964c7.chunk.css","sourcesContent":["*{\n    margin: 0;\n    padding: 0;\n}\n\n.App{\n    background: #F0F0F0;\n}\n\n.Intro{\n    \n}\n"]}
