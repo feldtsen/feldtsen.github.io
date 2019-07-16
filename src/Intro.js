@@ -7,7 +7,7 @@ function Intro(props) {
     return (
         <Grid container direction='column' style={{
             height: props.windowHeight * 0.6,
-            fontSize: props.windowWidth >= 1000 ? props.windowWidth * 0.04 : 1.5 + 'em',
+            fontSize: props.windowWidth >= 800 ? props.windowWidth * 0.04 : props.windowWidth * 0.07,
                 paddingTop: props.windowHeight * 0.05,
                 paddingLeft: props.windowWidth * 0.05
         }} className="Intro">
