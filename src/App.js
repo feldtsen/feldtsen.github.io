@@ -6,8 +6,7 @@ import {useWindowSize} from '@react-hook/window-size/throttled'
 
 function App() {
    const user = useState({
-       name: '<feldtsen />',
-        subTitle: '[computer science student]'
+       name: 'feldtsen '
     }),
         [width, height] = useWindowSize(
             360,
