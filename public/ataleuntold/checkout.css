@@ -1,0 +1,117 @@
+body {
+    background-color: rgb(230, 230, 230);
+}
+
+header {
+    background-color: rgba(47, 55, 76, 0.9);
+}
+
+.title {
+    color: rgb(220, 220, 220);
+    margin: 1em;
+}
+
+.lesserTitle {
+    margin: 1em;
+    color: rgb(160, 160, 160);
+    font-size: 2em;
+    font-weight: 800;
+    text-align: left;
+}
+
+.headers {
+    color: #c55c58;
+    text-shadow: none;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 3em;
+    font-size: 2em;
+    color: white;
+    text-shadow: 0 0 0.1em black, 0 0 0.2em black, 0 0 0.3em black;
+}
+
+td,
+th {
+    text-align: left;
+    padding: 0.6em;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(47, 55, 76, 0.9);
+    box-shadow: 0 0 0.3em black inset;
+}
+
+.registration {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.registration * {
+    margin: 1em;
+}
+
+.registration > input {
+    flex-basis: 80%;
+    color: black;
+    height: 1.5em;
+    line-height: 1.5em;
+}
+
+.registration > p {
+    flex-basis: 80%;
+    font-size: 1.8em;
+}
+
+.registration > button {
+    flex-basis: 50%;
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+input::-webkit-input-placeholder {
+    color: rgb(150, 150, 150);
+    font-size: 1.4em;
+}
+
+
+/* Menu END OF MUST CONTAIN */
+
+@media (min-width: 690px) and (max-width: 900px) {
+    table {
+        width: 80%;
+    }
+    .registration > input {
+        flex-basis: 50%;
+    }
+}
+
+@media (min-width: 901px) {
+    table {
+        width: 80%;
+    }
+    .registration > input {
+        flex-basis: 50%;
+    }
+}
+
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
