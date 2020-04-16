@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>A Tale Untold - Checkout</title>
+    <link rel="stylesheet" href="mustContain.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="checkout.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="http://www.polyinnovations.com/images/e-book.png" /> </head>
+
+<body>
+    <!-- MUST CONTAIN -->
+    <nav class="sidenav">
+        <ul class="flexThis">
+            <button class="sidenavButton">&#10006;</button>
+            <li><a href="product.html">Books</a></li>
+            <li><a href="ajax.html">FAQ</a></li>
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </nav>
+    <header class="header">
+        <button class="sidenavButton">&#9776;</button>
+        <h1>A Tale Untold</h1> </header>
+    <div class="newsletter">
+        <label for="user-email">Book releases and events right to your inbox <i class="fa fa-arrow-right" aria-hidden="true"></i></label>
+        <input type="email" placeholder="john@example.com" id="user-email">
+        <div class="desktopHide"></div>
+        <button id="user-send">Subscribe</button>
+        <button class="closeNewsletterButton">&#10006;</button>
+    </div>
+    <!-- END OF MUST CONTAIN -->
+    <div id="flexContainer">
+        <table>
+            <thead>
+                <tr>
+                    <th class="headers">Books in cart</th>
+                    <th class="headers">Prices</th>
+                </tr>
+            </thead>
+            <tbody id="tableElement"> </tbody>
+        </table>
+        <div class="registration">
+            <p>Your name:</p>
+            <input type="text" placeholder="Fredrik Bulbenhaken" id="check-name">
+            <p>Your email:</p>
+            <input type="email" placeholder="john@example.com" id="check-email">
+            <p>We will place the book(s) back to the shelf if you don't come and get them within 24hrs</p>
+            <button id="check-send">Hold my books!</button>
+        </div>
+    </div>
+    <!--    MUST CONTAIN-->
+    <footer id="footer">
+        <nav>
+            <ul>
+                <li>
+                    <h1>Visit us!</h1>
+                    <p>Talestreet 88, Taletown</p>
+                    <h1>Somehting on your mind?</h1>
+                    <p>Send mail to astoryuntold@gmail.com</p>
+                    <h1>Want to get updated?</h1>
+                    <button id="getNewsletterToggleButton">Get newsletter</button>
+                </li>
+                <li>
+                    <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBiRrrqJZsOFt_kSAZdW7U5xzcIQn9B4Ms&q=Space+Needle,Seattle+WA" allowfullscreen> </iframe>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+    <!--    END OF MUST CONTAIN-->
+    <script src="mustContain.js"></script>
+    <script src="checkout.js"></script>
+    <script src="jquery-3.1.1.js"></script>
+    <script src="userMail.js"></script>
+    <script src="checkoutMail.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+</body>
+
+</html>
