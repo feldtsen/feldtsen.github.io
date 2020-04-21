@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.2.0",
+    "@material-ui/styles": "^4.9.10",
     "@react-hook/window-size": "^1.0.13",
     "add": "^2.0.6",
     "gh-pages": "^2.0.1",
