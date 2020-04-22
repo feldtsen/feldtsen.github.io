@@ -1,9 +1,7 @@
 import React from 'react';
 import './App.css';
 import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
 import Box from '@material-ui/core/Box';
-import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActionArea from '@material-ui/core/CardActionArea';
 
@@ -26,7 +24,7 @@ function Intro(props) {
                         key={"project_" + project.id} >
                                  <CardMedia >
                                 <a href={`${project.link}`}>
-                                 <img src={require(`./pic/${project.title}.png`)} alt="thumbnail" className="thumbnails" />
+                                <img src={require(`./pic/${project.title}.png`)} alt="thumbnail" className="thumbnails"  />
                                  </a>
                                 </CardMedia>
 
