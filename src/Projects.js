@@ -15,12 +15,10 @@ function Intro(props) {
             >
                 {
                     db.projects.map((project) =>   
-                    <Grid item key ={"grid_item_" + project.id}  xs = {project.xs_width} sm={project.sm_width} md={project.md_width}>
+                    <Grid item key ={"grid_item_" + project.id}  xs = {project.xs_width} sm={project.sm_width} md={project.md_width} style={{ overflowY: "hidden", overflowX: "hidden"}}>
 
                         <CardActionArea>
-                        <Box style = {{
-                                //backgroundColor: "#CCCCCC",
-                            }}
+                        <Box className="image_container"
                         key={"project_" + project.id} >
                                  <CardMedia >
                                 <a href={`${project.link}`}>

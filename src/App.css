@@ -6,12 +6,15 @@
     font-family: 'Jura', sans-serif;
 
 }
+body 
+{
+}
 
 .thumbnails 
 {
     filter: grayscale(70%);
-    width: 100%;
     transition: .5s;
+    width: 100%
 }
 
 .thumbnails:hover {
