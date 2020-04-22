@@ -1,0 +1,94 @@
+{
+     "projects":[
+         {
+             "id": 1,
+             "title": "chatnip",
+             "link": "https://feldtsen.github.io/chatnip",
+             "md_width": 4,
+             "sm_width": 6,
+             "xs_width": 12,
+             "hight_multiplier": 1.5
+          },
+          {
+             "id": 2,
+             "title": "widgify",
+             "link": "https://iammille.github.io/widgify/build/",
+             "md_width": 4,
+             "sm_width": 6,
+             "xs_width": 12,
+             "hight_multiplier": 1
+          },
+          {
+             "id": 3,
+             "title": "patatapclone",
+             "link": "https://feldtsen.github.io/patatapClone",
+             "md_width": 4,
+             "sm_width": 6,
+             "xs_width": 12,
+             "hight_multiplier": 1
+          },
+          {
+             "id": 4,
+             "title": "huehunch",
+             "link": "https://feldtsen.github.io/huehunch",
+             "md_width": 4,
+             "sm_width": 6,
+             "xs_width": 12,
+             "hight_multiplier": 1
+          },
+          {
+             "id": 5,
+             "title": "paperstack",
+             "link": "https://feldtsen.github.io/paperstack",
+             "md_width": 4,
+             "sm_width": 6,
+             "xs_width": 12,
+             "hight_multiplier": 1
+          },
+          {
+             "id": 6,
+             "title": "diceroll",
+             "link": "https://feldtsen.github.io/diceroll",
+             "md_width": 4,
+             "sm_width": 6,
+             "xs_width": 12,
+             "hight_multiplier": 1
+          },
+          {
+             "id": 7,
+             "title": "writeline",
+             "link": "https://feldtsen.github.io/writeline",
+             "md_width": 4,
+             "sm_width": 6,
+             "xs_width": 12,
+             "hight_multiplier": 1
+          },
+          {
+             "id": 8,
+             "title": "ataleuntold",
+             "link": "https://feldtsen.github.io/ataleuntold",
+             "md_width": 4,
+             "sm_width": 6,
+             "xs_width": 12,
+             "hight_multiplier": 1
+          },
+          {
+             "id": 9,
+             "title": "todo",
+             "link": "https://feldtsen.github.io/jQueryTodo",
+             "md_width": 4,
+             "sm_width": 6,
+             "xs_width": 12,
+             "hight_multiplier": 1
+          },
+          {
+             "id": 10,
+             "title": "facile",
+             "link": "https://feldtsen.github.io/facile",
+             "md_width": 4,
+             "sm_width": 6,
+             "xs_width": 12,
+             "hight_multiplier": 1
+          }
+     ]
+}

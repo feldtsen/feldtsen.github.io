@@ -1,1 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Jura&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Jura', sans-serif;
+
+}
+
+.thumbnails 
+{
+    filter: grayscale(80%);
+    max-height: 100%;
+    max-width: 100%;
+    transition: .5s;
+}
+
+.thumbnails:hover {
+    filter: grayscale(50%);
+}
 
