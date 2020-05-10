@@ -10,9 +10,23 @@ body
 {
 }
 
+h2
+{
+    font-size: 1.8em;
+}
+
+p 
+{
+    font-size: 1.4em;
+}
+
+img 
+{
+    border-radius: 5px
+}
+
 .thumbnails 
 {
-    filter: grayscale(70%);
     transition: .5s;
     width: 100%
 }
@@ -20,4 +34,6 @@ body
 .thumbnails:hover {
     filter: grayscale(0%);
 }
+
+
 

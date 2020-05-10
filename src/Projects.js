@@ -1,56 +1,72 @@
 import React from 'react';
 import './App.css';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActionArea from '@material-ui/core/CardActionArea';
 
 import db from './db.json';
 
+function SetMinWidth(width)
+{
+    if (width > 1200) return 32;
+    return 100;
+}
+
+function NrOfColumns(width)
+{
+    if (width > 1200) return [1, 2, 3];
+    return [1];
+}
+
 function Intro(props) {
    return (
-        <div 
+        <Grid container
         style={{
-            padding: "40px"
+            padding: 40
         }}
+        direction="row"
         >
-            <Grid container 
-            justify="space-between"  
-            spacing={6}
-            >
-                {
-                    db.projects.map((project) =>   
-                        <Grid item 
-                        itemkey ={"grid_item_" + project.id}  
-                        xs={project.xs_width} 
-                        sm={project.sm_width} 
-                        md={project.md_width} 
-                        style={{ 
-                            overflowY: "hidden", 
-                            overflowX: "hidden"
-                        }}
-                        >
-                            <CardActionArea>
-                                <Box 
-                                className="image_container"
-                                key={"project_" + project.id} 
+            {
+                NrOfColumns(props.windowWidth).map((nr) =>
+                    <Grid container 
+                    key={"grid_container_"+nr}
+                    direction="column"
+                    style ={{
+                        width: SetMinWidth(props.windowWidth) + "%",
+                        margin: "0 auto"
+                    }}
+                    >
+                    {
+                        db.projects.filter((project) => nr === project.column || NrOfColumns(props.windowWidth).length === 1).map((project) =>   
+                                <Grid item 
+                                key ={"grid_item_" + project.id}  
+                                style={{ 
+                                    overflowY: "hidden", 
+                                    overflowX: "hidden",
+                                    width: "100%",
+                                    paddingBottom: 20
+                                }}
                                 >
-                                    <CardMedia>
-                                        <a href={`${project.link}`}>
-                                            <img 
-                                            src={require(`./pic/${project.title}.png`)} 
-                                            alt="thumbnail" 
-                                            className="thumbnails"  
-                                            />
-                                         </a>
-                                    </CardMedia>
-                                </Box>
-                            </CardActionArea>
-                        </Grid>
-                    )
-                }
-            </Grid>
-        </div>
+                                    <CardActionArea style={{borderRadius: "5px"}}>
+                                        <CardMedia>
+                                            <a href={`${project.link}`}>
+                                                <img 
+                                                src={require(`./pic/${project.title}.png`)} 
+                                                alt="thumbnail" 
+                                                className="thumbnails"  
+                                                />
+                                             </a>
+                                        </CardMedia>
+                                        <h2> {project.title} </h2>
+                                        <p> {project.content} </p>
+                                    </CardActionArea>
+                                </Grid>
+                            )
+                        }
+                    </Grid>
+                )
+            }   
+        </Grid>
     );
 }
 

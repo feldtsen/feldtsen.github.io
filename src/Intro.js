@@ -7,15 +7,17 @@ import Box from '@material-ui/core/Box'
 function Intro(props) {
     let user = props.user[0];
     return (
-        <Grid  container>
+        <Grid itemkey="grid_container_intro"  container>
             <Grid item 
             xs = {12}
             >
                 <Box 
                 style = {{
                     //backgroundColor: "#CCCCCC",
-                    padding: "40px 0 20px 40px",
-                    fontSize: props.windowHeight * .06
+                    padding: "0 0 0 0",
+                    fontSize: props.windowHeight * .06,
+                    margin: "30px 0 0 0",
+                    textAlign: "center"
                 }}>
                     {user.name}
                 </Box>

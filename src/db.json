@@ -4,100 +4,89 @@
              "id": 11,
              "title": "bondeliafeltet",
              "link": "https://feldtsen.github.io/bondeliafeltet",
-             "md_width": 4,
-             "sm_width": 6,
-             "xs_width": 12,
-             "hight_multiplier": 1
+             "width": 50,
+             "column": 1,
+             "content": "community site demo"
           },
           {
              "id": 10,
              "title": "chatnip",
              "link": "https://feldtsen.github.io/chatnip",
-             "md_width": 4,
-             "sm_width": 6,
-             "xs_width": 12,
-             "hight_multiplier": 1
+             "width": 25,
+             "column": 2,
+             "content": "online chat with nosql backend"
           },
           {
              "id": 9,
              "title": "widgify",
              "link": "https://iammille.github.io/widgify/build/",
-             "md_width": 4,
-             "sm_width": 6,
-             "xs_width": 12,
-             "hight_multiplier": 1
+             "width": 25,
+             "column": 3,
+             "content": "new take on the old styled homepage with APIs, a simple game, backend storage for todos, switchable themes (saved to account)"
           },
           {
              "id": 8,
              "title": "patatapclone",
              "link": "https://feldtsen.github.io/patatapClone",
-             "md_width": 4,
-             "sm_width": 6,
-             "xs_width": 12,
-             "hight_multiplier": 1
+             "width": 25,
+             "column": 1,
+             "content": "interactive music machine, just start hammering your keyboard"
           },
           {
              "id": 7,
              "title": "huehunch",
              "link": "https://feldtsen.github.io/huehunch",
-             "md_width": 4,
-             "sm_width": 6,
-             "xs_width": 12,
-             "hight_multiplier": 1
+             "width": 25,
+             "column": 2,
+             "content": "guess the color"
           },
           {
              "id": 6,
              "title": "paperstack",
              "link": "https://feldtsen.github.io/paperstack",
-             "md_width": 4,
-             "sm_width": 6,
-             "xs_width": 12,
-             "hight_multiplier": 1
+             "width": 25,
+             "column": 3,
+             "content": "bookmark your books with simple token login (the token gets generated for you and you can have as many as you like)"
           },
           {
              "id": 5,
              "title": "diceroll",
              "link": "https://feldtsen.github.io/diceroll",
-             "md_width": 4,
-             "sm_width": 6,
-             "xs_width": 12,
-             "hight_multiplier": 1
+             "width": 25,   
+             "column": 1,
+             "content": "webshop that where you can jump to previous snapshots"
           },
           {
              "id": 4,
              "title": "writeline",
              "link": "https://feldtsen.github.io/writeline",
-             "md_width": 4,
-             "sm_width": 6,
-             "xs_width": 12,
-             "hight_multiplier": 1
+             "width": 25,
+             "column": 2,
+             "content": "app for drawing"
           },
           {
              "id": 3,
              "title": "ataleuntold",
              "link": "https://feldtsen.github.io/ataleuntold",
-             "md_width": 4,
-             "sm_width": 6,
-             "xs_width": 12,
-             "hight_multiplier": 1
+             "width": 25,
+             "column": 3,
+             "content": "webshop for books"
           },
           {
              "id": 2,
              "title": "todo",
              "link": "https://feldtsen.github.io/jQueryTodo",
-             "md_width": 4,
-             "sm_width": 6,
-             "xs_width": 12,
-             "hight_multiplier": 1
+             "width": 25,
+             "column": 2,
+             "content": "you get it"
           },
           {
              "id": 1,
              "title": "facile",
              "link": "https://feldtsen.github.io/facile",
-             "md_width": 4,
-             "sm_width": 6,
-             "xs_width": 12,
-             "hight_multiplier": 1
+             "width": 25,
+             "column": 3,
+             "content": "my first webpage"
           }
      ]
 }
