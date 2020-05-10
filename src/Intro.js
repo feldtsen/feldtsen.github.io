@@ -8,13 +8,15 @@ function Intro(props) {
     let user = props.user[0];
     return (
         <Grid  container>
-            <Grid item xs = {12}>
-                <Box style = {{
-                        //backgroundColor: "#CCCCCC",
-                        padding: "40px 0 20px 40px",
-                        fontSize: props.windowHeight * .06
-
-                    }}>
+            <Grid item 
+            xs = {12}
+            >
+                <Box 
+                style = {{
+                    //backgroundColor: "#CCCCCC",
+                    padding: "40px 0 20px 40px",
+                    fontSize: props.windowHeight * .06
+                }}>
                     {user.name}
                 </Box>
             </Grid>

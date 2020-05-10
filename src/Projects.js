@@ -7,30 +7,48 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 
 import db from './db.json';
 
-
 function Intro(props) {
    return (
-        <div style={{padding: "40px"}}>
-            <Grid  container justify="space-between"  spacing={6}
+        <div 
+        style={{
+            padding: "40px"
+        }}
+        >
+            <Grid container 
+            justify="space-between"  
+            spacing={6}
             >
                 {
                     db.projects.map((project) =>   
-                    <Grid item key ={"grid_item_" + project.id}  xs = {project.xs_width} sm={project.sm_width} md={project.md_width} style={{ overflowY: "hidden", overflowX: "hidden"}}>
-
-                        <CardActionArea>
-                        <Box className="image_container"
-                        key={"project_" + project.id} >
-                                 <CardMedia >
-                                <a href={`${project.link}`}>
-                                <img src={require(`./pic/${project.title}.png`)} alt="thumbnail" className="thumbnails"  />
-                                 </a>
-                                </CardMedia>
-
-                            </Box>
-                                  </CardActionArea>
-                    </Grid>
-                )
-            }
+                        <Grid item 
+                        itemkey ={"grid_item_" + project.id}  
+                        xs={project.xs_width} 
+                        sm={project.sm_width} 
+                        md={project.md_width} 
+                        style={{ 
+                            overflowY: "hidden", 
+                            overflowX: "hidden"
+                        }}
+                        >
+                            <CardActionArea>
+                                <Box 
+                                className="image_container"
+                                key={"project_" + project.id} 
+                                >
+                                    <CardMedia>
+                                        <a href={`${project.link}`}>
+                                            <img 
+                                            src={require(`./pic/${project.title}.png`)} 
+                                            alt="thumbnail" 
+                                            className="thumbnails"  
+                                            />
+                                         </a>
+                                    </CardMedia>
+                                </Box>
+                            </CardActionArea>
+                        </Grid>
+                    )
+                }
             </Grid>
         </div>
     );
